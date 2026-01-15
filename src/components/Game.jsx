@@ -263,17 +263,27 @@ export default function Game() {
     setIsSpinning(true);
     setSelectedSlot(null);
     
-    // Random number of full rotations (3-5) plus random final position
     const fullRotations = 3 + Math.floor(Math.random() * 3);
     const randomSlot = Math.floor(Math.random() * 10);
     const slotAngle = 36; // 360 / 10 slots
-    // Rotation formula: to land on slot i, we need to rotate so the slot's center ends up at the pointer
-    // The pointer is at -90° (top). After rotation R, slot at pointer has center at -90 - R
-    // To land on slot i (center at i*36 - 72), we need: i*36 - 72 = -90 - R (mod 360)
-    // R = 360 - i*36 - 18 = 342 - i*36 (mod 360)
-    const finalRotation = fullRotations * 360 + (360 - randomSlot * slotAngle - slotAngle / 2);
     
-    setRouletteRotation(prev => prev + finalRotation);
+    // Calculate current wheel position (mod 360)
+    const currentMod = ((rouletteRotation % 360) + 360) % 360;
+    
+    // Target rotation to land on slot randomSlot
+    // Slot i center is at angle (i*36 - 72). For pointer at -90° to point at slot i:
+    // We need rotation R where: -90 - R ≡ i*36 - 72 (mod 360)
+    // R ≡ -90 - (i*36 - 72) ≡ -18 - i*36 ≡ 342 - i*36 (mod 360)
+    const targetMod = (342 - randomSlot * slotAngle + 360) % 360;
+    
+    // Calculate delta from current to target (always positive, always forward)
+    let delta = targetMod - currentMod;
+    if (delta <= 0) delta += 360;
+    
+    // Final rotation = current + full spins + delta
+    const finalRotation = rouletteRotation + fullRotations * 360 + delta;
+    
+    setRouletteRotation(finalRotation);
     
     // Wait for animation to finish
     setTimeout(() => {
@@ -473,8 +483,13 @@ export default function Game() {
                 const color = getLineColor(station.lines[0]);
                 const radius = station.isInterchange ? 5 : 3;
                 
+                // Check if station is on current line
+                const currentLineStations = currentLine ? lines[currentLine] || [] : [];
+                const isOnCurrentLine = currentLineStations.includes(station.id);
+                const shouldDim = currentLine && !isOnCurrentLine && !isCurrentStation;
+                
                 return (
-                  <g key={station.id}>
+                  <g key={station.id} opacity={shouldDim ? 0.15 : 1}>
                     {isCurrentStation && (
                       <circle
                         cx={station.x}
