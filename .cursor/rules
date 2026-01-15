@@ -1,0 +1,148 @@
+# Métro Roulette - Cursor Rules
+
+## Project Overview
+This is "Métro Roulette", a Paris metro exploration game built with React 19 + Vite 7. Players select a station, choose a line/direction, then spin a roulette to determine their journey through the metro.
+
+## Technology Stack
+- React 19.2.0 (functional components with hooks)
+- Vite 7.2.4 (build tool)
+- Pure CSS (no frameworks, dark theme)
+- SVG-based interactive map
+- Deployed to GitHub Pages (docs/ folder)
+
+## Key Architecture Decisions
+
+### File Organization
+- Components: `src/components/` - React components
+- Styles: `src/styles/` - CSS files (one per component)
+- Data: `src/data/` - JSON data files for stations and lines
+- Main game logic: `src/components/Game.jsx` (self-contained with inline SVG rendering)
+
+### State Management
+- Use React hooks (useState, useMemo, useCallback, useRef)
+- No external state libraries
+- Game state machine with 5 states: SELECT_STATION, SELECT_LINE, SELECT_DIRECTION, PLAYING, WON
+
+### Data Format
+- Station IDs: kebab-case (e.g., "charles-de-gaulle-etoile")
+- Line IDs: number or number with suffix (e.g., "1", "7-villejuif", "3bis")
+- Coordinates: Real GPS lat/lng converted to SVG coordinates
+
+## Code Style Guidelines
+
+### React Components
+- Functional components only (no class components)
+- Use hooks for all state and side effects
+- Memoize expensive computations with useMemo
+- Memoize callback functions with useCallback
+- Destructure props at function signature level
+
+### CSS
+- BEM-like naming: `.component__element--modifier`
+- Dark theme: background #0d1117, text #e6edf3
+- Border radius: 16px (containers), 12px (buttons), 8px (small elements)
+- Transitions: `all 0.2s ease` for hovers
+- No CSS-in-JS or Tailwind - plain CSS files only
+
+### JavaScript
+- ES6+ syntax (arrow functions, destructuring, template literals)
+- Prefer const over let
+- Use optional chaining (?.) and nullish coalescing (??)
+- No TypeScript - plain JavaScript with JSDoc comments if needed
+
+## Language & Localization
+- ALL UI TEXT MUST BE IN FRENCH
+- Preserve French accents in station names (é, è, ê, ô, etc.)
+- Example messages:
+  - "Sélectionnez une station de départ"
+  - "Choisissez une ligne"
+  - "Faites tourner la roulette !"
+  - "Vous avancez à [station]"
+  - "🎉 Vous sortez à [station] !"
+
+## Metro Data Rules
+
+### Station Data (stations.json)
+- Each station has: name, lat, lng, lines[]
+- Interchange stations have multiple lines in their array
+- Station order in line arrays matters (determines travel direction)
+
+### Line Colors (Official RATP)
+- Line 1: #FFCD00 (yellow)
+- Line 2: #003CA6 (blue)
+- Line 4: #CF009E (magenta)
+- Line 14: #62259D (purple)
+- Always use getLineColor() to retrieve colors
+- Base line ID is extracted by splitting on '-' (e.g., "7-villejuif" → "7")
+
+### Special Lines
+- 3bis: Short branch (Gambetta to Porte des Lilas)
+- 7bis: Branch (Louis Blanc to Pré Saint-Gervais)
+- 7-villejuif, 7-ivry: Southern branches of Line 7
+- 13-saint-denis, 13-courtilles: Northern branches of Line 13
+
+## Game Logic Rules
+
+### Roulette Probabilities
+- With correspondences: Continue 50%, Change 30%, Exit 20%
+- Without correspondences: Continue 80%, Exit 20%
+
+### Direction Handling
+- Direction is +1 (forward) or -1 (backward) for array traversal
+- At terminus: reverse direction automatically
+- Display terminus station names on direction buttons
+
+### Correspondence Handling
+- Station has correspondence if other lines exist besides current line
+- Change action picks random other line
+- Direction is preserved if possible, otherwise randomized
+
+## SVG Map Specifications
+
+### Coordinate System
+```javascript
+const BOUNDS = { minLat: 48.72, maxLat: 48.95, minLng: 2.22, maxLng: 2.47 };
+const SVG_WIDTH = 1000, SVG_HEIGHT = 850, PADDING = 40;
+```
+
+### Rendering Order
+1. Background rectangle (#0d1117)
+2. Lines (polylines, back to front by lineRenderOrder)
+3. Stations (circles, interchange stations are larger/white)
+4. Current station highlight (glowing circle)
+5. Station labels (only for current station)
+
+### Interaction States
+- Stations selectable only in: SELECT_STATION, SELECT_LINE, SELECT_DIRECTION
+- Hover effects on stations and lines
+- Zoom: 0.5x to 4x via scroll wheel or buttons
+- Pan: Ctrl+drag or drag when zoomed
+
+## Testing Checklist
+When modifying the game, verify:
+1. Station selection works on all stations
+2. Line selection appears for interchange stations
+3. Direction buttons show correct terminus names
+4. Roulette animation completes (3 seconds)
+5. Continue moves to correct adjacent station
+6. Terminus handling reverses direction
+7. Change only available at interchanges
+8. Exit ends game properly
+9. History shows all actions
+10. Reset clears everything
+11. Mobile layout works (< 900px width)
+
+## Build & Deploy
+- Dev: `npm run dev`
+- Build: `npm run build` (outputs to docs/)
+- Deploy: Push to main branch (GitHub Pages serves docs/)
+- Base URL: `/metro-exploration/`
+
+## Common Pitfalls to Avoid
+1. Don't hardcode line colors - use getLineColor()
+2. Don't forget to handle terminus edge cases
+3. Don't use English in UI - keep everything French
+4. Don't add new dependencies without justification
+5. Don't break mobile responsiveness
+6. Don't modify station order in line arrays (breaks navigation)
+7. Don't forget to update both stations.json sections (stations + lines mapping)

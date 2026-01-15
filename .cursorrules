@@ -1,0 +1,150 @@
+# Métro Roulette - Project Rules for AI Assistants
+
+## Quick Reference
+
+**Stack:** React 19 + Vite 7 | Pure CSS | SVG Map | French UI
+
+**Main File:** `src/components/Game.jsx` (game logic, state machine, map rendering)
+
+**Data Files:**
+- `src/data/stations.json` - Station coordinates and line assignments
+- `src/data/lines.json` - Line metadata (colors, names)
+
+---
+
+## Critical Rules
+
+### 1. Language
+**ALL UI text MUST be in French.** No English strings in the interface.
+```javascript
+// ✅ Correct
+setMessage("Sélectionnez une station de départ");
+setMessage("Vous avancez à " + station.name);
+
+// ❌ Wrong
+setMessage("Select a starting station");
+```
+
+### 2. Line Colors
+**Never hardcode colors.** Always use the lookup pattern:
+```javascript
+// ✅ Correct
+const color = getLineColor(lineId); // handles "7-villejuif" → "7" → color
+
+// ❌ Wrong
+const color = "#FA9ABA"; // hardcoded
+```
+
+### 3. Station IDs
+**Use kebab-case for all station identifiers:**
+```javascript
+// ✅ Correct
+"charles-de-gaulle-etoile"
+"gare-de-lyon"
+
+// ❌ Wrong  
+"charlesDeGaulleEtoile"
+"Gare de Lyon"
+```
+
+### 4. State Machine
+**Game has exactly 5 states.** Don't add or remove states without updating all transitions:
+- `SELECT_STATION` → User clicks a station
+- `SELECT_LINE` → User picks a line (only if interchange)
+- `SELECT_DIRECTION` → User picks direction
+- `PLAYING` → User spins roulette
+- `WON` → Game over
+
+### 5. CSS Patterns
+**Follow existing naming and styling:**
+```css
+/* BEM naming */
+.game__element { }
+.game__element--modifier { }
+
+/* Dark theme */
+background: #0d1117;
+color: #e6edf3;
+border: 1px solid rgba(255, 255, 255, 0.1);
+
+/* Standard radii */
+border-radius: 16px; /* containers */
+border-radius: 12px; /* buttons */
+border-radius: 8px;  /* small elements */
+```
+
+### 6. React Patterns
+**Use hooks appropriately:**
+```javascript
+// ✅ Memoize expensive computations
+const processedStations = useMemo(() => {...}, [stations]);
+
+// ✅ Memoize callbacks for child components
+const handleClick = useCallback(() => {...}, [deps]);
+
+// ❌ Don't use class components
+class Game extends Component { } // Wrong!
+```
+
+---
+
+## Data Structure Quick Reference
+
+### Station Object
+```javascript
+{
+  "chatelet": {
+    "name": "Châtelet",
+    "lat": 48.8584,
+    "lng": 2.3475,
+    "lines": ["1", "4", "7", "11", "14"]
+  }
+}
+```
+
+### Line Route
+```javascript
+{
+  "1": ["la-defense", "esplanade-defense", ..., "chateau-vincennes"]
+}
+```
+
+### Roulette Options
+```javascript
+// With correspondences (50% continue, 30% change, 20% exit)
+// Without correspondences (80% continue, 20% exit)
+```
+
+---
+
+## Common Tasks
+
+### Adding a Station
+1. Add to `stations.json` → `stations` object
+2. Add ID to relevant lines in `stations.json` → `lines` object
+3. Ensure correct position in line array (order matters!)
+
+### Modifying Game Logic
+1. Main logic in `Game.jsx`
+2. State changes via `setGameState()`
+3. Test all 5 game states after changes
+
+### Styling Changes
+1. Styles in `src/styles/Game.css`
+2. Follow dark theme colors
+3. Test mobile breakpoint (900px)
+
+---
+
+## Testing After Changes
+
+- [ ] Can click any station to start
+- [ ] Line selection shows for interchanges
+- [ ] Direction buttons show terminus names
+- [ ] Roulette spins and shows result
+- [ ] Continue moves correctly
+- [ ] Terminus triggers reversal
+- [ ] Change switches lines
+- [ ] Exit shows win screen
+- [ ] Reset works completely
+- [ ] Mobile layout functions

@@ -338,6 +338,68 @@
   color: #e6edf3;
 }
 
+/* Journey track below map */
+.game__journey {
+  background: rgba(22, 27, 34, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.game__journey-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-width: max-content;
+}
+
+.game__journey-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 80px;
+}
+
+.game__journey-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.game__journey-stop:first-child .game__journey-icon,
+.game__journey-stop:last-child .game__journey-icon {
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
+}
+
+.game__journey-name {
+  font-size: 0.7rem;
+  color: #8b949e;
+  text-align: center;
+  margin-top: 0.5rem;
+  max-width: 90px;
+  word-wrap: break-word;
+}
+
+.game__journey-line {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  z-index: 0;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .game {

@@ -608,24 +608,6 @@ export default function Game() {
             </div>
           )}
           
-          {history.length > 0 && (
-            <div className="game__history">
-              <h4>Parcours :</h4>
-              <div className="game__history-list">
-                {history.map((h, i) => (
-                  <span key={i} className="game__history-item">
-                    {h.action === 'start' && '🚉'}
-                    {h.action === 'move' && '→'}
-                    {h.action === 'change' && '🔄'}
-                    {h.action === 'reverse' && '↩️'}
-                    {h.action === 'exit' && '🚪'}
-                    {' '}{h.station.name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-          
           {gameState !== GAME_STATES.SELECT_STATION && (
             <button className="game__reset-button" onClick={resetGame}>
               🔄 Nouvelle partie
@@ -633,6 +615,26 @@ export default function Game() {
           )}
         </div>
       </div>
+      
+      {history.length > 0 && (
+        <div className="game__journey">
+          <div className="game__journey-track">
+            {history.map((h, i) => (
+              <div key={i} className="game__journey-stop">
+                <div className="game__journey-icon">
+                  {h.action === 'start' && '🚉'}
+                  {h.action === 'move' && '●'}
+                  {h.action === 'change' && '🔄'}
+                  {h.action === 'reverse' && '↩️'}
+                  {h.action === 'exit' && '🚪'}
+                </div>
+                <div className="game__journey-name">{h.station.name}</div>
+                {i < history.length - 1 && <div className="game__journey-line" style={{ backgroundColor: getLineColor(h.line || currentLine) }} />}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
