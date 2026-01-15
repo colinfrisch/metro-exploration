@@ -1,0 +1,25 @@
+.line {
+  transition: opacity 0.3s ease;
+}
+
+.line__path {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 2px currentColor);
+}
+
+.line--highlighted .line__path {
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.line__glow {
+  animation: lineGlow 2s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

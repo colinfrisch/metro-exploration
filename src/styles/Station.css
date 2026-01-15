@@ -1,0 +1,44 @@
+.station {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.station__circle {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.station:hover .station__circle,
+.station--active .station__circle {
+  filter: url(#glow);
+}
+
+.station__glow {
+  animation: pulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.station__label {
+  font-size: 8px;
+  fill: rgba(230, 237, 243, 0.6);
+  text-anchor: middle;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.station:hover .station__label,
+.station--active .station__label {
+  opacity: 1;
+  fill: #ffffff;
+}

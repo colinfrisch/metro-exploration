@@ -1,0 +1,119 @@
+.metro-map {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 205, 0, 0.03) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(0, 60, 166, 0.03) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba(207, 0, 158, 0.02) 0%, transparent 60%);
+}
+
+.metro-map__header {
+  text-align: center;
+  padding: 1rem 0 1.5rem;
+  position: relative;
+}
+
+.metro-map__header::after {
+  content: '';
+  display: block;
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, #FFCD00, #CF009E, #003CA6);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+.metro-map__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #8b949e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metro-map__subtitle {
+  font-size: 0.9rem;
+  color: rgba(139, 148, 158, 0.7);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.metro-map__content {
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.metro-map__svg-container {
+  flex: 1;
+  background: rgba(13, 17, 23, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 60px rgba(255, 255, 255, 0.01);
+}
+
+.metro-map__svg-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 16px 16px 0 0;
+}
+
+.metro-map__svg {
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 180px);
+}
+
+.metro-map__lines {
+  transition: opacity 0.3s ease;
+}
+
+.metro-map__stations {
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .metro-map__content {
+    flex-direction: column;
+  }
+  
+  .metro-map__svg-container {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .metro-map {
+    padding: 0.5rem;
+  }
+  
+  .metro-map__title {
+    font-size: 1.75rem;
+  }
+  
+  .metro-map__subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .metro-map__header {
+    padding: 0.5rem 0 1rem;
+  }
+}
