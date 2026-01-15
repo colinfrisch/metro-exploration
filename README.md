@@ -1,16 +1,31 @@
-# React + Vite
+# 🚇 Métro Roulette
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun Paris metro exploration game where chance decides your destination!
 
-Currently, two official plugins are available:
+## 🎮 Play Now
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 **[https://colinfrisch.github.io/metro-exploration/](https://colinfrisch.github.io/metro-exploration/)**
 
-## React Compiler
+## 📜 Rules
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Select a starting station** on the Paris metro map
+2. **Choose a line** (if the station has multiple lines)
+3. **Choose a direction** (towards one terminus or the other)
+4. **Spin the roulette!**
 
-## Expanding the ESLint configuration
+The roulette has 10 options:
+- **→ Continue** (5 slots) — Move to the next station and spin again
+- **🔄 Change** (3 slots) — Switch to another line at the current station (if available)
+- **🚪 Exit** (2 slots) — You exit the metro and win! Your final station is revealed
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*If the current station has no connections to other lines, the roulette becomes 8 Continue + 2 Exit.*
+
+## 🛠️ Tech Stack
+
+- React + Vite
+- SVG-based interactive metro map
+- Real GPS coordinates for accurate station positions
+
+---
+
+*Where will you end up?* 🎰
