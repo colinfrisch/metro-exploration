@@ -78,6 +78,15 @@ export default function Game() {
   const [recommendations, setRecommendations] = useState(null);
   const [isLoadingRecommendations, setIsLoadingRecommendations] = useState(false);
   
+  // API Key state (stored in localStorage, never in code)
+  const [apiKey, setApiKey] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('mistral_api_key') || '';
+    }
+    return '';
+  });
+  const [showApiKeyInput, setShowApiKeyInput] = useState(false);
+  
   // Hovered line/station state (for initial selection)
   const [hoveredLine, setHoveredLine] = useState(null);
   const [hoveredStation, setHoveredStation] = useState(null);
@@ -340,27 +349,29 @@ export default function Game() {
     }
   };
 
+  // Save API key to localStorage
+  const saveApiKey = (key) => {
+    setApiKey(key);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('mistral_api_key', key);
+    }
+    setShowApiKeyInput(false);
+  };
+
   // Fetch recommendations from Mistral with structured outputs
   const fetchRecommendations = async (stationName, stationLat, stationLng) => {
     setIsLoadingRecommendations(true);
     setRecommendations(null);
     
-    const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
-    
-    if (!apiKey || apiKey === 'your_mistral_api_key_here') {
-      // Demo mode without API key
+    if (!apiKey) {
+      // No API key - show input prompt
       setRecommendations({
-        places: [
-          { 
-            name: "Lieu à découvrir", 
-            type: "monument", 
-            description: "Ajoutez votre clé API Mistral dans .env pour obtenir de vraies recommandations",
-            address: "Paris, France"
-          }
-        ],
-        stationCoords: { lat: stationLat, lng: stationLng }
+        places: [],
+        stationCoords: { lat: stationLat, lng: stationLng },
+        needsApiKey: true
       });
       setIsLoadingRecommendations(false);
+      setShowApiKeyInput(true);
       return;
     }
     
@@ -944,6 +955,43 @@ export default function Game() {
       {gameState === GAME_STATES.WON && (
         <div className="game__recommendations" ref={recommendationsRef}>
           <h3>🗺️ Explorez les alentours de {currentStation?.name}</h3>
+          
+          {/* API Key Input */}
+          {(showApiKeyInput || (recommendations?.needsApiKey && !apiKey)) && (
+            <div className="game__api-key-input">
+              <p>🔑 Entrez votre clé API Mistral pour obtenir des recommandations personnalisées :</p>
+              <div className="game__api-key-form">
+                <input
+                  type="password"
+                  placeholder="Clé API Mistral..."
+                  defaultValue={apiKey}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      saveApiKey(e.target.value);
+                      const stationData = stations[currentStation.id];
+                      fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
+                    }
+                  }}
+                  id="apiKeyInput"
+                />
+                <button
+                  onClick={() => {
+                    const input = document.getElementById('apiKeyInput');
+                    saveApiKey(input.value);
+                    const stationData = stations[currentStation.id];
+                    fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
+                  }}
+                >
+                  Valider
+                </button>
+              </div>
+              <p className="game__api-key-hint">
+                <a href="https://console.mistral.ai/" target="_blank" rel="noopener noreferrer">
+                  Obtenir une clé API Mistral →
+                </a>
+              </p>
+            </div>
+          )}
           
           {isLoadingRecommendations && (
             <div className="game__recommendations-loading">
