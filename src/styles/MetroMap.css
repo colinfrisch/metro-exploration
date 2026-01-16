@@ -1,0 +1,79 @@
+.metro-map {
+  flex: 1;
+  background: rgba(13, 17, 23, 0.9);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  height: 550px;
+  min-height: 550px;
+  max-height: 550px;
+}
+
+.metro-map__svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease-out;
+}
+
+.metro-map__station {
+  cursor: default;
+  transition: filter 0.2s ease;
+}
+
+.metro-map__station--selectable {
+  cursor: pointer;
+}
+
+.metro-map__station--selectable:hover {
+  filter: brightness(1.5) drop-shadow(0 0 6px currentColor);
+}
+
+.metro-map__station-glow {
+  animation: metro-breathe-inner 2s ease-in-out infinite;
+}
+
+@keyframes metro-breathe-inner {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.metro-map__station-glow-outer {
+  animation: metro-breathe-outer 2s ease-in-out infinite;
+}
+
+@keyframes metro-breathe-outer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.15; }
+}
+
+.metro-map__station-label {
+  pointer-events: none;
+  text-shadow: 
+    0 0 3px rgba(0, 0, 0, 1),
+    0 0 6px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.7);
+  paint-order: stroke fill;
+  stroke: rgba(0, 0, 0, 0.7);
+  stroke-width: 3px;
+}
+
+.metro-map__hint {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: rgba(139, 148, 158, 0.6);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .metro-map {
+    height: 400px;
+    min-height: 400px;
+    max-height: 400px;
+  }
+}

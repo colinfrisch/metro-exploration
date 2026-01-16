@@ -1,0 +1,60 @@
+.journey {
+  background: rgba(22, 27, 34, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.journey__track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-width: max-content;
+}
+
+.journey__stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 80px;
+}
+
+.journey__icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.journey__stop:first-child .journey__icon,
+.journey__stop:last-child .journey__icon {
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
+}
+
+.journey__name {
+  font-size: 0.7rem;
+  color: #8b949e;
+  text-align: center;
+  margin-top: 0.5rem;
+  max-width: 90px;
+  word-wrap: break-word;
+}
+
+.journey__line {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  z-index: 0;
+}

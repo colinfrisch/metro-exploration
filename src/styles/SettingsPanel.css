@@ -1,0 +1,86 @@
+.settings {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+}
+
+.settings__toggle {
+  padding: 0.5rem 1rem;
+  background: rgba(22, 27, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #8b949e;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings__toggle:hover {
+  border-color: rgba(255, 166, 0, 0.5);
+  color: #e6edf3;
+}
+
+.settings--open .settings__toggle {
+  border-color: #ffa600;
+  color: #ffa600;
+}
+
+.settings__content {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: rgba(22, 27, 34, 0.98);
+  border: 1px solid rgba(255, 166, 0, 0.3);
+  border-radius: 12px;
+  min-width: 280px;
+  animation: settingsSlideDown 0.2s ease-out;
+}
+
+@keyframes settingsSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.settings__content label {
+  display: block;
+  font-size: 0.85rem;
+  color: #e6edf3;
+  margin-bottom: 0.5rem;
+}
+
+.settings__content input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #e6edf3;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.settings__content input:focus {
+  outline: none;
+  border-color: #ffa600;
+}
+
+.settings__hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+}
+
+.settings__hint a {
+  color: #ffa600;
+  text-decoration: none;
+}
+
+.settings__hint a:hover {
+  text-decoration: underline;
+}
+
+.settings__status {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #22c55e;
+}

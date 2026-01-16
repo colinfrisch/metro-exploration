@@ -1,0 +1,193 @@
+.panel {
+  width: 350px;
+  height: 550px;
+  min-height: 550px;
+  max-height: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(22, 27, 34, 0.9);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.panel__message {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel__section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #8b949e;
+  text-align: center;
+}
+
+.panel__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.panel__line-button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #000;
+}
+
+.panel__line-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px currentColor;
+}
+
+.panel__direction-button {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e6edf3;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.panel__direction-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.panel__roulette {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Confirm Exit */
+.panel__confirm-exit {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.panel__confirm-exit h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #ef4444;
+}
+
+.panel__confirm-station {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.panel__confirm-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.panel__confirm-button {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.panel__confirm-button--validate {
+  background: linear-gradient(135deg, #90ebff, #16a34a);
+  color: white;
+}
+
+.panel__confirm-button--validate:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+}
+
+.panel__confirm-button--continue {
+  background: rgba(255, 255, 255, 0.1);
+  color: #8b949e;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel__confirm-button--continue:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Win Screen */
+.panel__win {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 205, 0, 0.1), rgba(207, 0, 158, 0.1));
+  border-radius: 12px;
+  border: 1px solid rgba(255, 205, 0, 0.3);
+}
+
+.panel__win p {
+  margin: 0.5rem 0;
+  color: #8b949e;
+}
+
+.panel__win-station {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFCD00;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.panel__win-stats {
+  font-size: 0.9rem;
+}
+
+/* Reset Button */
+.panel__reset-button {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  color: #8b949e;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.panel__reset-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e6edf3;
+}
+
+@media (max-width: 900px) {
+  .panel {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
