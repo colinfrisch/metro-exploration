@@ -620,6 +620,35 @@ export default function Game() {
 
   return (
     <div className="game">
+      {/* Settings Panel */}
+      <div className={`game__settings ${showApiKeyInput ? 'game__settings--open' : ''}`}>
+        <button 
+          className="game__settings-toggle"
+          onClick={() => setShowApiKeyInput(!showApiKeyInput)}
+        >
+          ⚙️ {showApiKeyInput ? 'Fermer' : 'Paramètres'}
+        </button>
+        
+        {showApiKeyInput && (
+          <div className="game__settings-content">
+            <label>🔑 Clé API Mistral</label>
+            <input
+              type="password"
+              placeholder="Entrez votre clé API..."
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              onBlur={(e) => saveApiKey(e.target.value)}
+            />
+            <p className="game__settings-hint">
+              <a href="https://console.mistral.ai/" target="_blank" rel="noopener noreferrer">
+                Obtenir une clé →
+              </a>
+            </p>
+            {apiKey && <span className="game__settings-status">✓ Clé enregistrée</span>}
+          </div>
+        )}
+      </div>
+      
       <header className="game__header">
         <div className="game__title">
           <span className="game__title-line game__title-line--1">M</span>
@@ -956,40 +985,13 @@ export default function Game() {
         <div className="game__recommendations" ref={recommendationsRef}>
           <h3>🗺️ Explorez les alentours de {currentStation?.name}</h3>
           
-          {/* API Key Input */}
-          {(showApiKeyInput || (recommendations?.needsApiKey && !apiKey)) && (
-            <div className="game__api-key-input">
-              <p>🔑 Entrez votre clé API Mistral pour obtenir des recommandations personnalisées :</p>
-              <div className="game__api-key-form">
-                <input
-                  type="password"
-                  placeholder="Clé API Mistral..."
-                  defaultValue={apiKey}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      saveApiKey(e.target.value);
-                      const stationData = stations[currentStation.id];
-                      fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
-                    }
-                  }}
-                  id="apiKeyInput"
-                />
-                <button
-                  onClick={() => {
-                    const input = document.getElementById('apiKeyInput');
-                    saveApiKey(input.value);
-                    const stationData = stations[currentStation.id];
-                    fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
-                  }}
-                >
-                  Valider
-                </button>
-              </div>
-              <p className="game__api-key-hint">
-                <a href="https://console.mistral.ai/" target="_blank" rel="noopener noreferrer">
-                  Obtenir une clé API Mistral →
-                </a>
-              </p>
+          {/* No API Key message */}
+          {recommendations?.needsApiKey && !apiKey && (
+            <div className="game__no-api-key">
+              <p>🔑 Pour obtenir des recommandations personnalisées, ajoutez votre clé API Mistral dans les <strong>⚙️ Paramètres</strong> (en haut à gauche).</p>
+              <a href="https://console.mistral.ai/" target="_blank" rel="noopener noreferrer">
+                Obtenir une clé API Mistral →
+              </a>
             </div>
           )}
           
