@@ -72,6 +72,7 @@ export default function Game() {
   const [isPanning, setIsPanning] = useState(false);
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
   const mapContainerRef = useRef(null);
+  const recommendationsRef = useRef(null);
   
   // Recommendations state
   const [recommendations, setRecommendations] = useState(null);
@@ -462,6 +463,10 @@ export default function Game() {
       // Get station GPS coordinates from original data
       const stationData = stations[currentStation.id];
       fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
+      // Scroll to recommendations after a short delay (wait for render)
+      setTimeout(() => {
+        recommendationsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     } else {
       // Continue playing as if exit didn't happen
       setGameState(GAME_STATES.PLAYING);
@@ -937,7 +942,7 @@ export default function Game() {
       
       {/* Recommendations section */}
       {gameState === GAME_STATES.WON && (
-        <div className="game__recommendations">
+        <div className="game__recommendations" ref={recommendationsRef}>
           <h3>🗺️ Explorez les alentours de {currentStation?.name}</h3>
           
           {isLoadingRecommendations && (
