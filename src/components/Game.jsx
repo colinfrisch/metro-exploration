@@ -29,31 +29,22 @@ const GAME_STATES = {
   WON: 'WON'
 };
 
-// Roulette options
+// Roulette slot types
+const SLOT = {
+  continue: { type: 'continue', label: '→', color: '#22c55e' },
+  change: { type: 'change', label: '🔄', color: '#3b82f6' },
+  exit: { type: 'exit', label: '🚪', color: '#ef4444' }
+};
+
+// Roulette configurations (50% continue, 30% change, 20% exit with change / 80% continue, 20% exit without)
 const ROULETTE_WITH_CHANGE = [
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'change', label: '🔄', color: '#3b82f6' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'exit', label: '🚪', color: '#ef4444' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'change', label: '🔄', color: '#3b82f6' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'change', label: '🔄', color: '#3b82f6' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'exit', label: '🚪', color: '#ef4444' },
+  SLOT.continue, SLOT.change, SLOT.continue, SLOT.exit, SLOT.continue,
+  SLOT.change, SLOT.continue, SLOT.change, SLOT.continue, SLOT.exit
 ];
 
 const ROULETTE_NO_CHANGE = [
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'exit', label: '🚪', color: '#ef4444' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'continue', label: '→', color: '#22c55e' },
-  { type: 'exit', label: '🚪', color: '#ef4444' },
+  SLOT.continue, SLOT.continue, SLOT.continue, SLOT.continue, SLOT.exit,
+  SLOT.continue, SLOT.continue, SLOT.continue, SLOT.continue, SLOT.exit
 ];
 
 export default function Game() {
@@ -110,22 +101,22 @@ export default function Game() {
 
   const allStations = useMemo(() => Object.values(processedStations), [processedStations]);
 
+  // Extract base line ID (e.g., "7-villejuif" → "7")
+  const getBaseLineId = useCallback((lineId) => lineId.split('-')[0], []);
+
+  const getLineData = useCallback((lineId) => {
+    return linesData.find(l => l.id === getBaseLineId(lineId));
+  }, [getBaseLineId]);
+
   const getLineColor = useCallback((lineId) => {
-    const baseLineId = lineId.split('-')[0];
-    const line = linesData.find(l => l.id === baseLineId);
-    return line?.color || '#ffffff';
-  }, []);
+    return getLineData(lineId)?.color || '#ffffff';
+  }, [getLineData]);
 
   const getLineStations = useCallback((lineId) => {
     const lineStationIds = lines[lineId];
     if (!lineStationIds) return [];
     return lineStationIds.map(id => processedStations[id]).filter(Boolean);
   }, [lines, processedStations]);
-
-  const getLineData = useCallback((lineId) => {
-    const baseLineId = lineId.split('-')[0];
-    return linesData.find(l => l.id === baseLineId);
-  }, []);
 
   const getLinesForStation = useCallback((stationId) => {
     const lineIds = [];
@@ -261,18 +252,16 @@ export default function Game() {
   }, [currentStation, currentLine, direction, lines, processedStations]);
 
   const getDirectionLabels = useCallback(() => {
-    if (!currentStation || !currentLine) return { forward: "Direction 1", backward: "Direction 2" };
+    const defaultLabels = { forward: "Direction 1", backward: "Direction 2" };
+    if (!currentStation || !currentLine) return defaultLabels;
     
     const lineStationIds = lines[currentLine];
-    if (!lineStationIds) return { forward: "Direction 1", backward: "Direction 2" };
+    if (!lineStationIds) return defaultLabels;
     
-    const firstStation = processedStations[lineStationIds[0]];
-    const lastStation = processedStations[lineStationIds[lineStationIds.length - 1]];
+    const firstName = processedStations[lineStationIds[0]]?.name || "Terminus";
+    const lastName = processedStations[lineStationIds[lineStationIds.length - 1]]?.name || "Terminus";
     
-    return {
-      forward: `→ ${lastStation?.name || "Terminus"}`,
-      backward: `← ${firstStation?.name || "Terminus"}`
-    };
+    return { forward: `→ ${lastName}`, backward: `← ${firstName}` };
   }, [currentStation, currentLine, lines, processedStations]);
 
   // Spin the roulette
@@ -282,29 +271,19 @@ export default function Game() {
     setIsSpinning(true);
     setSelectedSlot(null);
     
+    const SLOT_COUNT = 10;
+    const SLOT_ANGLE = 360 / SLOT_COUNT;
     const fullRotations = 3 + Math.floor(Math.random() * 3);
-    const randomSlot = Math.floor(Math.random() * 10);
-    const slotAngle = 36; // 360 / 10 slots
+    const randomSlot = Math.floor(Math.random() * SLOT_COUNT);
     
-    // Calculate current wheel position (mod 360)
+    // Calculate rotation to land on randomSlot
     const currentMod = ((rouletteRotation % 360) + 360) % 360;
-    
-    // Target rotation to land on slot randomSlot
-    // Slot i center is at angle (i*36 - 72). For pointer at -90° to point at slot i:
-    // We need rotation R where: -90 - R ≡ i*36 - 72 (mod 360)
-    // R ≡ -90 - (i*36 - 72) ≡ -18 - i*36 ≡ 342 - i*36 (mod 360)
-    const targetMod = (342 - randomSlot * slotAngle + 360) % 360;
-    
-    // Calculate delta from current to target (always positive, always forward)
+    const targetMod = (342 - randomSlot * SLOT_ANGLE + 360) % 360;
     let delta = targetMod - currentMod;
     if (delta <= 0) delta += 360;
     
-    // Final rotation = current + full spins + delta
-    const finalRotation = rouletteRotation + fullRotations * 360 + delta;
+    setRouletteRotation(rouletteRotation + fullRotations * 360 + delta);
     
-    setRouletteRotation(finalRotation);
-    
-    // Wait for animation to finish
     setTimeout(() => {
       setIsSpinning(false);
       setSelectedSlot(randomSlot);
@@ -966,11 +945,7 @@ export default function Game() {
             {history.map((h, i) => (
               <div key={i} className="game__journey-stop">
                 <div className="game__journey-icon">
-                  {h.action === 'start' && '🚉'}
-                  {h.action === 'move' && '●'}
-                  {h.action === 'change' && '🔄'}
-                  {h.action === 'reverse' && '↩️'}
-                  {h.action === 'exit' && '🚪'}
+                  {{ start: '🚉', move: '●', change: '🔄', reverse: '↩️', exit: '🚪' }[h.action]}
                 </div>
                 <div className="game__journey-name">{h.station.name}</div>
                 {i < history.length - 1 && <div className="game__journey-line" style={{ backgroundColor: getLineColor(h.line || currentLine) }} />}
@@ -1007,14 +982,8 @@ export default function Game() {
               {recommendations.places.map((place, i) => (
                 <div key={i} className="game__recommendation-card">
                   <div className="game__recommendation-type">
-                    {place.type === 'restaurant' && '🍽️'}
-                    {place.type === 'monument' && '🏛️'}
-                    {place.type === 'musée' && '🎨'}
-                    {place.type === 'parc' && '🌳'}
-                    {place.type === 'shopping' && '🛍️'}
-                    {place.type === 'café' && '☕'}
-                    {place.type === 'bar' && '🍸'}
-                    {place.type === 'autre' && '📌'}
+                    {{ restaurant: '🍽️', monument: '🏛️', musée: '🎨', parc: '🌳', 
+                       shopping: '🛍️', café: '☕', bar: '🍸', autre: '📌' }[place.type] || '📌'}
                     {' '}{place.type}
                   </div>
                   <h4 className="game__recommendation-name">{place.name}</h4>
