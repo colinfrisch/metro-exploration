@@ -25,6 +25,7 @@ const GAME_STATES = {
   SELECT_LINE: 'SELECT_LINE',
   SELECT_DIRECTION: 'SELECT_DIRECTION',
   PLAYING: 'PLAYING',
+  CONFIRM_EXIT: 'CONFIRM_EXIT',
   WON: 'WON'
 };
 
@@ -71,6 +72,14 @@ export default function Game() {
   const [isPanning, setIsPanning] = useState(false);
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
   const mapContainerRef = useRef(null);
+  
+  // Recommendations state
+  const [recommendations, setRecommendations] = useState(null);
+  const [isLoadingRecommendations, setIsLoadingRecommendations] = useState(false);
+  
+  // Hovered line/station state (for initial selection)
+  const [hoveredLine, setHoveredLine] = useState(null);
+  const [hoveredStation, setHoveredStation] = useState(null);
 
   const { stations, lines } = stationsData;
 
@@ -295,7 +304,7 @@ export default function Game() {
 
   const handleRouletteResult = (result) => {
     switch (result.type) {
-      case 'continue':
+      case 'continue': {
         const nextStation = getNextStation();
         if (nextStation) {
           setCurrentStation(nextStation);
@@ -307,8 +316,9 @@ export default function Game() {
           setHistory(prev => [...prev, { station: currentStation, action: 'reverse' }]);
         }
         break;
+      }
         
-      case 'change':
+      case 'change': {
         const availableLines = getLinesForStation(currentStation.id);
         const otherLines = availableLines.filter(l => l !== currentLine);
         
@@ -320,12 +330,142 @@ export default function Game() {
           setHistory(prev => [...prev, { station: currentStation, action: 'change', line: newLine }]);
         }
         break;
+      }
         
       case 'exit':
-        setGameState(GAME_STATES.WON);
-        setMessage(`🎉 Vous sortez à ${currentStation.name} !`);
-        setHistory(prev => [...prev, { station: currentStation, action: 'exit' }]);
+        setGameState(GAME_STATES.CONFIRM_EXIT);
+        setMessage(`🚪 Sortie à ${currentStation.name} ! Validez-vous cette destination ?`);
         break;
+    }
+  };
+
+  // Fetch recommendations from Mistral with structured outputs
+  const fetchRecommendations = async (stationName, stationLat, stationLng) => {
+    setIsLoadingRecommendations(true);
+    setRecommendations(null);
+    
+    const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
+    
+    if (!apiKey || apiKey === 'your_mistral_api_key_here') {
+      // Demo mode without API key
+      setRecommendations({
+        places: [
+          { 
+            name: "Lieu à découvrir", 
+            type: "monument", 
+            description: "Ajoutez votre clé API Mistral dans .env pour obtenir de vraies recommandations",
+            address: "Paris, France"
+          }
+        ],
+        stationCoords: { lat: stationLat, lng: stationLng }
+      });
+      setIsLoadingRecommendations(false);
+      return;
+    }
+    
+    // JSON Schema for structured output
+    const placesSchema = {
+      type: "object",
+      properties: {
+        places: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              name: { type: "string", description: "Nom du lieu" },
+              type: { type: "string", enum: ["restaurant", "monument", "musée", "parc", "shopping", "café", "bar", "autre"] },
+              description: { type: "string", description: "Description courte en une phrase" },
+              address: { type: "string", description: "Adresse complète du lieu à Paris" }
+            },
+            required: ["name", "type", "description", "address"]
+          }
+        }
+      },
+      required: ["places"]
+    };
+    
+    try {
+      const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: 'mistral-large-latest',
+          messages: [
+            {
+              role: 'system',
+              content: 'Guide touristique parisien. Réponses concises.'
+            },
+            {
+              role: 'user',
+              content: `Station ${stationName}: 4 lieux proches à visiter (nom, type, 1 phrase, adresse).`
+            }
+          ],
+          temperature: 0.3,
+          max_tokens: 450,
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "recommendations",
+              strict: true,
+              schema: placesSchema
+            }
+          }
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (data.choices && data.choices[0]?.message?.content) {
+        const parsed = JSON.parse(data.choices[0].message.content);
+        setRecommendations({
+          ...parsed,
+          stationCoords: { lat: stationLat, lng: stationLng },
+          stationName: stationName
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching recommendations:', error);
+      setRecommendations({
+        places: [
+          { 
+            name: "Erreur", 
+            type: "autre", 
+            description: "Impossible de charger les recommandations. Vérifiez votre connexion.",
+            address: "Paris"
+          }
+        ],
+        stationCoords: { lat: stationLat, lng: stationLng }
+      });
+    }
+    
+    setIsLoadingRecommendations(false);
+  };
+  
+  // Generate Google Maps directions URL
+  const getGoogleMapsDirectionsUrl = (destinationAddress) => {
+    if (!recommendations?.stationCoords) return null;
+    const { lat, lng } = recommendations.stationCoords;
+    const origin = `${lat},${lng}`;
+    const destination = encodeURIComponent(destinationAddress + ", Paris, France");
+    return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=walking`;
+  };
+
+  // Handle exit confirmation
+  const handleConfirmExit = (validated) => {
+    if (validated) {
+      setGameState(GAME_STATES.WON);
+      setMessage(`🎉 Vous sortez à ${currentStation.name} !`);
+      setHistory(prev => [...prev, { station: currentStation, action: 'exit' }]);
+      // Get station GPS coordinates from original data
+      const stationData = stations[currentStation.id];
+      fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
+    } else {
+      // Continue playing as if exit didn't happen
+      setGameState(GAME_STATES.PLAYING);
+      setMessage("Vous restez dans le métro ! Relancez la roulette !");
     }
   };
 
@@ -338,6 +478,8 @@ export default function Game() {
     setSelectedSlot(null);
     setHistory([]);
     setMessage("Sélectionnez une station de départ");
+    setRecommendations(null);
+    setIsLoadingRecommendations(false);
     resetZoom();
   };
 
@@ -348,17 +490,42 @@ export default function Game() {
     const points = lineStations.map(s => `${s.x},${s.y}`).join(' ');
     const color = getLineColor(lineId);
     const isCurrentLine = currentLine === lineId;
+    const isHoveredLine = hoveredLine === lineId;
+    const isSelectingStation = gameState === GAME_STATES.SELECT_STATION;
+    
+    // Check if this line contains the hovered station
+    const lineStationIds = lines[lineId] || [];
+    const containsHoveredStation = hoveredStation && lineStationIds.includes(hoveredStation.id);
+    
+    // Determine opacity based on state
+    let opacity = 0.8;
+    let isHighlighted = isCurrentLine || isHoveredLine;
+    
+    if (currentLine) {
+      // During game: highlight current line
+      opacity = isCurrentLine ? 0.9 : 0.15;
+    } else if (isSelectingStation && hoveredStation) {
+      // Initial selection: highlight lines containing hovered station
+      opacity = containsHoveredStation ? 1 : 0.15;
+      isHighlighted = containsHoveredStation;
+    } else if (isSelectingStation && hoveredLine) {
+      // Initial selection: highlight hovered line
+      opacity = isHoveredLine ? 1 : 0.15;
+    }
     
     return (
       <polyline
         key={lineId}
         points={points}
         stroke={color}
-        strokeWidth={isCurrentLine ? 4 : 2}
+        strokeWidth={isHighlighted ? 4 : 2}
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
-        opacity={currentLine && !isCurrentLine ? 0.2 : 0.8}
+        opacity={opacity}
+        style={{ cursor: isSelectingStation ? 'pointer' : 'default', pointerEvents: isSelectingStation ? 'stroke' : 'none' }}
+        onMouseEnter={() => isSelectingStation && setHoveredLine(lineId)}
+        onMouseLeave={() => isSelectingStation && setHoveredLine(null)}
       />
     );
   };
@@ -438,8 +605,15 @@ export default function Game() {
   return (
     <div className="game">
       <header className="game__header">
-        <h1>🚇 Métro Roulette</h1>
-        <p className="game__subtitle">Où allez-vous sortir ?</p>
+        <div className="game__title">
+          <span className="game__title-line game__title-line--1">M</span>
+          <span className="game__title-line game__title-line--4">é</span>
+          <span className="game__title-line game__title-line--7">t</span>
+          <span className="game__title-line game__title-line--9">r</span>
+          <span className="game__title-line game__title-line--11">o</span>
+          <span className="game__title-text">Roulette</span>
+        </div>
+        <p className="game__subtitle">Où va-t-on déposer la petite meuf ?</p>
       </header>
 
       <div className="game__content">
@@ -473,6 +647,54 @@ export default function Game() {
           >
             <rect width="100%" height="100%" fill="#0d1117" />
             
+            {/* Paris silhouette - subtle background */}
+            <path
+              className="game__paris-outline"
+              d={`
+                M ${latLngToSvg(48.902, 2.28).x} ${latLngToSvg(48.902, 2.28).y}
+                C ${latLngToSvg(48.91, 2.32).x} ${latLngToSvg(48.91, 2.32).y}
+                  ${latLngToSvg(48.905, 2.38).x} ${latLngToSvg(48.905, 2.38).y}
+                  ${latLngToSvg(48.895, 2.41).x} ${latLngToSvg(48.895, 2.41).y}
+                C ${latLngToSvg(48.88, 2.42).x} ${latLngToSvg(48.88, 2.42).y}
+                  ${latLngToSvg(48.86, 2.42).x} ${latLngToSvg(48.86, 2.42).y}
+                  ${latLngToSvg(48.84, 2.415).x} ${latLngToSvg(48.84, 2.415).y}
+                C ${latLngToSvg(48.825, 2.40).x} ${latLngToSvg(48.825, 2.40).y}
+                  ${latLngToSvg(48.815, 2.38).x} ${latLngToSvg(48.815, 2.38).y}
+                  ${latLngToSvg(48.815, 2.35).x} ${latLngToSvg(48.815, 2.35).y}
+                C ${latLngToSvg(48.815, 2.32).x} ${latLngToSvg(48.815, 2.32).y}
+                  ${latLngToSvg(48.82, 2.28).x} ${latLngToSvg(48.82, 2.28).y}
+                  ${latLngToSvg(48.83, 2.25).x} ${latLngToSvg(48.83, 2.25).y}
+                C ${latLngToSvg(48.845, 2.235).x} ${latLngToSvg(48.845, 2.235).y}
+                  ${latLngToSvg(48.86, 2.23).x} ${latLngToSvg(48.86, 2.23).y}
+                  ${latLngToSvg(48.875, 2.24).x} ${latLngToSvg(48.875, 2.24).y}
+                C ${latLngToSvg(48.89, 2.25).x} ${latLngToSvg(48.89, 2.25).y}
+                  ${latLngToSvg(48.90, 2.27).x} ${latLngToSvg(48.90, 2.27).y}
+                  ${latLngToSvg(48.902, 2.28).x} ${latLngToSvg(48.902, 2.28).y}
+                Z
+              `}
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.08)"
+              strokeWidth="2"
+            />
+            
+            {/* Seine river - subtle curve */}
+            <path
+              className="game__seine"
+              d={`
+                M ${latLngToSvg(48.84, 2.23).x} ${latLngToSvg(48.84, 2.23).y}
+                Q ${latLngToSvg(48.855, 2.28).x} ${latLngToSvg(48.855, 2.28).y}
+                  ${latLngToSvg(48.865, 2.32).x} ${latLngToSvg(48.865, 2.32).y}
+                Q ${latLngToSvg(48.855, 2.35).x} ${latLngToSvg(48.855, 2.35).y}
+                  ${latLngToSvg(48.845, 2.38).x} ${latLngToSvg(48.845, 2.38).y}
+                Q ${latLngToSvg(48.84, 2.40).x} ${latLngToSvg(48.84, 2.40).y}
+                  ${latLngToSvg(48.835, 2.42).x} ${latLngToSvg(48.835, 2.42).y}
+              `}
+              fill="none"
+              stroke="rgba(100, 150, 200, 0.12)"
+              strokeWidth="8"
+              strokeLinecap="round"
+            />
+            
             <g className="game__lines">
               {lineRenderOrder.map(lineId => renderLine(lineId))}
             </g>
@@ -480,31 +702,62 @@ export default function Game() {
             <g className="game__stations">
               {allStations.map(station => {
                 const isCurrentStation = currentStation?.id === station.id;
+                const isHovered = hoveredStation?.id === station.id;
                 const color = getLineColor(station.lines[0]);
                 const radius = station.isInterchange ? 5 : 3;
                 
                 // Check if station is on current line
                 const currentLineStations = currentLine ? lines[currentLine] || [] : [];
                 const isOnCurrentLine = currentLineStations.includes(station.id);
-                const shouldDim = currentLine && !isOnCurrentLine && !isCurrentStation;
+                
+                // Check if station is on hovered line (for initial selection)
+                const hoveredLineStations = hoveredLine ? lines[hoveredLine] || [] : [];
+                const isOnHoveredLine = hoveredLineStations.includes(station.id);
+                
+                // Check if station shares a line with hovered station
+                const sharesLineWithHovered = hoveredStation && 
+                  station.lines.some(lineId => hoveredStation.lines.includes(lineId));
+                
+                // Determine if station should be dimmed
+                let shouldDim = false;
+                if (currentLine) {
+                  shouldDim = !isOnCurrentLine && !isCurrentStation;
+                } else if (gameState === GAME_STATES.SELECT_STATION && hoveredStation) {
+                  shouldDim = !sharesLineWithHovered && !isHovered;
+                } else if (gameState === GAME_STATES.SELECT_STATION && hoveredLine) {
+                  shouldDim = !isOnHoveredLine;
+                }
                 
                 return (
-                  <g key={station.id} opacity={shouldDim ? 0.15 : 1}>
+                  <g 
+                    key={station.id} 
+                    opacity={shouldDim ? 0.15 : 1}
+                    onMouseEnter={() => setHoveredStation(station)}
+                    onMouseLeave={() => setHoveredStation(null)}
+                  >
                     {isCurrentStation && (
-                      <circle
-                        cx={station.x}
-                        cy={station.y}
-                        r={15}
-                        fill={getLineColor(currentLine || station.lines[0])}
-                        opacity={0.5}
-                        className="game__station-glow"
-                      />
+                      <>
+                        <circle
+                          cx={station.x}
+                          cy={station.y}
+                          r={25}
+                          fill={getLineColor(currentLine || station.lines[0])}
+                          className="game__station-glow-outer"
+                        />
+                        <circle
+                          cx={station.x}
+                          cy={station.y}
+                          r={15}
+                          fill={getLineColor(currentLine || station.lines[0])}
+                          className="game__station-glow"
+                        />
+                      </>
                     )}
                     
                     <circle
                       cx={station.x}
                       cy={station.y}
-                      r={isCurrentStation ? 8 : radius}
+                      r={isCurrentStation ? 8 : (isHovered ? radius + 2 : radius)}
                       fill={station.isInterchange ? '#ffffff' : color}
                       stroke={station.isInterchange ? color : '#0d1117'}
                       strokeWidth={station.isInterchange ? 2 : 1}
@@ -513,7 +766,8 @@ export default function Game() {
                       style={{ pointerEvents: canSelectStation ? 'auto' : 'none' }}
                     />
                     
-                    {isCurrentStation && (
+                    {/* Show current station name (not hovered - that's rendered separately on top) */}
+                    {isCurrentStation && !isHovered && (
                       <text
                         x={station.x}
                         y={station.y - 15}
@@ -530,6 +784,31 @@ export default function Game() {
                 );
               })}
             </g>
+            
+            {/* Hovered station label - rendered last to be on top */}
+            {hoveredStation && (
+              <g className="game__station-tooltip">
+                <rect
+                  x={hoveredStation.x - 60}
+                  y={hoveredStation.y - 28}
+                  width="120"
+                  height="20"
+                  rx="4"
+                  fill="rgba(0, 0, 0, 0.85)"
+                />
+                <text
+                  x={hoveredStation.x}
+                  y={hoveredStation.y - 14}
+                  textAnchor="middle"
+                  fill="#ffffff"
+                  fontSize="11"
+                  fontWeight="bold"
+                  style={{ pointerEvents: 'none' }}
+                >
+                  {hoveredStation.name}
+                </text>
+              </g>
+            )}
           </svg>
           
           <div className="game__zoom-hint">
@@ -581,7 +860,7 @@ export default function Game() {
             </div>
           )}
           
-          {(gameState === GAME_STATES.PLAYING || gameState === GAME_STATES.WON) && (
+          {(gameState === GAME_STATES.PLAYING || gameState === GAME_STATES.CONFIRM_EXIT || gameState === GAME_STATES.WON) && (
             <div className="game__roulette-area">
               {renderRoulette()}
               
@@ -597,9 +876,29 @@ export default function Game() {
             </div>
           )}
           
+          {gameState === GAME_STATES.CONFIRM_EXIT && (
+            <div className="game__confirm-exit">
+              <h3>🚪 Sortir ici ?</h3>
+              <p className="game__confirm-station">{currentStation?.name}</p>
+              <div className="game__confirm-buttons">
+                <button
+                  className="game__confirm-button game__confirm-button--validate"
+                  onClick={() => handleConfirmExit(true)}
+                >
+                  ✓ Valider la sortie
+                </button>
+                <button
+                  className="game__confirm-button game__confirm-button--continue"
+                  onClick={() => handleConfirmExit(false)}
+                >
+                  → Continuer le voyage
+                </button>
+              </div>
+            </div>
+          )}
+          
           {gameState === GAME_STATES.WON && (
             <div className="game__win">
-              <h2>🎉 Bravo !</h2>
               <p>Vous êtes sorti(e) à :</p>
               <div className="game__win-station">{currentStation?.name}</div>
               <p className="game__win-stats">
@@ -633,6 +932,55 @@ export default function Game() {
               </div>
             ))}
           </div>
+        </div>
+      )}
+      
+      {/* Recommendations section */}
+      {gameState === GAME_STATES.WON && (
+        <div className="game__recommendations">
+          <h3>🗺️ Explorez les alentours de {currentStation?.name}</h3>
+          
+          {isLoadingRecommendations && (
+            <div className="game__recommendations-loading">
+              <div className="game__loading-spinner"></div>
+              <p>Recherche des lieux à proximité...</p>
+            </div>
+          )}
+          
+          {recommendations && recommendations.places && (
+            <div className="game__recommendations-grid">
+              {recommendations.places.map((place, i) => (
+                <div key={i} className="game__recommendation-card">
+                  <div className="game__recommendation-type">
+                    {place.type === 'restaurant' && '🍽️'}
+                    {place.type === 'monument' && '🏛️'}
+                    {place.type === 'musée' && '🎨'}
+                    {place.type === 'parc' && '🌳'}
+                    {place.type === 'shopping' && '🛍️'}
+                    {place.type === 'café' && '☕'}
+                    {place.type === 'bar' && '🍸'}
+                    {place.type === 'autre' && '📌'}
+                    {' '}{place.type}
+                  </div>
+                  <h4 className="game__recommendation-name">{place.name}</h4>
+                  <p className="game__recommendation-desc">{place.description}</p>
+                  {place.address && (
+                    <p className="game__recommendation-address">📍 {place.address}</p>
+                  )}
+                  {place.address && (
+                    <a 
+                      href={getGoogleMapsDirectionsUrl(place.address)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="game__recommendation-link"
+                    >
+                      🚶 Itinéraire à pied
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
