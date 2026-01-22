@@ -1,12 +1,12 @@
 import { useState, useMemo, useCallback, useRef } from 'react';
 import { GAME_STATES, ROULETTE_WITH_CHANGE, ROULETTE_NO_CHANGE } from '../utils/metro';
-import { useMetroData, useZoomPan, useLocalStorage } from '../hooks';
+import { useMetroData, useZoomPan } from '../hooks';
 import Header from './Header';
-import SettingsPanel from './SettingsPanel';
 import MetroMap from './MetroMap';
 import GamePanel from './GamePanel';
 import JourneyTrack from './JourneyTrack';
 import Recommendations from './Recommendations';
+import stationRecommendationsData from '../data/station_recommendations.json';
 import '../styles/Game.css';
 
 export default function Game() {
@@ -26,7 +26,6 @@ export default function Game() {
   // UI state
   const [hoveredLine, setHoveredLine] = useState(null);
   const [hoveredStation, setHoveredStation] = useState(null);
-  const [showSettings, setShowSettings] = useState(false);
 
   // Recommendations state
   const [recommendations, setRecommendations] = useState(null);
@@ -37,7 +36,6 @@ export default function Game() {
   const recommendationsRef = useRef(null);
 
   // Custom hooks
-  const [apiKey, setApiKey] = useLocalStorage('mistral_api_key', '');
   const { zoom, pan, isPanning, handlers: zoomHandlers, controls: zoomControls } = useZoomPan();
   const { 
     stations, lines, allStations, 
@@ -159,68 +157,22 @@ export default function Game() {
     }, 3000);
   }, [isSpinning, gameState, rouletteRotation, rouletteOptions, handleRouletteResult]);
 
-  // Recommendations API
-  const fetchRecommendations = useCallback(async (stationName, lat, lng) => {
+  // Load recommendations from local data
+  const fetchRecommendations = useCallback((stationId, stationName, lat, lng) => {
     setIsLoadingRecommendations(true);
     setRecommendations(null);
     
-    if (!apiKey) {
-      setRecommendations({ places: [], stationCoords: { lat, lng }, needsApiKey: true });
+    // Simulate async loading for smooth UX
+    setTimeout(() => {
+      const places = stationRecommendationsData[stationId] || [];
+      setRecommendations({ 
+        places, 
+        stationCoords: { lat, lng }, 
+        stationName 
+      });
       setIsLoadingRecommendations(false);
-      setShowSettings(true);
-      return;
-    }
-    
-    const placesSchema = {
-      type: "object",
-      properties: {
-        places: {
-          type: "array",
-          items: {
-            type: "object",
-            properties: {
-              name: { type: "string" },
-              type: { type: "string", enum: ["restaurant", "monument", "musée", "parc", "shopping", "café", "bar", "autre"] },
-              description: { type: "string" },
-              address: { type: "string" }
-            },
-            required: ["name", "type", "description", "address"]
-          }
-        }
-      },
-      required: ["places"]
-    };
-    
-    try {
-      const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-        body: JSON.stringify({
-          model: 'mistral-large-latest',
-          messages: [
-            { role: 'system', content: 'Guide touristique parisien. Réponses concises.' },
-            { role: 'user', content: `Station ${stationName}: 4 lieux proches à visiter (nom, type, 1 phrase, adresse).` }
-          ],
-          temperature: 0.3,
-          max_tokens: 450,
-          response_format: { type: "json_schema", json_schema: { name: "recommendations", strict: true, schema: placesSchema } }
-        })
-      });
-      
-      const data = await response.json();
-      if (data.choices?.[0]?.message?.content) {
-        const parsed = JSON.parse(data.choices[0].message.content);
-        setRecommendations({ ...parsed, stationCoords: { lat, lng }, stationName });
-      }
-    } catch (error) {
-      console.error('Error fetching recommendations:', error);
-      setRecommendations({
-        places: [{ name: "Erreur", type: "autre", description: "Impossible de charger les recommandations.", address: "Paris" }],
-        stationCoords: { lat, lng }
-      });
-    }
-    setIsLoadingRecommendations(false);
-  }, [apiKey]);
+    }, 300);
+  }, []);
 
   const handleConfirmExit = useCallback((validated) => {
     if (validated) {
@@ -228,7 +180,7 @@ export default function Game() {
       setMessage(`🎉 Vous sortez à ${currentStation.name} !`);
       setHistory(prev => [...prev, { station: currentStation, action: 'exit' }]);
       const stationData = stations[currentStation.id];
-      fetchRecommendations(currentStation.name, stationData?.lat, stationData?.lng);
+      fetchRecommendations(currentStation.id, currentStation.name, stationData.lat, stationData.lng);
       setTimeout(() => recommendationsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } else {
       setGameState(GAME_STATES.PLAYING);
@@ -258,13 +210,6 @@ export default function Game() {
 
   return (
     <div className="game">
-      <SettingsPanel 
-        apiKey={apiKey} 
-        onApiKeyChange={setApiKey} 
-        isOpen={showSettings} 
-        onToggle={() => setShowSettings(s => !s)} 
-      />
-      
       <Header />
 
       <div className="game__content">
@@ -319,7 +264,6 @@ export default function Game() {
           stationName={currentStation?.name}
           recommendations={recommendations}
           isLoading={isLoadingRecommendations}
-          apiKey={apiKey}
           getDirectionsUrl={getGoogleMapsDirectionsUrl}
         />
       )}

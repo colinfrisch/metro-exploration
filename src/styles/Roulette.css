@@ -20,10 +20,29 @@
   margin-bottom: -10px;
 }
 
-.roulette__wheel {
+.roulette__wheel-wrapper {
+  position: relative;
   width: 180px;
   height: 180px;
+}
+
+.roulette__wheel {
+  width: 100%;
+  height: 100%;
   position: relative;
+  transition: transform 0.2s ease;
+}
+
+.roulette__wheel--clickable {
+  cursor: pointer;
+}
+
+.roulette__wheel--clickable:hover {
+  transform: scale(1.02);
+}
+
+.roulette__wheel--clickable:active {
+  transform: scale(0.98);
 }
 
 .roulette__svg {
@@ -54,4 +73,25 @@
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+}
+
+.roulette__center-emoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  pointer-events: none;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    font-size: 20px;
+  }
+  50% {
+    opacity: 1;
+    font-size: 30px;
+  }
 }

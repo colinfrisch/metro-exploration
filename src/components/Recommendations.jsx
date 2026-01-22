@@ -6,24 +6,11 @@ const Recommendations = forwardRef(function Recommendations({
   stationName, 
   recommendations, 
   isLoading, 
-  apiKey,
   getDirectionsUrl 
 }, ref) {
   return (
     <div className="recommendations" ref={ref}>
       <h3>🗺️ Explorez les alentours de {stationName}</h3>
-      
-      {recommendations?.needsApiKey && !apiKey && (
-        <div className="recommendations__no-api-key">
-          <p>
-            🔑 Pour obtenir des recommandations personnalisées, ajoutez votre clé API Mistral 
-            dans les <strong>⚙️ Paramètres</strong> (en haut à gauche).
-          </p>
-          <a href="https://console.mistral.ai/" target="_blank" rel="noopener noreferrer">
-            Obtenir une clé API Mistral →
-          </a>
-        </div>
-      )}
       
       {isLoading && (
         <div className="recommendations__loading">

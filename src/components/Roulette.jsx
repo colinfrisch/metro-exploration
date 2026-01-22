@@ -20,14 +20,16 @@ export default function Roulette({
     <div className="roulette">
       <div className="roulette__container">
         <div className="roulette__pointer">▼</div>
-        <div 
-          className="roulette__wheel"
-          style={{ 
-            transform: `rotate(${rotation}deg)`,
-            transition: isSpinning ? 'transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99)' : 'none'
-          }}
-        >
-          <svg viewBox="0 0 200 200" className="roulette__svg">
+        <div className="roulette__wheel-wrapper">
+          <div 
+            className={`roulette__wheel ${!disabled && !isSpinning ? 'roulette__wheel--clickable' : ''}`}
+            style={{ 
+              transform: `rotate(${rotation}deg)`,
+              transition: isSpinning ? 'transform 2s cubic-bezier(0.17, 0.67, 0.12, 0.99)' : 'none'
+            }}
+            onClick={() => !disabled && !isSpinning && onSpin && onSpin()}
+          >
+            <svg viewBox="0 0 200 200" className="roulette__svg">
             {options.map((option, i) => {
               const startAngle = i * slotAngle - 90;
               const endAngle = (i + 1) * slotAngle - 90;
@@ -72,20 +74,16 @@ export default function Roulette({
                 </g>
               );
             })}
-            <circle cx="100" cy="100" r="20" fill="#1a1a2e" stroke="#FFCD00" strokeWidth="3" />
+            <circle cx="100" cy="100" r="25" fill="#1a1a2e" stroke="#FFCD00" strokeWidth="3" />
           </svg>
+          </div>
+          {!disabled && !isSpinning && (
+            <div className="roulette__center-emoji">
+              👇
+            </div>
+          )}
         </div>
       </div>
-      
-      {onSpin && (
-        <button
-          className="roulette__spin-button"
-          onClick={onSpin}
-          disabled={disabled || isSpinning}
-        >
-          {isSpinning ? '🎰 Rotation...' : '🎰 Tourner la roulette'}
-        </button>
-      )}
     </div>
   );
 }
