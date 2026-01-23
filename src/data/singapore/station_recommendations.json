@@ -1,0 +1,3642 @@
+{
+  "jurong-east": [
+    {
+      "name": "Jem",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "2 Jurong East Central 1, Singapore 608896"
+    },
+    {
+      "name": "Jewel Changi Airport",
+      "type": "shopping",
+      "description": "A stunning shopping and lifestyle destination with a beautiful indoor waterfall and a variety of shops and restaurants.",
+      "address": "78 Airport Blvd, Singapore 819666"
+    },
+    {
+      "name": "Chinese Garden",
+      "type": "park",
+      "description": "A beautiful park featuring traditional Chinese architecture, lush greenery, and a serene lake.",
+      "address": "1 Chinese Garden Rd, Singapore 619794"
+    },
+    {
+      "name": "Jurong East Sports Centre",
+      "type": "other",
+      "description": "A sports and recreation facility offering a variety of activities such as swimming, badminton, and gym workouts.",
+      "address": "21 Jurong East St 31, Singapore 609521"
+    }
+  ],
+  "bukit-batok": [
+    {
+      "name": "Bukit Batok Public Library",
+      "type": "other",
+      "description": "A local library offering a variety of books and a quiet study environment.",
+      "address": "21 Bukit Batok Central, Singapore 658712"
+    },
+    {
+      "name": "Bukit Batok Community Club",
+      "type": "other",
+      "description": "A community center offering various classes, activities, and events for locals.",
+      "address": "21 Bukit Batok Central, Singapore 658712"
+    },
+    {
+      "name": "Bukit Batok MRT Station",
+      "type": "monument",
+      "description": "A notable MRT station with unique architectural features and a bustling atmosphere.",
+      "address": "21 Bukit Batok Central, Singapore 658712"
+    },
+    {
+      "name": "Bukit Batok West Neighbourhood Park",
+      "type": "park",
+      "description": "A small park with walking paths, playgrounds, and green spaces for relaxation.",
+      "address": "21 Bukit Batok Central, Singapore 658712"
+    }
+  ],
+  "bukit-gombak": [
+    {
+      "name": "Bukit Gombak Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "51 Old Jurong Road, Singapore 609522"
+    },
+    {
+      "name": "Bukit Gombak Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with essential shops and services.",
+      "address": "210 Jurong East Street 21, Singapore 609521"
+    },
+    {
+      "name": "Bukit Gombak Community Centre",
+      "type": "other",
+      "description": "A community centre offering various classes and activities for locals.",
+      "address": "210 Jurong East Street 21, Singapore 609521"
+    },
+    {
+      "name": "Bukit Gombak Sports Hall",
+      "type": "other",
+      "description": "A sports hall for various indoor sports and activities.",
+      "address": "210 Jurong East Street 21, Singapore 609521"
+    }
+  ],
+  "choa-chu-kang": [
+    {
+      "name": "Choa Chu Kang Community Library",
+      "type": "other",
+      "description": "A local library offering a variety of books and community events.",
+      "address": "2 Yishun Central 1, Singapore 768024"
+    },
+    {
+      "name": "Keong Saik Restaurant",
+      "type": "restaurant",
+      "description": "A popular local eatery serving a variety of Singaporean dishes.",
+      "address": "2 Yishun Central 1, #01-01, Singapore 768024"
+    },
+    {
+      "name": "Yishun Park Hawker Centre",
+      "type": "hawker",
+      "description": "A hawker centre offering a wide range of local food stalls.",
+      "address": "51 Yishun Avenue 11, Singapore 768867"
+    },
+    {
+      "name": "Northpoint City",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets and entertainment options.",
+      "address": "1 Northpoint Drive, Singapore 768019"
+    }
+  ],
+  "yew-tee": [
+    {
+      "name": "Yew Tee Point",
+      "type": "shopping",
+      "description": "A small shopping mall with a supermarket, food court, and various retail outlets.",
+      "address": "2 Yew Tee Lane, Singapore 689163"
+    },
+    {
+      "name": "Yew Tee MRT Station",
+      "type": "monument",
+      "description": "A prominent MRT station serving as a transportation hub for the area.",
+      "address": "2 Yew Tee Lane, Singapore 689163"
+    },
+    {
+      "name": "Yew Tee Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and services for residents.",
+      "address": "2 Yew Tee Lane, Singapore 689163"
+    },
+    {
+      "name": "Yew Tee Market",
+      "type": "hawker",
+      "description": "A local market with a variety of food stalls offering affordable and delicious meals.",
+      "address": "2 Yew Tee Lane, Singapore 689163"
+    }
+  ],
+  "kranji": [
+    {
+      "name": "Kranji War Memorial",
+      "type": "monument",
+      "description": "A memorial dedicated to the soldiers who died in World War II.",
+      "address": "Yio Chu Kang Road, Singapore"
+    },
+    {
+      "name": "Kranji Reservoir",
+      "type": "park",
+      "description": "A scenic reservoir with walking trails and picnic areas.",
+      "address": "Kranji Reservoir Road, Singapore"
+    },
+    {
+      "name": "Kranji Countryside",
+      "type": "other",
+      "description": "A rural area with farms, horse stables, and nature trails.",
+      "address": "Kranji Road, Singapore"
+    },
+    {
+      "name": "Kranji MRT Station Exit",
+      "type": "other",
+      "description": "The nearest exit to the Kranji MRT station.",
+      "address": "Kranji Road, Singapore"
+    }
+  ],
+  "marsiling": [
+    {
+      "name": "Marsiling Mall",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops, restaurants, and a supermarket.",
+      "address": "5 Woodlands Ave 3, Singapore 738528"
+    },
+    {
+      "name": "Woodlands Civic Centre Park",
+      "type": "park",
+      "description": "A small park with a playground, walking paths, and a nice place to relax.",
+      "address": "216 Woodlands St 21, Singapore 730216"
+    },
+    {
+      "name": "Marsiling Community Club",
+      "type": "other",
+      "description": "A community center offering various classes, activities, and events for locals.",
+      "address": "51 Woodlands Ave 3, Singapore 738528"
+    },
+    {
+      "name": "KFC Marsiling",
+      "type": "restaurant",
+      "description": "A popular fast-food chain serving fried chicken and other American-style fast food.",
+      "address": "5 Woodlands Ave 3, #01-10/11, Singapore 738528"
+    }
+  ],
+  "woodlands": [
+    {
+      "name": "Causeway Point",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Woodlands Square, Singapore 738068"
+    },
+    {
+      "name": "Causeway Point Food Court",
+      "type": "hawker",
+      "description": "A food court offering a wide range of local delicacies and international cuisines.",
+      "address": "1 Woodlands Square, #B1-143/144, Singapore 738068"
+    },
+    {
+      "name": "Woodlands Regional Library",
+      "type": "other",
+      "description": "A modern library with a vast collection of books, multimedia resources, and community spaces.",
+      "address": "900 South Woodlands Drive, Singapore 730900"
+    },
+    {
+      "name": "Admiralty Park",
+      "type": "park",
+      "description": "A large park with playgrounds, water play areas, and scenic walking trails.",
+      "address": "10 Woodlands Avenue 9, Singapore 738967"
+    }
+  ],
+  "admiralty": [
+    {
+      "name": "Admiralty Park",
+      "type": "park",
+      "description": "A large park with playgrounds, a dog park, and a water playground.",
+      "address": "30 Admiralty Link, Singapore 757386"
+    },
+    {
+      "name": "Admiralty MRT Station",
+      "type": "monument",
+      "description": "A prominent MRT station with a unique architectural design.",
+      "address": "20 Admiralty Street, Singapore 757590"
+    },
+    {
+      "name": "Admiralty Medical Centre",
+      "type": "other",
+      "description": "A medical center providing various healthcare services.",
+      "address": "20 Admiralty Street, Singapore 757590"
+    },
+    {
+      "name": "Admiralty Place",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets and dining options.",
+      "address": "20 Admiralty Street, Singapore 757590"
+    }
+  ],
+  "sembawang": [
+    {
+      "name": "Sembawang Shopping Centre",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops, eateries, and a wet market.",
+      "address": "604 Sembawang Road, Singapore 758189"
+    },
+    {
+      "name": "Sembawang Mart",
+      "type": "hawker",
+      "description": "A hawker centre offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "604 Sembawang Road, #01-01, Singapore 758189"
+    },
+    {
+      "name": "Sembawang Community Sports Facility",
+      "type": "park",
+      "description": "A community sports facility with a gym, swimming pool, and other sports amenities.",
+      "address": "604 Sembawang Road, Singapore 758189"
+    },
+    {
+      "name": "Sembawang MRT Station Exit A",
+      "type": "other",
+      "description": "The main exit of Sembawang MRT Station, leading to the bus interchange and nearby amenities.",
+      "address": "Sembawang Road, Singapore 758189"
+    }
+  ],
+  "canberra": [
+    {
+      "name": "Chomp Chomp Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes.",
+      "address": "2 Yishun Central 1, Singapore 768065"
+    },
+    {
+      "name": "Northpoint City",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Northpoint Drive, Singapore 768019"
+    },
+    {
+      "name": "Khatib Bongsu Nature Park",
+      "type": "park",
+      "description": "A serene park with walking trails, picnic areas, and a variety of flora and fauna.",
+      "address": "Yishun Street 51, Singapore 768881"
+    },
+    {
+      "name": "Khatib MRT Station",
+      "type": "monument",
+      "description": "A key transportation hub in the northern part of Singapore, connecting various parts of the island.",
+      "address": "Yishun Street 51, Singapore 768881"
+    }
+  ],
+  "yishun": [
+    {
+      "name": "Northpoint City",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "10 Yishun Central 1, Singapore 768013"
+    },
+    {
+      "name": "Yishun Park Hawker Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "51 Yishun Avenue 11, Singapore 768867"
+    },
+    {
+      "name": "Khatib Bongsu Nature Park",
+      "type": "park",
+      "description": "A serene park with walking trails, picnic areas, and a small pond, perfect for a relaxing stroll.",
+      "address": "20 Yishun Avenue 11, Singapore 768867"
+    },
+    {
+      "name": "Yishun Community Sports Facility",
+      "type": "other",
+      "description": "A sports facility with a swimming pool, gym, and various sports courts for recreational activities.",
+      "address": "51 Yishun Avenue 11, Singapore 768867"
+    }
+  ],
+  "khatib": [
+    {
+      "name": "Khatib Bazaar",
+      "type": "shopping",
+      "description": "A small local market offering a variety of goods, from fresh produce to household items.",
+      "address": "Yishun Ring Rd, Singapore 768696"
+    },
+    {
+      "name": "Khatib MRT Station",
+      "type": "monument",
+      "description": "A major MRT station on the North South Line, serving the Yishun area.",
+      "address": "Yishun Ave 2, Singapore 768849"
+    },
+    {
+      "name": "Khatib Park",
+      "type": "park",
+      "description": "A small park with a playground and open spaces for relaxation.",
+      "address": "Yishun Ring Rd, Singapore 768696"
+    },
+    {
+      "name": "Khatib Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "Yishun Ring Rd, Singapore 768696"
+    }
+  ],
+  "yio-chu-kang": [
+    {
+      "name": "Ang Mo Kio Town Garden West",
+      "type": "park",
+      "description": "A serene park with a large pond, walking paths, and a playground.",
+      "address": "500 Ang Mo Kio Avenue 10, Singapore 569738"
+    },
+    {
+      "name": "Jalan Mashhor Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes.",
+      "address": "500 Ang Mo Kio Avenue 10, Singapore 569738"
+    },
+    {
+      "name": "Ang Mo Kio Public Library",
+      "type": "other",
+      "description": "A modern library with a wide selection of books and community events.",
+      "address": "480 Ang Mo Kio Avenue 10, Singapore 569962"
+    },
+    {
+      "name": "Ang Mo Kio Community Centre",
+      "type": "other",
+      "description": "A community center offering various classes, workshops, and events.",
+      "address": "500 Ang Mo Kio Avenue 10, Singapore 569738"
+    }
+  ],
+  "ang-mo-kio": [
+    {
+      "name": "Ang Mo Kio Central",
+      "type": "shopping",
+      "description": "A bustling shopping area with a variety of shops, restaurants, and amenities.",
+      "address": "50 Central Ave, Singapore 560058"
+    },
+    {
+      "name": "Ang Mo Kio Town Garden West",
+      "type": "park",
+      "description": "A serene park with lush greenery, walking paths, and a playground.",
+      "address": "50 Central Ave, Singapore 560058"
+    },
+    {
+      "name": "Ang Mo Kio Public Library",
+      "type": "other",
+      "description": "A modern library offering a wide range of books, digital resources, and community events.",
+      "address": "50 Central Ave, Singapore 560058"
+    },
+    {
+      "name": "Ang Mo Kio MRT Station",
+      "type": "other",
+      "description": "A major MRT station providing easy access to various parts of Singapore.",
+      "address": "50 Central Ave, Singapore 560058"
+    }
+  ],
+  "bishan": [
+    {
+      "name": "Bishan Park",
+      "type": "park",
+      "description": "A beautiful park with a large pond and various recreational facilities.",
+      "address": "Bishan St 13, Singapore 579754"
+    },
+    {
+      "name": "Bishan Community Library",
+      "type": "other",
+      "description": "A modern library with a wide range of books and digital resources.",
+      "address": "5 Bishan Pl, Singapore 579841"
+    },
+    {
+      "name": "Bishan McDonald's",
+      "type": "restaurant",
+      "description": "A popular fast-food chain offering a variety of burgers, fries, and other snacks.",
+      "address": "500 Bishan St 13, #01-275/277, Singapore 570502"
+    },
+    {
+      "name": "Bishan Bus Interchange",
+      "type": "other",
+      "description": "A major bus interchange providing convenient access to various bus services.",
+      "address": "Bishan St 13, Singapore 579754"
+    }
+  ],
+  "braddell": [
+    {
+      "name": "Toa Payoh Central",
+      "type": "shopping",
+      "description": "A bustling shopping area with a variety of local shops and eateries.",
+      "address": "Toa Payoh Central, Singapore"
+    },
+    {
+      "name": "Toa Payoh Town Park",
+      "type": "park",
+      "description": "A serene park with lush greenery and a large pond, perfect for a relaxing stroll.",
+      "address": "Lorong 6 Toa Payoh, Singapore"
+    },
+    {
+      "name": "Toa Payoh Public Library",
+      "type": "other",
+      "description": "A modern library with a wide range of books and resources.",
+      "address": "67 Toa Payoh Central, Singapore"
+    },
+    {
+      "name": "HDB Hub",
+      "type": "other",
+      "description": "A community hub offering various services and facilities for residents.",
+      "address": "60 Toa Payoh Central, Singapore"
+    }
+  ],
+  "toa-payoh": [
+    {
+      "name": "Toa Payoh Public Library",
+      "type": "other",
+      "description": "A local library with a variety of books and a quiet study area.",
+      "address": "286 Toa Payoh Lorong 6, Singapore 310286"
+    },
+    {
+      "name": "Toa Payoh Central",
+      "type": "shopping",
+      "description": "A bustling shopping area with a variety of local shops and eateries.",
+      "address": "Toa Payoh Central, Singapore"
+    },
+    {
+      "name": "Toa Payoh Bus Interchange",
+      "type": "other",
+      "description": "A major bus interchange serving the Toa Payoh area.",
+      "address": "286 Toa Payoh Lorong 6, Singapore 310286"
+    },
+    {
+      "name": "HDB Hub",
+      "type": "other",
+      "description": "A community hub offering various services and facilities for residents.",
+      "address": "286 Toa Payoh Lorong 6, Singapore 310286"
+    }
+  ],
+  "novena": [
+    {
+      "name": "Velocity@Novena Square",
+      "type": "shopping",
+      "description": "A bustling shopping mall with a variety of retail outlets, dining options, and a supermarket.",
+      "address": "238 Thomson Road, Singapore 307683"
+    },
+    {
+      "name": "Novena Chemical",
+      "type": "shopping",
+      "description": "A well-known shopping mall featuring a wide range of shops, including a popular bookstore and a food court.",
+      "address": "2266 Thomson Road, Singapore 307683"
+    },
+    {
+      "name": "Novena MRT Station",
+      "type": "monument",
+      "description": "A major MRT station on the North South Line, providing easy access to various parts of Singapore.",
+      "address": "270 Thomson Road, Singapore 307683"
+    },
+    {
+      "name": "Thomson Medical Centre",
+      "type": "other",
+      "description": "A leading private hospital offering a wide range of medical services and specialties.",
+      "address": "339 Thomson Road, Singapore 307683"
+    }
+  ],
+  "newton": [
+    {
+      "name": "Newton Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker center known for its variety of local food stalls, offering dishes like Hainanese chicken rice, satay, and laksa.",
+      "address": "500 Clementi Rd, #01-270, Singapore 599491"
+    },
+    {
+      "name": "Newton Circus",
+      "type": "monument",
+      "description": "A historic roundabout with a prominent statue of Sir Stamford Raffles, the founder of modern Singapore.",
+      "address": "Newton Circus, Singapore"
+    },
+    {
+      "name": "Newton Showsuite",
+      "type": "shopping",
+      "description": "A shopping center with a variety of retail outlets and dining options.",
+      "address": "300 Clementi Ave 1, #01-01, Singapore 129920"
+    },
+    {
+      "name": "Newton Food Centre (Opposite Exit)",
+      "type": "hawker",
+      "description": "Another entrance to the Newton Food Centre, offering the same variety of local food stalls.",
+      "address": "500 Clementi Rd, #01-270, Singapore 599491"
+    }
+  ],
+  "orchard": [
+    {
+      "name": "ION Orchard",
+      "type": "shopping",
+      "description": "A premier shopping mall with a wide range of luxury brands, dining options, and entertainment.",
+      "address": "2 Orchard Turn, Singapore 238801"
+    },
+    {
+      "name": "Orchard Central",
+      "type": "shopping",
+      "description": "A vibrant shopping mall featuring a mix of retail, dining, and entertainment options.",
+      "address": "181 Orchard Road, Singapore 238896"
+    },
+    {
+      "name": "Wisma Atria",
+      "type": "shopping",
+      "description": "A well-known shopping mall with a variety of retail stores and dining options.",
+      "address": "435 Orchard Road, Singapore 238877"
+    },
+    {
+      "name": "Lido",
+      "type": "shopping",
+      "description": "A shopping mall with a mix of retail stores, dining options, and a cinema.",
+      "address": "55 Orchard Road, Singapore 238868"
+    }
+  ],
+  "somerset": [
+    {
+      "name": "Orchard Central",
+      "type": "shopping",
+      "description": "A popular shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "181 Orchard Rd, Singapore 238896"
+    },
+    {
+      "name": "313@Somerset",
+      "type": "shopping",
+      "description": "A lifestyle mall featuring a mix of fashion, beauty, and dining outlets, known for its unique architecture and vibrant atmosphere.",
+      "address": "313 Orchard Rd, Singapore 238864"
+    },
+    {
+      "name": "The Cathay",
+      "type": "other",
+      "description": "A historic cinema and entertainment complex offering a variety of films, events, and dining options.",
+      "address": "2 Handy Rd, Singapore 229233"
+    },
+    {
+      "name": "Peranakan Museum",
+      "type": "museum",
+      "description": "A museum showcasing the history and culture of the Peranakan community in Southeast Asia through a collection of artifacts and exhibits.",
+      "address": "39 Armenian St, Singapore 179931"
+    }
+  ],
+  "dhoby-ghaut": [
+    {
+      "name": "National Museum of Singapore",
+      "type": "museum",
+      "description": "A premier museum showcasing Singapore's history and culture.",
+      "address": "93 Stamford Rd, Singapore 178897"
+    },
+    {
+      "name": "The Cathay",
+      "type": "other",
+      "description": "A historic cinema and shopping complex with a vintage charm.",
+      "address": "2 Handy Rd, Singapore 229233"
+    },
+    {
+      "name": "Plaza by the Park",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of local shops and eateries.",
+      "address": "100 Orchard Rd, Singapore 238663"
+    },
+    {
+      "name": "Scoop & Spoon",
+      "type": "café",
+      "description": "A popular café known for its artisanal ice cream and desserts.",
+      "address": "111 Somerset Rd, #01-05/06/07, Singapore 238162"
+    }
+  ],
+  "city-hall": [
+    {
+      "name": "National Museum of Singapore",
+      "type": "museum",
+      "description": "The National Museum of Singapore is the oldest museum in Singapore, showcasing the country's history and culture.",
+      "address": "93 Stamford Rd, Singapore 178897"
+    },
+    {
+      "name": "Supper Heritage",
+      "type": "restaurant",
+      "description": "A local restaurant offering a variety of Singaporean dishes in a traditional setting.",
+      "address": "121 Stamford Rd, Singapore 178905"
+    },
+    {
+      "name": "St. Andrew's Cathedral",
+      "type": "monument",
+      "description": "A historic cathedral and one of the oldest buildings in Singapore.",
+      "address": "3 Short St, Singapore 179307"
+    },
+    {
+      "name": "Singapore City Gallery",
+      "type": "museum",
+      "description": "A gallery showcasing the urban planning and development of Singapore.",
+      "address": "45 Maxwell Rd, Singapore 069118"
+    }
+  ],
+  "raffles-place": [
+    {
+      "name": "Raffles Place Park",
+      "type": "park",
+      "description": "A small urban park with a fountain and seating areas, perfect for a quick break.",
+      "address": "1 Raffles Pl, Singapore 048617"
+    },
+    {
+      "name": "The Fullerton Hotel",
+      "type": "monument",
+      "description": "A historic building that was once the General Post Office, now a luxury hotel.",
+      "address": "1 Fullerton Sq, Singapore 019028"
+    },
+    {
+      "name": "The Fullerton Bay Hotel",
+      "type": "monument",
+      "description": "A historic building that was once the General Post Office, now a luxury hotel.",
+      "address": "80 Collyer Quay, Singapore 049326"
+    },
+    {
+      "name": "One Raffles Place",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets and dining options.",
+      "address": "1 Raffles Pl, Singapore 048616"
+    }
+  ],
+  "marina-bay": [
+    {
+      "name": "Marina Bay Sands",
+      "type": "other",
+      "description": "Iconic hotel with a sky park offering panoramic city views.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    },
+    {
+      "name": "ArtScience Museum",
+      "type": "museum",
+      "description": "Unique museum with futuristic architecture and interactive exhibits.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    },
+    {
+      "name": "The Shoppes at Marina Bay Sands",
+      "type": "shopping",
+      "description": "Luxury shopping mall with a variety of high-end brands.",
+      "address": "2 Bayfront Ave, Singapore 018972"
+    },
+    {
+      "name": "Sands Theatre",
+      "type": "other",
+      "description": "Home to spectacular performances and events.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    }
+  ],
+  "marina-south-pier": [
+    {
+      "name": "Marina Bay Sands",
+      "type": "other",
+      "description": "Iconic hotel and entertainment complex with a sky park, shops, and restaurants.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    },
+    {
+      "name": "ArtScience Museum",
+      "type": "museum",
+      "description": "Unique museum with interactive exhibits and stunning architecture.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    },
+    {
+      "name": "Sands Theatre",
+      "type": "other",
+      "description": "Venue for major concerts and performances within Marina Bay Sands.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    },
+    {
+      "name": "Helix Bridge",
+      "type": "monument",
+      "description": "Pedestrian bridge with a unique double-helix structure, connecting Marina Centre to Marina South.",
+      "address": "200 Raffles Ave, Singapore 039801"
+    }
+  ],
+  "pasir-ris": [
+    {
+      "name": "Pasir Ris Park",
+      "type": "park",
+      "description": "A scenic coastal park with cycling paths, picnic areas, and a scenic boardwalk.",
+      "address": "Pasir Ris Park, Singapore 519520"
+    },
+    {
+      "name": "Pasir Ris Park Hawker Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes in an outdoor setting.",
+      "address": "51 Lorong Halus, Singapore 549864"
+    },
+    {
+      "name": "Downtown East",
+      "type": "shopping",
+      "description": "A large shopping and entertainment complex with a variety of stores and attractions.",
+      "address": "1 Pasir Ris Close, Singapore 519599"
+    },
+    {
+      "name": "Pasir Ris Sports Centre",
+      "type": "other",
+      "description": "A sports complex with facilities for badminton, basketball, swimming, and more.",
+      "address": "1 Pasir Ris Close, Singapore 519599"
+    }
+  ],
+  "tampines": [
+    {
+      "name": "Tampines 1",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "10 Tampines Central 1, Singapore 529533"
+    },
+    {
+      "name": "Tampines Mall",
+      "type": "shopping",
+      "description": "Another popular shopping mall offering a wide range of shops, restaurants, and a cinema.",
+      "address": "4 Tampines Central 5, Singapore 529483"
+    },
+    {
+      "name": "Tampines Community Sports Centre",
+      "type": "other",
+      "description": "A sports facility with a swimming pool, gym, and various sports courts.",
+      "address": "31 Tampines Avenue 9, Singapore 529691"
+    },
+    {
+      "name": "Tampines West CC",
+      "type": "other",
+      "description": "A community center offering various classes, events, and activities for the local residents.",
+      "address": "19 Tampines Street 82, Singapore 528694"
+    }
+  ],
+  "simei": [
+    {
+      "name": "Simei Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker centre offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "50 SIMEI STREET 1, Singapore 528840"
+    },
+    {
+      "name": "Simei Community Sports Facility",
+      "type": "park",
+      "description": "A community sports facility with a swimming pool, gym, and various sports courts.",
+      "address": "100 LOOP LINE, Singapore 528870"
+    },
+    {
+      "name": "Simei Shopping Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a supermarket, retail stores, and dining options.",
+      "address": "100 LOOP LINE, Singapore 528870"
+    },
+    {
+      "name": "Simei MRT Station Exit A",
+      "type": "monument",
+      "description": "The main exit of Simei MRT Station, featuring a distinctive architectural design.",
+      "address": "50 SIMEI STREET 1, Singapore 528840"
+    }
+  ],
+  "tanah-merah": [
+    {
+      "name": "Changi Village Hawker Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes.",
+      "address": "2 Yio Chu Kang Rd, Singapore 545540"
+    },
+    {
+      "name": "Changi Village",
+      "type": "other",
+      "description": "A charming village with a mix of old and new, featuring shops, cafes, and a relaxed atmosphere.",
+      "address": "2 Yio Chu Kang Rd, Singapore 545540"
+    },
+    {
+      "name": "Changi Beach Park",
+      "type": "park",
+      "description": "A scenic beach park with walking trails, picnic areas, and beautiful views of the coastline.",
+      "address": "Netheravon Rd, Singapore 498516"
+    },
+    {
+      "name": "Changi Point Ferry Terminal",
+      "type": "other",
+      "description": "A historic ferry terminal offering boat rides to Pulau Ubin and other nearby islands.",
+      "address": "Netheravon Rd, Singapore 498516"
+    }
+  ],
+  "bedok": [
+    {
+      "name": "Bedok Mall",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "500 Bedok North Ave 3, Singapore 460500"
+    },
+    {
+      "name": "Bedok Community Polyclinic",
+      "type": "other",
+      "description": "A government polyclinic providing subsidized healthcare services to the community.",
+      "address": "500 Bedok North Ave 3, Singapore 460500"
+    },
+    {
+      "name": "Bedok Public Library",
+      "type": "other",
+      "description": "A local library offering a wide range of books, digital resources, and community programs.",
+      "address": "500 Bedok North Ave 3, Singapore 460500"
+    },
+    {
+      "name": "Bedok Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "500 Bedok North Ave 3, Singapore 460500"
+    }
+  ],
+  "kembangan": [
+    {
+      "name": "Kembangan Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with local shops and eateries.",
+      "address": "2 Kembangan Lane, Singapore 410002"
+    },
+    {
+      "name": "Kembangan Market",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes.",
+      "address": "2 Kembangan Lane, Singapore 410002"
+    },
+    {
+      "name": "Kembangan Community Centre",
+      "type": "other",
+      "description": "A community center hosting various local events and activities.",
+      "address": "1 Kembangan Lane, Singapore 410001"
+    },
+    {
+      "name": "Kembangan Park",
+      "type": "park",
+      "description": "A small park with a playground and open space for relaxation.",
+      "address": "3 Kembangan Lane, Singapore 410003"
+    }
+  ],
+  "eunos": [
+    {
+      "name": "Eunos Bus Interchange",
+      "type": "other",
+      "description": "A major bus interchange serving the eastern part of Singapore.",
+      "address": "200 Sims Ave, Singapore 380200"
+    },
+    {
+      "name": "Eunos MRT Station",
+      "type": "other",
+      "description": "A Mass Rapid Transit station on the East-West Line in Singapore.",
+      "address": "200 Sims Ave, Singapore 380200"
+    },
+    {
+      "name": "Eunos Community Library",
+      "type": "other",
+      "description": "A local library offering a variety of books and community services.",
+      "address": "200 Sims Ave, Singapore 380200"
+    },
+    {
+      "name": "Eunos Park",
+      "type": "park",
+      "description": "A small park with walking paths and green spaces.",
+      "address": "200 Sims Ave, Singapore 380200"
+    }
+  ],
+  "paya-lebar": [
+    {
+      "name": "Paya Lebar Square",
+      "type": "shopping",
+      "description": "A bustling shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "260 Paya Lebar Road, Singapore 409045"
+    },
+    {
+      "name": "Kinex",
+      "type": "shopping",
+      "description": "A modern lifestyle destination with a mix of retail, dining, and entertainment options.",
+      "address": "11 Tanjong Katong Road, Singapore 437157"
+    },
+    {
+      "name": "Paya Lebar Methodist Church",
+      "type": "monument",
+      "description": "A historic church with a rich heritage and beautiful architecture.",
+      "address": "47A Paya Lebar Road, Singapore 409054"
+    },
+    {
+      "name": "Paya Lebar Park Hawker Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of traditional Singaporean dishes at affordable prices.",
+      "address": "666 Paya Lebar Road, Singapore 409039"
+    }
+  ],
+  "aljunied": [
+    {
+      "name": "Aljunied MRT Station",
+      "type": "other",
+      "description": "A major MRT station on the East-West Line and Downtown Line in Singapore.",
+      "address": "2 Sims Drive, Singapore 485990"
+    },
+    {
+      "name": "Simpang Bedok Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker center with a variety of local food stalls.",
+      "address": "2 Sims Drive, Singapore 485990"
+    },
+    {
+      "name": "Geylang Serai Market",
+      "type": "shopping",
+      "description": "A bustling market offering a variety of goods, including fresh produce, textiles, and household items.",
+      "address": "1 Geylang Serai, Singapore 402001"
+    },
+    {
+      "name": "Aljunied Police Division HQ",
+      "type": "other",
+      "description": "The headquarters of the Aljunied Police Division.",
+      "address": "200 Sims Drive, Singapore 387380"
+    }
+  ],
+  "kallang": [
+    {
+      "name": "Singapore Sports Hub",
+      "type": "other",
+      "description": "A major sports and entertainment hub in Singapore, featuring a stadium, indoor stadium, and various sports facilities.",
+      "address": "4 Stadium Drive, Singapore 397629"
+    },
+    {
+      "name": "Kallang Wave Mall",
+      "type": "shopping",
+      "description": "A lifestyle and retail mall with a variety of shops, dining options, and entertainment facilities.",
+      "address": "1 Stadium Place, Singapore 397628"
+    },
+    {
+      "name": "Singapore Indoor Stadium",
+      "type": "other",
+      "description": "A multi-purpose indoor arena that hosts major sporting events, concerts, and other large-scale events.",
+      "address": "2 Stadium Drive, Singapore 397629"
+    },
+    {
+      "name": "Kallang Riverside Park",
+      "type": "park",
+      "description": "A scenic park along the Kallang River, offering walking and cycling paths, picnic areas, and beautiful views of the city skyline.",
+      "address": "160 Stadium Crescent, Singapore 397964"
+    }
+  ],
+  "lavender": [
+    {
+      "name": "Mustafa Centre",
+      "type": "shopping",
+      "description": "A 24-hour shopping mall with a wide variety of goods, from electronics to textiles.",
+      "address": "144 Rochor Rd, Singapore 188553"
+    },
+    {
+      "name": "Sri Veeramakaliamman Temple",
+      "type": "monument",
+      "description": "A prominent Hindu temple dedicated to the goddess Kali.",
+      "address": "141 Serangoon Rd, Singapore 218042"
+    },
+    {
+      "name": "Simpang Beduk",
+      "type": "hawker",
+      "description": "A local hawker center with a variety of Singaporean dishes.",
+      "address": "106 Bukit Timah Lane, Singapore 229871"
+    },
+    {
+      "name": "Zam Zam Restaurant",
+      "type": "restaurant",
+      "description": "A famous restaurant serving Murtabak and other Indian-Muslim dishes.",
+      "address": "694-700 Geylang Rd, Singapore 389504"
+    }
+  ],
+  "bugis": [
+    {
+      "name": "Bugis Street Market",
+      "type": "shopping",
+      "description": "A bustling street market offering a variety of goods, from clothing to souvenirs, at affordable prices.",
+      "address": "370 Victoria St, Singapore 188061"
+    },
+    {
+      "name": "Bugis Junction",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "200 Victoria St, Singapore 188067"
+    },
+    {
+      "name": "Sri Veeramakaliamman Temple",
+      "type": "monument",
+      "description": "A historic Hindu temple dedicated to the goddess Kali, known for its vibrant architecture and cultural significance.",
+      "address": "141 Serangoon Rd, Singapore 218042"
+    },
+    {
+      "name": "Albert Centre Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "270 Victoria St, Singapore 188067"
+    }
+  ],
+  "tanjong-pagar": [
+    {
+      "name": "Tanjong Pagar Plaza",
+      "type": "shopping",
+      "description": "A bustling shopping mall with a variety of local shops and eateries.",
+      "address": "30 Telok Blangah Crescent, Singapore 098815"
+    },
+    {
+      "name": "Amoy Street Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "7 Maxwell Road, Singapore 069119"
+    },
+    {
+      "name": "Tanjong Pagar Railway Station",
+      "type": "monument",
+      "description": "A historic railway station that was once the southern terminus of the Malayan Railway.",
+      "address": "32 Tanjong Pagar Road, Singapore 088434"
+    },
+    {
+      "name": "Maxwell Food Centre",
+      "type": "hawker",
+      "description": "Another popular hawker center known for its diverse food offerings and lively atmosphere.",
+      "address": "60 Maxwell Road, Singapore 069119"
+    }
+  ],
+  "outram-park": [
+    {
+      "name": "Maxwell Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker center known for its diverse range of local food stalls, including the famous Tian Tian Hainanese Chicken Rice.",
+      "address": "200 Maxwell Rd, Singapore 069579"
+    },
+    {
+      "name": "Amoy Street Food Centre",
+      "type": "hawker",
+      "description": "A smaller but equally popular hawker center with a variety of local dishes, including satay, laksa, and char kway teow.",
+      "address": "7 Maxwell Rd, Singapore 069119"
+    },
+    {
+      "name": "Outram Park MRT Station",
+      "type": "monument",
+      "description": "A major MRT station on the East-West Line and Thomson-East Coast Line, serving as a key transportation hub in the area.",
+      "address": "10 Outram Rd, Singapore 169654"
+    },
+    {
+      "name": "Outram Community Hospital",
+      "type": "other",
+      "description": "A community hospital providing intermediate and long-term care services to the elderly and those recovering from illnesses or injuries.",
+      "address": "10 Outram Rd, Singapore 169654"
+    }
+  ],
+  "tiong-bahru": [
+    {
+      "name": "Tiong Bahru Market",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes.",
+      "address": "30 Seng Poh Rd, Singapore 168898"
+    },
+    {
+      "name": "Tiong Bahru Plaza",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets and a food court.",
+      "address": "30 Seng Poh Rd, Singapore 168898"
+    },
+    {
+      "name": "Tiong Bahru Heritage Trail",
+      "type": "monument",
+      "description": "A historical trail showcasing the unique architecture and history of the Tiong Bahru estate.",
+      "address": "Tiong Bahru Estate, Singapore"
+    },
+    {
+      "name": "Tiong Bahru Bakery",
+      "type": "café",
+      "description": "A cozy bakery offering a variety of pastries and coffee.",
+      "address": "56 Eng Hoon St, Singapore 160056"
+    }
+  ],
+  "redhill": [
+    {
+      "name": "Tiong Bahru Market",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes.",
+      "address": "30 Seng Poh Rd, Singapore 168898"
+    },
+    {
+      "name": "Tiong Bahru Plaza",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets and dining options.",
+      "address": "30 Seng Poh Rd, Singapore 168898"
+    },
+    {
+      "name": "Tiong Bahru Park",
+      "type": "park",
+      "description": "A small, charming park with a playground and a unique stream running through it.",
+      "address": "49 Seng Poh Rd, Singapore 168890"
+    },
+    {
+      "name": "Tiong Bahru Bakery",
+      "type": "café",
+      "description": "A cozy café known for its artisanal bread and pastries.",
+      "address": "56 Eng Hoon St, Singapore 169773"
+    }
+  ],
+  "commonwealth": [
+    {
+      "name": "The Grandstand",
+      "type": "shopping",
+      "description": "A lifestyle and dining destination with a variety of shops and restaurants.",
+      "address": "200 Turf Club Rd, Singapore 287994"
+    },
+    {
+      "name": "Queenstown Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and events for locals and visitors.",
+      "address": "64 Margaret Drive, Singapore 149287"
+    },
+    {
+      "name": "Holland Village",
+      "type": "other",
+      "description": "A charming neighborhood known for its indie boutiques, cafes, and restaurants.",
+      "address": "Lorong Mambong, Singapore 277666"
+    },
+    {
+      "name": "Rochester Park",
+      "type": "park",
+      "description": "A small park with a playground and open space for relaxation.",
+      "address": "20 Rochester Dr, Singapore 139216"
+    }
+  ],
+  "buona-vista": [
+    {
+      "name": "Buona Vista Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "201 Bukit Merah Lane 1, #01-107, Singapore 150201"
+    },
+    {
+      "name": "The Star Vista",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets, dining options, and a cinema.",
+      "address": "1 Vista Exchange Green, Singapore 138388"
+    },
+    {
+      "name": "Science Centre Singapore",
+      "type": "museum",
+      "description": "An interactive science and technology museum with exhibits suitable for all ages.",
+      "address": "15 Science Centre Rd, Singapore 609081"
+    },
+    {
+      "name": "IKEA Alexandra",
+      "type": "shopping",
+      "description": "A large IKEA store offering a wide range of home furnishings and accessories.",
+      "address": "317 Alexandra Rd, Singapore 159965"
+    }
+  ],
+  "dover": [
+    {
+      "name": "Dover Street Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops and dining options.",
+      "address": "2 Dover Street, Singapore 138651"
+    },
+    {
+      "name": "Dover Park Hospice",
+      "type": "other",
+      "description": "A hospice providing palliative care and support services.",
+      "address": "100 Jalan Jurong Kechil, Singapore 598654"
+    },
+    {
+      "name": "Dover MRT Station",
+      "type": "other",
+      "description": "A Mass Rapid Transit station on the East-West Line.",
+      "address": "2 Dover Street, Singapore 138651"
+    },
+    {
+      "name": "Dover Vintage",
+      "type": "restaurant",
+      "description": "A cozy restaurant serving Western and local cuisine.",
+      "address": "2 Dover Street, Singapore 138651"
+    }
+  ],
+  "clementi": [
+    {
+      "name": "Clementi Mall",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "31 Clementi Ave 3, Singapore 129906"
+    },
+    {
+      "name": "Clementi Public Library",
+      "type": "other",
+      "description": "A modern library offering a wide range of books, digital resources, and community programs.",
+      "address": "31 Clementi Ave 3, Singapore 129906"
+    },
+    {
+      "name": "Clementi Woods Park",
+      "type": "park",
+      "description": "A small park with walking trails, playgrounds, and open spaces for relaxation and recreation.",
+      "address": "Clementi Ave 3, Singapore 129906"
+    },
+    {
+      "name": "Clementi Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "491 Clementi Ave 6, Singapore 120491"
+    }
+  ],
+  "chinese-garden": [
+    {
+      "name": "Chinese Garden",
+      "type": "park",
+      "description": "A beautiful park with traditional Chinese architecture, gardens, and a lake. Perfect for a peaceful stroll.",
+      "address": "1 Chinese Garden Road, Singapore 619791"
+    },
+    {
+      "name": "Chinese Garden Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "1 Chinese Garden Road, Singapore 619791"
+    },
+    {
+      "name": "Jurong Lake Gardens",
+      "type": "park",
+      "description": "A scenic garden with various themed gardens, a lake, and walking trails.",
+      "address": "1 Yishun Avenue 9, Singapore 768997"
+    },
+    {
+      "name": "Jurong Lake Sports Centre",
+      "type": "other",
+      "description": "A sports facility with a gym, swimming pool, and various sports courts.",
+      "address": "2 Jurong Lake Road, Singapore 648354"
+    }
+  ],
+  "lakeside": [
+    {
+      "name": "Westgate",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Gateway Drive, Singapore 608532"
+    },
+    {
+      "name": "Haw Par Villa",
+      "type": "monument",
+      "description": "A unique cultural park featuring a collection of mythological and religious statues and dioramas.",
+      "address": "268A West Coast Road, Singapore 127268"
+    },
+    {
+      "name": "Jurong Bird Park",
+      "type": "park",
+      "description": "A popular bird park with a wide variety of bird species and beautiful landscapes.",
+      "address": "2 Jurong Hill, Singapore 628925"
+    },
+    {
+      "name": "Jurong East Swimming Complex",
+      "type": "other",
+      "description": "A public swimming complex with multiple pools and facilities for swimming and water sports.",
+      "address": "21 Jurong East Avenue, Singapore 609508"
+    }
+  ],
+  "boon-lay": [
+    {
+      "name": "Lakeside Village",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "11 Jurong West St 91, Singapore 648963"
+    },
+    {
+      "name": "Jurong Lake Gardens",
+      "type": "park",
+      "description": "A beautiful park with scenic views, walking trails, and recreational facilities.",
+      "address": "Yunnan Park, Singapore 638327"
+    },
+    {
+      "name": "Jurong West Sports and Recreation Centre",
+      "type": "other",
+      "description": "A sports and recreation centre with facilities for various activities such as swimming, badminton, and gym.",
+      "address": "20 Jurong West St 93, Singapore 648967"
+    },
+    {
+      "name": "Jurong West Public Library",
+      "type": "other",
+      "description": "A public library offering a wide range of books, digital resources, and community programs.",
+      "address": "10 Jurong West St 91, Singapore 648963"
+    }
+  ],
+  "pioneer": [
+    {
+      "name": "Jurong Bird Park",
+      "type": "park",
+      "description": "One of the largest bird parks in the world, featuring over 5,000 birds across 600 species.",
+      "address": "2 Jurong Hill, Singapore 628925"
+    },
+    {
+      "name": "Jurong East Hawker Centre",
+      "type": "hawker",
+      "description": "A local food haven offering a variety of Singaporean dishes at affordable prices.",
+      "address": "245 Jurong East Ave 1, Singapore 609512"
+    },
+    {
+      "name": "Jem Shopping Mall",
+      "type": "shopping",
+      "description": "A modern shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "2 Jurong East Central 1, Singapore 608516"
+    },
+    {
+      "name": "Jurong Regional Library",
+      "type": "other",
+      "description": "A public library offering a vast collection of books, digital resources, and community programs.",
+      "address": "21 Jurong Town Hall Road, Singapore 609513"
+    }
+  ],
+  "joo-koon": [
+    {
+      "name": "Joo Koon MRT Station",
+      "type": "other",
+      "description": "A local MRT station with nearby amenities.",
+      "address": "Joo Koon St, Singapore 629066"
+    },
+    {
+      "name": "Joo Koon Market & Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center with a variety of local food stalls.",
+      "address": "295 Jurong East St 21, Singapore 600295"
+    },
+    {
+      "name": "Joo Koon Park",
+      "type": "park",
+      "description": "A small park with a playground and open space for relaxation.",
+      "address": "Joo Koon St, Singapore 629066"
+    },
+    {
+      "name": "Joo Koon Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and classes.",
+      "address": "295 Jurong East St 21, Singapore 600295"
+    }
+  ],
+  "gul-circle": [
+    {
+      "name": "Changi Village Hawker Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "2 Yio Chu Kang Rd, Singapore 598891"
+    },
+    {
+      "name": "Changi Village Market",
+      "type": "shopping",
+      "description": "A local market selling fresh produce, household items, and traditional snacks.",
+      "address": "2 Yio Chu Kang Rd, Singapore 598891"
+    },
+    {
+      "name": "Changi Beach Park",
+      "type": "park",
+      "description": "A scenic park with picnic areas, barbecue pits, and coastal walks.",
+      "address": "Netheravon Rd, Singapore 508502"
+    },
+    {
+      "name": "Changi Chapel and Museum",
+      "type": "museum",
+      "description": "A museum dedicated to the history of Changi Prison and its prisoners during World War II.",
+      "address": "1000 Upper Changi Rd N, Singapore 507707"
+    }
+  ],
+  "tuas-crescent": [
+    {
+      "name": "Tuas Crescent Market",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "1 Tuas Crescent, Singapore 638790"
+    },
+    {
+      "name": "Tuas South Industrial Estate",
+      "type": "other",
+      "description": "A bustling industrial area with numerous factories and warehouses.",
+      "address": "Tuas South Ave 1, Singapore 638801"
+    },
+    {
+      "name": "Tuas Checkpoint",
+      "type": "other",
+      "description": "A major checkpoint for vehicles entering and exiting Singapore via the Tuas Link.",
+      "address": "Tuas Checkpoint, Singapore 984000"
+    },
+    {
+      "name": "Tuas South Park",
+      "type": "park",
+      "description": "A small park with green spaces and walking paths, perfect for a quick stroll.",
+      "address": "Tuas South Ave 1, Singapore 638801"
+    }
+  ],
+  "tuas-west-road": [
+    {
+      "name": "Tuas West Industrial Park",
+      "type": "other",
+      "description": "A bustling industrial area with various factories and warehouses.",
+      "address": "Tuas West Road, Singapore"
+    },
+    {
+      "name": "Tuas West Park",
+      "type": "park",
+      "description": "A small park with green spaces and walking paths.",
+      "address": "Tuas West Road, Singapore"
+    },
+    {
+      "name": "Tuas West Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and classes.",
+      "address": "Tuas West Road, Singapore"
+    },
+    {
+      "name": "Tuas West Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center with a variety of food stalls.",
+      "address": "Tuas West Road, Singapore"
+    }
+  ],
+  "tuas-link": [
+    {
+      "name": "Tuas View Park",
+      "type": "park",
+      "description": "A small park with a playground and a pavilion, offering a peaceful retreat from the city.",
+      "address": "Tuas View Lane, Singapore"
+    },
+    {
+      "name": "Tuas South Industrial Estate",
+      "type": "other",
+      "description": "An industrial area with various factories and warehouses, showcasing Singapore's industrial side.",
+      "address": "Tuas South Avenue 1, Singapore"
+    },
+    {
+      "name": "Tuas Checkpoint",
+      "type": "other",
+      "description": "A checkpoint for vehicles entering and exiting Singapore, offering a glimpse into the country's border control processes.",
+      "address": "Tuas Checkpoint, Singapore"
+    },
+    {
+      "name": "Tuas West Park",
+      "type": "park",
+      "description": "A small park with a playground and a pavilion, offering a peaceful retreat from the city.",
+      "address": "Tuas West Road, Singapore"
+    }
+  ],
+  "expo": [
+    {
+      "name": "Singapore Expo",
+      "type": "other",
+      "description": "A large exhibition and convention center hosting various events and trade fairs.",
+      "address": "200 Jurong East Street 21, Singapore 609601"
+    },
+    {
+      "name": "Our Tampines Hub",
+      "type": "other",
+      "description": "A community hub with sports facilities, a library, and various amenities.",
+      "address": "1 Tampines Walk, Singapore 528523"
+    },
+    {
+      "name": "Tampines 1",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide range of retail outlets and dining options.",
+      "address": "10 Tampines Central 1, Singapore 529537"
+    },
+    {
+      "name": "Tampines Stadium",
+      "type": "other",
+      "description": "A sports stadium that hosts various sporting events and activities.",
+      "address": "1 Stadium Walk, Singapore 528749"
+    }
+  ],
+  "changi-airport": [
+    {
+      "name": "Jewel Changi Airport",
+      "type": "shopping",
+      "description": "A lifestyle and shopping destination with a stunning indoor waterfall and a variety of dining and retail options.",
+      "address": "78 Airport Blvd, Singapore 819666"
+    },
+    {
+      "name": "Changi Airport Control Tower",
+      "type": "monument",
+      "description": "A prominent landmark offering panoramic views of the airport and its surroundings.",
+      "address": "Airport Blvd, Singapore 819666"
+    },
+    {
+      "name": "Changi Airport Skytrain",
+      "type": "other",
+      "description": "A free and efficient automated people mover connecting the airport terminals and Jewel Changi.",
+      "address": "Changi Airport, Singapore"
+    },
+    {
+      "name": "Changi Airport Terminal 1",
+      "type": "other",
+      "description": "One of the main terminals at Changi Airport, featuring a wide range of shops, restaurants, and amenities.",
+      "address": "Airport Blvd, Singapore 819660"
+    }
+  ],
+  "harbourfront": [
+    {
+      "name": "VivoCity",
+      "type": "shopping",
+      "description": "One of Singapore's largest shopping malls with a wide range of retail outlets and dining options.",
+      "address": "1 HarbourFront Walk, Singapore 098585"
+    },
+    {
+      "name": "Sentosa Boardwalk",
+      "type": "other",
+      "description": "A scenic boardwalk leading to Sentosa Island, offering beautiful views of the harbor and the Southern Islands.",
+      "address": "200 HarbourFront Walk, Singapore 098586"
+    },
+    {
+      "name": "HarbourFront Centre",
+      "type": "other",
+      "description": "A commercial and residential complex with shops, restaurants, and a ferry terminal to Sentosa Island.",
+      "address": "1 Maritime Square, Singapore 099253"
+    },
+    {
+      "name": "PSA Building",
+      "type": "monument",
+      "description": "A historic building that was once the headquarters of the Port of Singapore Authority, now a landmark in the area.",
+      "address": "462 West Coast Road, Singapore 127064"
+    }
+  ],
+  "chinatown": [
+    {
+      "name": "Chinatown Heritage Centre",
+      "type": "museum",
+      "description": "A museum showcasing the history and culture of early Chinese immigrants in Singapore.",
+      "address": "48 Pagoda St, Singapore 059187"
+    },
+    {
+      "name": "Buddha Tooth Relic Temple and Museum",
+      "type": "monument",
+      "description": "A Buddhist temple housing a relic believed to be the tooth of Buddha.",
+      "address": "288 South Bridge Rd, Singapore 058840"
+    },
+    {
+      "name": "Maxwell Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes.",
+      "address": "26 Maxwell Rd, Singapore 069119"
+    },
+    {
+      "name": "Chinatown Complex",
+      "type": "shopping",
+      "description": "A shopping complex with a variety of stores and a rooftop food centre.",
+      "address": "335 Smith St, Singapore 050335"
+    }
+  ],
+  "clarke-quay": [
+    {
+      "name": "Clarke Quay",
+      "type": "restaurant",
+      "description": "A historic riverside quay with a variety of dining options, bars, and restaurants offering both local and international cuisine.",
+      "address": "3C River Valley Rd, Singapore 179024"
+    },
+    {
+      "name": "Zouk",
+      "type": "other",
+      "description": "One of Singapore's most famous nightclubs, known for its vibrant atmosphere and top DJs.",
+      "address": "3C River Valley Rd, Singapore 179024"
+    },
+    {
+      "name": "Jumbo Seafood",
+      "type": "restaurant",
+      "description": "Famous for its chili crab, this restaurant offers a taste of Singapore's iconic seafood dishes.",
+      "address": "204A River Valley Rd, Singapore 238275"
+    },
+    {
+      "name": "The River House",
+      "type": "restaurant",
+      "description": "A charming restaurant offering a mix of Asian and Western cuisine, with a beautiful view of the Singapore River.",
+      "address": "175A River Valley Rd, Singapore 238275"
+    }
+  ],
+  "little-india": [
+    {
+      "name": "Tekka Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of Indian and local Singaporean dishes.",
+      "address": "665 Buffalo Rd, #01-01/02/03 Singapore 210665"
+    },
+    {
+      "name": "Sri Veeramakaliamman Temple",
+      "type": "monument",
+      "description": "A prominent Hindu temple dedicated to the goddess Kali, known for its vibrant architecture.",
+      "address": "141 Serangoon Rd, Singapore 218042"
+    },
+    {
+      "name": "Mustafa Centre",
+      "type": "shopping",
+      "description": "A 24-hour shopping mall offering a wide range of products, from electronics to textiles.",
+      "address": "144 Rochor Rd, Singapore 188566"
+    },
+    {
+      "name": "Indian Heritage Centre",
+      "type": "museum",
+      "description": "A museum showcasing the history and culture of the Indian community in Singapore.",
+      "address": "5 Campbell Ln, Singapore 209924"
+    }
+  ],
+  "farrer-park": [
+    {
+      "name": "Little India",
+      "type": "other",
+      "description": "A vibrant cultural district known for its colorful shops, temples, and restaurants.",
+      "address": "Buffalo Rd, Singapore"
+    },
+    {
+      "name": "Sri Veeramakaliamman Temple",
+      "type": "monument",
+      "description": "A historic Hindu temple dedicated to the goddess Kali.",
+      "address": "141 Serangoon Rd, Singapore"
+    },
+    {
+      "name": "Tanjong Pagar Plaza Market & Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes.",
+      "address": "298 Tanjong Pagar Rd, Singapore"
+    },
+    {
+      "name": "Simpang Bedok Market & Food Centre",
+      "type": "hawker",
+      "description": "A local market and food center with a variety of stalls selling fresh produce and delicious food.",
+      "address": "495 Bedok North Ave 3, Singapore"
+    }
+  ],
+  "boon-keng": [
+    {
+      "name": "Old Airport Road Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes.",
+      "address": "45 Old Airport Rd, Singapore 390051"
+    },
+    {
+      "name": "Simpang Bedok Market",
+      "type": "hawker",
+      "description": "A local market with a variety of food stalls and shops.",
+      "address": "45 Simpang Bedok Rd, Singapore 460045"
+    },
+    {
+      "name": "Boon Keng Park",
+      "type": "park",
+      "description": "A small neighborhood park with a playground and open space.",
+      "address": "15 Boon Keng Rd, Singapore 330015"
+    },
+    {
+      "name": "Boon Keng Community Centre",
+      "type": "other",
+      "description": "A community center offering various classes and activities.",
+      "address": "17 Boon Keng Rd, Singapore 330017"
+    }
+  ],
+  "potong-pasir": [
+    {
+      "name": "Potong Pasir Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "510 Potong Pasir Ave 1, Singapore 350510"
+    },
+    {
+      "name": "Potong Pasir Community Club",
+      "type": "other",
+      "description": "A community hub offering various recreational and cultural activities.",
+      "address": "510 Potong Pasir Ave 1, Singapore 350510"
+    },
+    {
+      "name": "Potong Pasir Park",
+      "type": "park",
+      "description": "A small, peaceful park with a playground and walking paths.",
+      "address": "510 Potong Pasir Ave 1, Singapore 350510"
+    },
+    {
+      "name": "Potong Pasir Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with various shops and eateries.",
+      "address": "510 Potong Pasir Ave 1, Singapore 350510"
+    }
+  ],
+  "woodleigh": [
+    {
+      "name": "The Woodleigh Mall",
+      "type": "shopping",
+      "description": "A modern shopping mall with a variety of retail outlets, dining options, and a supermarket.",
+      "address": "317 Serangoon Central, #01-01, Singapore 550317"
+    },
+    {
+      "name": "Bidadari Park",
+      "type": "park",
+      "description": "A serene park with walking trails, a playground, and a memorial to the former Bidadari Cemetery.",
+      "address": "Bidadari Park, Singapore"
+    },
+    {
+      "name": "My Humble House",
+      "type": "restaurant",
+      "description": "A cozy restaurant serving a variety of local dishes in a comfortable setting.",
+      "address": "317 Serangoon Central, #01-01, Singapore 550317"
+    },
+    {
+      "name": "Bidadari Estate",
+      "type": "other",
+      "description": "A residential estate with a mix of modern and traditional architecture, offering a glimpse into Singapore's urban landscape.",
+      "address": "Bidadari Estate, Singapore"
+    }
+  ],
+  "serangoon": [
+    {
+      "name": "Nex Shopping Mall",
+      "type": "shopping",
+      "description": "A large suburban mall with a variety of shops, dining options, and a cinema.",
+      "address": "23 Serangoon Central, NEX, Singapore 556083"
+    },
+    {
+      "name": "Chomp Chomp Food Centre",
+      "type": "hawker",
+      "description": "A well-known hawker center offering a variety of local Singaporean dishes.",
+      "address": "20 Kenara Road, Singapore 570022"
+    },
+    {
+      "name": "Serangoon Garden Market",
+      "type": "shopping",
+      "description": "A traditional market offering fresh produce, flowers, and local snacks.",
+      "address": "566 Serangoon Garden Way, Singapore 555986"
+    },
+    {
+      "name": "My Community @ Serangoon",
+      "type": "other",
+      "description": "A community space with various events and activities for locals and visitors.",
+      "address": "23 Serangoon Central, NEX, Singapore 556083"
+    }
+  ],
+  "kovan": [
+    {
+      "name": "Kovan Market and Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker centre offering a variety of local Singaporean dishes.",
+      "address": "200 Hougang St 21, Singapore 530200"
+    },
+    {
+      "name": "Kovan Sports Centre",
+      "type": "other",
+      "description": "A sports facility with a swimming pool, gym, and various courts for different sports.",
+      "address": "200 Hougang St 21, Singapore 530200"
+    },
+    {
+      "name": "Kovan City",
+      "type": "shopping",
+      "description": "A small shopping mall with a supermarket, restaurants, and various retail outlets.",
+      "address": "200 Hougang St 21, Singapore 530200"
+    },
+    {
+      "name": "Kovan Community Club",
+      "type": "other",
+      "description": "A community centre offering various classes, activities, and events for locals.",
+      "address": "200 Hougang St 21, Singapore 530200"
+    }
+  ],
+  "hougang": [
+    {
+      "name": "Hougang Plaza",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops, restaurants, and a supermarket.",
+      "address": "1 Hougang Street 31, Singapore 538498"
+    },
+    {
+      "name": "Kovan Market and Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a wide range of local Singaporean dishes.",
+      "address": "200 Hougang Street 21, Singapore 530200"
+    },
+    {
+      "name": "Heartbeat@Bedok",
+      "type": "shopping",
+      "description": "A community mall with a mix of retail outlets, dining options, and a cinema.",
+      "address": "11 Bedok North Street 1, Singapore 469662"
+    },
+    {
+      "name": "Hougang Sports Centre",
+      "type": "park",
+      "description": "A sports facility with a swimming pool, gym, and various sports courts.",
+      "address": "1 Hougang Street 11, Singapore 538774"
+    }
+  ],
+  "buangkok": [
+    {
+      "name": "Buangkok Square Shopping Centre",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops and eateries.",
+      "address": "1 Yio Chu Kang Road, Singapore 545541"
+    },
+    {
+      "name": "Buangkok Green Medical Clinic",
+      "type": "other",
+      "description": "A local medical clinic providing healthcare services.",
+      "address": "1 Yio Chu Kang Road, #01-07/08 Buangkok Square, Singapore 545541"
+    },
+    {
+      "name": "Buangkok MRT Station Exit A",
+      "type": "monument",
+      "description": "The main exit of Buangkok MRT Station, a key public transportation hub.",
+      "address": "1 Yio Chu Kang Road, Singapore 545541"
+    },
+    {
+      "name": "Buangkok MRT Station Exit B",
+      "type": "monument",
+      "description": "An alternative exit of Buangkok MRT Station, providing access to the surrounding area.",
+      "address": "1 Yio Chu Kang Road, Singapore 545541"
+    }
+  ],
+  "sengkang": [
+    {
+      "name": "Sengkang Community Sports Facility",
+      "type": "other",
+      "description": "A sports facility with a swimming pool, gym, and various sports courts.",
+      "address": "1 Sengkang Square, Singapore 545009"
+    },
+    {
+      "name": "Sengkang Community Hub",
+      "type": "other",
+      "description": "A community hub with various amenities and event spaces.",
+      "address": "1 Sengkang Square, Singapore 545009"
+    },
+    {
+      "name": "Sengkang MRT Station",
+      "type": "other",
+      "description": "A major MRT station serving the Northeast Line.",
+      "address": "1 Sengkang Square, Singapore 545009"
+    },
+    {
+      "name": "Sengkang Bus Interchange",
+      "type": "other",
+      "description": "A bus interchange serving various bus routes in the area.",
+      "address": "1 Sengkang Square, Singapore 545009"
+    }
+  ],
+  "punggol": [
+    {
+      "name": "Punggol Settlement",
+      "type": "other",
+      "description": "A historical site with remnants of a former village, offering a glimpse into Singapore's past.",
+      "address": "Punggol Point Rd, Singapore 828810"
+    },
+    {
+      "name": "Punggol Point Park",
+      "type": "park",
+      "description": "A scenic park with a jetty, offering beautiful views of the sea and the Punggol Promenade.",
+      "address": "Punggol Point Rd, Singapore 828810"
+    },
+    {
+      "name": "Punggol Settlement BBQ Pit",
+      "type": "other",
+      "description": "A popular spot for BBQ and picnics, located near the Punggol Settlement.",
+      "address": "Punggol Point Rd, Singapore 828810"
+    },
+    {
+      "name": "Punggol Settlement Playground",
+      "type": "other",
+      "description": "A small playground for children, located near the Punggol Settlement.",
+      "address": "Punggol Point Rd, Singapore 828810"
+    }
+  ],
+  "bras-basah": [
+    {
+      "name": "National Library Board",
+      "type": "other",
+      "description": "A modern library with a wide range of books and resources, offering a quiet space for reading and learning.",
+      "address": "100 Victoria St, Singapore 188064"
+    },
+    {
+      "name": "National Museum of Singapore",
+      "type": "museum",
+      "description": "Singapore's oldest museum, showcasing the country's history and culture through interactive exhibits.",
+      "address": "93 Stamford Rd, Singapore 178897"
+    },
+    {
+      "name": "Singapore Management University",
+      "type": "other",
+      "description": "A prestigious university with a beautiful campus, offering a glimpse into Singapore's educational landscape.",
+      "address": "81 Victoria St, Singapore 188065"
+    },
+    {
+      "name": "The Cathay",
+      "type": "other",
+      "description": "A historic cinema and shopping complex, offering a mix of entertainment and retail options.",
+      "address": "2 Handy Rd, Singapore 229233"
+    }
+  ],
+  "esplanade": [
+    {
+      "name": "Esplanade Theatres on the Bay",
+      "type": "monument",
+      "description": "A performing arts centre known for its distinctive spiked exterior architecture.",
+      "address": "1 Esplanade Dr, Singapore 038981"
+    },
+    {
+      "name": "Esplanade Park",
+      "type": "park",
+      "description": "A small park with a promenade along the waterfront, offering views of Marina Bay.",
+      "address": "Esplanade Park, Connaught Dr, Singapore 039593"
+    },
+    {
+      "name": "SATS Leisure World Orchard (Esplanade)",
+      "type": "shopping",
+      "description": "A leisure and lifestyle club offering a variety of fitness and wellness services.",
+      "address": "8 Raffles Ave, #03-00/01/02 Esplanade Mall, Singapore 039802"
+    },
+    {
+      "name": "Tanjong Pagar Plaza Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes.",
+      "address": "1 Telok Blangah Cres, Singapore 098804"
+    }
+  ],
+  "promenade": [
+    {
+      "name": "Esplanade - Theatres on the Bay",
+      "type": "monument",
+      "description": "A prominent performing arts centre with a distinctive durian-shaped design.",
+      "address": "1 Esplanade Dr, Singapore 038981"
+    },
+    {
+      "name": "Singapore River",
+      "type": "other",
+      "description": "Historic river with scenic views and boat rides.",
+      "address": "Singapore River, Singapore"
+    },
+    {
+      "name": "The Esplanade Mall",
+      "type": "shopping",
+      "description": "Shopping mall with a variety of retail outlets and dining options.",
+      "address": "8 Raffles Ave, #01-16/17/18 Esplanade Mall, Singapore 039802"
+    },
+    {
+      "name": "Merlion Park",
+      "type": "monument",
+      "description": "Iconic statue of a mythical creature with a lion's head and a fish's body.",
+      "address": "1 Fullerton Square, Singapore 049178"
+    }
+  ],
+  "nicoll-highway": [
+    {
+      "name": "Changi Village Hawker Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "2 Yio Chu Kang Rd, Singapore 598890"
+    },
+    {
+      "name": "Changi Village Park",
+      "type": "park",
+      "description": "A serene park with lush greenery, perfect for a relaxing stroll or a picnic.",
+      "address": "Netheravon Rd, Singapore 598400"
+    },
+    {
+      "name": "Changi Village Market",
+      "type": "shopping",
+      "description": "A local market offering a variety of goods, from fresh produce to household items.",
+      "address": "2 Yio Chu Kang Rd, Singapore 598890"
+    },
+    {
+      "name": "Changi Chapel and Museum",
+      "type": "museum",
+      "description": "A museum dedicated to the history of Changi Prison and the stories of its prisoners during World War II.",
+      "address": "1000 Upper Changi Rd N, Singapore 507455"
+    }
+  ],
+  "stadium": [
+    {
+      "name": "Singapore Sports Hub",
+      "type": "other",
+      "description": "A major sports and entertainment hub in Singapore, featuring a variety of sports facilities and events.",
+      "address": "4 Stadium Walk, Singapore 397699"
+    },
+    {
+      "name": "Singapore Indoor Stadium",
+      "type": "other",
+      "description": "A multi-purpose indoor arena that hosts major sporting events, concerts, and exhibitions.",
+      "address": "2 Stadium Walk, Singapore 397697"
+    },
+    {
+      "name": "Kallang Wave Mall",
+      "type": "shopping",
+      "description": "A lifestyle and retail mall with a variety of shops, dining options, and entertainment facilities.",
+      "address": "1 Stadium Place, Singapore 397628"
+    },
+    {
+      "name": "Singapore Sports Museum",
+      "type": "museum",
+      "description": "A museum showcasing the history and achievements of Singaporean sports and athletes.",
+      "address": "4 Stadium Walk, Singapore 397699"
+    }
+  ],
+  "mountbatten": [
+    {
+      "name": "Old Airport Road Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker center with a variety of local food stalls, offering a true taste of Singapore's culinary culture.",
+      "address": "51 Old Airport Rd, Singapore 390051"
+    },
+    {
+      "name": "Katong Antique House",
+      "type": "shopping",
+      "description": "A charming antique shop with a wide range of vintage items, from furniture to collectibles.",
+      "address": "496 Joo Chiat Rd, Singapore 427664"
+    },
+    {
+      "name": "Tanjong Katong Girls' School Heritage Museum",
+      "type": "museum",
+      "description": "A small museum showcasing the history and heritage of Tanjong Katong Girls' School.",
+      "address": "494 Geylang Rd, Singapore 389402"
+    },
+    {
+      "name": "Mountbatten Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and classes for locals and visitors alike.",
+      "address": "246 Jalan Toa Payoh, Singapore 319845"
+    }
+  ],
+  "dakota": [
+    {
+      "name": "Tiong Bahru Market",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes.",
+      "address": "30 Seng Poh Rd, Singapore 168898"
+    },
+    {
+      "name": "Tiong Bahru Plaza",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets and a food court.",
+      "address": "30 Seng Poh Rd, Singapore 168898"
+    },
+    {
+      "name": "Tiong Bahru Heritage Trail",
+      "type": "monument",
+      "description": "A historical trail showcasing the unique pre-war architecture and history of the Tiong Bahru estate.",
+      "address": "Tiong Bahru Estate, Singapore"
+    },
+    {
+      "name": "Tiong Bahru Bakery",
+      "type": "café",
+      "description": "A cozy bakery offering a variety of artisanal bread and pastries.",
+      "address": "69 Seng Poh Rd, Singapore 168827"
+    }
+  ],
+  "macpherson": [
+    {
+      "name": "MacPherson Market",
+      "type": "shopping",
+      "description": "A local market offering a variety of goods, from fresh produce to household items.",
+      "address": "20 MacPherson Rd, Singapore 368217"
+    },
+    {
+      "name": "MacPherson Community Club",
+      "type": "other",
+      "description": "A community center offering various classes, events, and facilities for locals and visitors.",
+      "address": "20 MacPherson Rd, Singapore 368217"
+    },
+    {
+      "name": "MacPherson Food Centre",
+      "type": "hawker",
+      "description": "A hawker center with a variety of local food stalls offering affordable and delicious meals.",
+      "address": "20 MacPherson Rd, Singapore 368217"
+    },
+    {
+      "name": "MacPherson Playground",
+      "type": "park",
+      "description": "A small playground with a slide, swings, and a see-saw, perfect for a quick playtime.",
+      "address": "20 MacPherson Rd, Singapore 368217"
+    }
+  ],
+  "tai-seng": [
+    {
+      "name": "Tai Seng Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "300A Tai Seng Street, Singapore 530300A"
+    },
+    {
+      "name": "SingPost Tai Seng Post Office",
+      "type": "other",
+      "description": "A local post office providing postal services and stamps.",
+      "address": "300A Tai Seng Street, Singapore 530300A"
+    },
+    {
+      "name": "Tai Seng Shopping Centre",
+      "type": "shopping",
+      "description": "A small shopping centre with various shops and services.",
+      "address": "300A Tai Seng Street, Singapore 530300A"
+    },
+    {
+      "name": "Tai Seng Community Club",
+      "type": "other",
+      "description": "A community club offering various recreational and educational activities.",
+      "address": "300A Tai Seng Street, Singapore 530300A"
+    }
+  ],
+  "bartley": [
+    {
+      "name": "Bartley Mall",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops and dining options.",
+      "address": "51 Bartley Road, Singapore 539863"
+    },
+    {
+      "name": "Bartley Community Club",
+      "type": "other",
+      "description": "A community center offering various classes, events, and activities.",
+      "address": "49 Bartley Road, Singapore 539863"
+    },
+    {
+      "name": "Bartley Christian Church",
+      "type": "other",
+      "description": "A local church with a welcoming community and regular services.",
+      "address": "50 Bartley Road, Singapore 539863"
+    },
+    {
+      "name": "Bartley Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes.",
+      "address": "51 Bartley Road, #01-01, Singapore 539863"
+    }
+  ],
+  "lorong-chuan": [
+    {
+      "name": "Toa Payoh Central",
+      "type": "shopping",
+      "description": "A bustling shopping area with a variety of local shops and eateries.",
+      "address": "Toa Payoh Central, Singapore"
+    },
+    {
+      "name": "Toa Payoh Stadium",
+      "type": "other",
+      "description": "A historic stadium that hosts local sports events and activities.",
+      "address": "60 Toa Payoh Lorong 6, Singapore"
+    },
+    {
+      "name": "Toa Payoh Public Library",
+      "type": "other",
+      "description": "A local library offering a wide range of books and community events.",
+      "address": "6 Toa Payoh Central, Singapore"
+    },
+    {
+      "name": "Kim Keat Palace",
+      "type": "hawker",
+      "description": "A popular hawker center with a variety of local food stalls.",
+      "address": "46 Lorong 6 Toa Payoh, Singapore"
+    }
+  ],
+  "marymount": [
+    {
+      "name": "Marymount Community Centre",
+      "type": "other",
+      "description": "A community center offering various classes and activities for locals and visitors.",
+      "address": "24 Bishan Street 22, Singapore 579767"
+    },
+    {
+      "name": "Marymount Market",
+      "type": "hawker",
+      "description": "A local hawker center with a variety of food stalls offering Singaporean cuisine.",
+      "address": "24 Bishan Street 22, Singapore 579767"
+    },
+    {
+      "name": "Bishan Sports Hall",
+      "type": "other",
+      "description": "A sports hall offering badminton courts and other facilities for public use.",
+      "address": "5 Bishan Street 13, Singapore 579799"
+    },
+    {
+      "name": "Bishan Community Library",
+      "type": "other",
+      "description": "A public library with a wide range of books and resources for all ages.",
+      "address": "5 Bishan Place, #01-01, Singapore 579847"
+    }
+  ],
+  "caldecott": [
+    {
+      "name": "Singapore Botanic Gardens",
+      "type": "park",
+      "description": "A UNESCO World Heritage Site with a wide variety of flora and fauna, including the famous Orchid Garden.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "National Orchid Garden",
+      "type": "park",
+      "description": "A stunning garden within the Singapore Botanic Gardens, featuring over 1,000 species and 2,000 hybrids of orchids.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "Botanic Gardens Swan Lake",
+      "type": "park",
+      "description": "A serene lake within the Singapore Botanic Gardens, perfect for a peaceful stroll or a picnic.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "The Halia at Singapore Botanic Gardens",
+      "type": "restaurant",
+      "description": "A restaurant offering a unique dining experience in a heritage building within the Singapore Botanic Gardens.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    }
+  ],
+  "botanic-gardens": [
+    {
+      "name": "Singapore Botanic Gardens",
+      "type": "park",
+      "description": "A UNESCO World Heritage Site featuring a wide variety of plants and a beautiful orchid garden.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "National Orchid Garden",
+      "type": "park",
+      "description": "A stunning garden within the Botanic Gardens, showcasing over 1,000 species and 2,000 hybrids of orchids.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "Botanic Gardens Visitor Centre",
+      "type": "other",
+      "description": "A visitor center providing information about the Botanic Gardens, including maps, guides, and exhibits.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "The Halia at Singapore Botanic Gardens",
+      "type": "restaurant",
+      "description": "A restaurant offering a unique dining experience in a lush garden setting.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    }
+  ],
+  "farrer-road": [
+    {
+      "name": "Farrer Road Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "545 Farrer Road, Singapore 249230"
+    },
+    {
+      "name": "Bukit Timah Nature Reserve",
+      "type": "park",
+      "description": "A lush green space perfect for hiking and nature walks, featuring diverse flora and fauna.",
+      "address": "177A Bukit Timah Road, Singapore 229881"
+    },
+    {
+      "name": "The Rail Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops and eateries, located near the MRT station.",
+      "address": "105 Bukit Timah Road, Singapore 229833"
+    },
+    {
+      "name": "The Grandeur Park Hotel",
+      "type": "other",
+      "description": "A nearby hotel offering comfortable accommodation and dining options.",
+      "address": "660 Farrer Road, Singapore 249227"
+    }
+  ],
+  "holland-village": [
+    {
+      "name": "Holland Village",
+      "type": "other",
+      "description": "A charming neighborhood with a mix of local and international eateries, boutiques, and cafes.",
+      "address": "43 Jalan Holland, Singapore 270043"
+    },
+    {
+      "name": "Holland Road Shopping Centre",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops, including a supermarket, bakery, and local eateries.",
+      "address": "43 Holland Road, Singapore 270043"
+    },
+    {
+      "name": "The Salad Stop",
+      "type": "restaurant",
+      "description": "A healthy fast-food chain serving salads, wraps, and smoothies.",
+      "address": "43 Jalan Holland, #01-01, Holland Village, Singapore 270043"
+    },
+    {
+      "name": "Holland Road Park",
+      "type": "park",
+      "description": "A small park with a playground, fitness corner, and a sheltered area for outdoor activities.",
+      "address": "Holland Road, Singapore 270043"
+    }
+  ],
+  "one-north": [
+    {
+      "name": "Fusionopolis",
+      "type": "other",
+      "description": "A major business and research hub with modern architecture and various tech companies.",
+      "address": "1 Fusionopolis Way, Singapore 138522"
+    },
+    {
+      "name": "One-North Plaza",
+      "type": "shopping",
+      "description": "A commercial complex with a variety of shops, restaurants, and offices.",
+      "address": "1 Fusionopolis Plaza, Singapore 138522"
+    },
+    {
+      "name": "The Metropolis",
+      "type": "other",
+      "description": "A mixed-use development featuring offices, retail spaces, and dining options.",
+      "address": "238A Thomson Road, Singapore 307696"
+    },
+    {
+      "name": "Wisma GEA",
+      "type": "other",
+      "description": "A commercial building with offices and retail spaces.",
+      "address": "238A Thomson Road, Singapore 307696"
+    }
+  ],
+  "kent-ridge": [
+    {
+      "name": "Kent Ridge Park",
+      "type": "park",
+      "description": "A scenic park with hiking trails and historical significance, offering panoramic views of the southern coast.",
+      "address": "21 Pasir Panggang Road, Singapore 118623"
+    },
+    {
+      "name": "National University of Singapore (NUS) Museum",
+      "type": "museum",
+      "description": "A museum showcasing a diverse collection of art, history, and cultural artifacts from around the world.",
+      "address": "9 Kent Ridge Drive, Singapore 119244"
+    },
+    {
+      "name": "The Kent Ridge Park War Memorial",
+      "type": "monument",
+      "description": "A memorial dedicated to the soldiers who fought in World War II, located within Kent Ridge Park.",
+      "address": "21 Pasir Panggang Road, Singapore 118623"
+    },
+    {
+      "name": "NUS University Town (UTown)",
+      "type": "other",
+      "description": "A vibrant hub within NUS featuring dining options, shops, and recreational facilities.",
+      "address": "8 College Avenue West, Singapore 138608"
+    }
+  ],
+  "haw-par-villa": [
+    {
+      "name": "Haw Par Villa",
+      "type": "other",
+      "description": "A unique theme park showcasing intricate statues and dioramas depicting scenes from Chinese mythology, folklore, and history.",
+      "address": "262 Pasir Panjang Rd, Singapore 118628"
+    },
+    {
+      "name": "Haw Par Villa Dragon World",
+      "type": "other",
+      "description": "A section of Haw Par Villa featuring a large dragon statue and a waterfall, offering a serene and photogenic spot.",
+      "address": "262 Pasir Panjang Rd, Singapore 118628"
+    },
+    {
+      "name": "Haw Par Villa Museum",
+      "type": "museum",
+      "description": "A small museum within Haw Par Villa that provides historical context and additional exhibits related to Chinese culture.",
+      "address": "262 Pasir Panjang Rd, Singapore 118628"
+    },
+    {
+      "name": "Pasir Panjang Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes, providing a quick and affordable meal option.",
+      "address": "685 Pasir Panjang Rd, Singapore 118679"
+    }
+  ],
+  "pasir-panjang": [
+    {
+      "name": "Hawker Chan",
+      "type": "hawker",
+      "description": "Famous for their soy sauce chicken rice and chicken rice with black sauce.",
+      "address": "124 Telok Blangah Crescent, #01-01, Singapore 0900124"
+    },
+    {
+      "name": "Pasir Panjang Park",
+      "type": "park",
+      "description": "A small park with a playground and a walking path along the coast.",
+      "address": "20 Pasir Panjang Road, Singapore 118625"
+    },
+    {
+      "name": "One KM Shopping Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a supermarket, a food court, and some retail shops.",
+      "address": "1 KM, #01-01, Singapore 128966"
+    },
+    {
+      "name": "Pasir Panjang Food Centre",
+      "type": "hawker",
+      "description": "A hawker center with a variety of local food stalls.",
+      "address": "68 Pasir Panjang Road, Singapore 118679"
+    }
+  ],
+  "labrador-park": [
+    {
+      "name": "Labrador Nature Reserve",
+      "type": "park",
+      "description": "A scenic coastal park with historical sites, hiking trails, and beautiful views of the Southern Islands.",
+      "address": "10 Labrador Villa Road, Singapore 119083"
+    },
+    {
+      "name": "Haw Par Villa",
+      "type": "monument",
+      "description": "A unique theme park filled with colorful statues and dioramas depicting scenes from Chinese mythology and history.",
+      "address": "268A West Coast Road, Singapore 127009"
+    },
+    {
+      "name": "Labrador Park Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "11 Labrador Park Road, Singapore 119083"
+    },
+    {
+      "name": "Labrador Park Swim Complex",
+      "type": "other",
+      "description": "An outdoor swimming complex with multiple pools, perfect for a refreshing dip.",
+      "address": "11 Labrador Park Road, Singapore 119083"
+    }
+  ],
+  "telok-blangah": [
+    {
+      "name": "Henderson Waves",
+      "type": "park",
+      "description": "A scenic bridge connecting Mount Faber and Telok Blangah Hill, offering panoramic views of the Southern Islands and the city skyline.",
+      "address": "22 Henderson Rd, Singapore 159545"
+    },
+    {
+      "name": "Haw Par Villa",
+      "type": "monument",
+      "description": "A unique cultural park featuring mythological and religious figures, as well as scenes from Chinese mythology.",
+      "address": "268A Pasir Panjang Rd, Singapore 118684"
+    },
+    {
+      "name": "Telok Blangah Hill Park",
+      "type": "park",
+      "description": "A peaceful park with lush greenery, walking trails, and scenic viewpoints overlooking the Southern Islands.",
+      "address": "2 Telok Blangah Green, Singapore 109178"
+    },
+    {
+      "name": "The Southern Riddles",
+      "type": "other",
+      "description": "A series of art installations and puzzles scattered throughout the Telok Blangah area, encouraging exploration and discovery.",
+      "address": "Various locations around Telok Blangah, Singapore"
+    }
+  ],
+  "bukit-panjang": [
+    {
+      "name": "Bukit Panjang Plaza",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops and eateries.",
+      "address": "1 Jalan Bukit Panjang, Singapore 679944"
+    },
+    {
+      "name": "Bukit Panjang Park",
+      "type": "park",
+      "description": "A small park with walking trails and a playground.",
+      "address": "Bukit Panjang Road, Singapore 679944"
+    },
+    {
+      "name": "Bukit Panjang Community Library",
+      "type": "other",
+      "description": "A local library with a variety of books and resources.",
+      "address": "1 Jalan Tengeh, Singapore 679949"
+    },
+    {
+      "name": "The Punggol Settlement",
+      "type": "restaurant",
+      "description": "A local restaurant serving a variety of Singaporean dishes.",
+      "address": "1A Jalan Tengeh, Singapore 679949"
+    }
+  ],
+  "cashew": [
+    {
+      "name": "Cashew Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and classes for locals and visitors.",
+      "address": "50, Cashew Road, Singapore 679617"
+    },
+    {
+      "name": "Cashew Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center with a variety of Singaporean food stalls.",
+      "address": "50, Cashew Road, Singapore 679617"
+    },
+    {
+      "name": "Cashew MRT Station",
+      "type": "other",
+      "description": "An MRT station on the East-West Line, providing easy access to various parts of Singapore.",
+      "address": "50, Cashew Road, Singapore 679617"
+    },
+    {
+      "name": "Cashew Park",
+      "type": "park",
+      "description": "A small park with green spaces and a playground, perfect for a quick break.",
+      "address": "50, Cashew Road, Singapore 679617"
+    }
+  ],
+  "hillview": [
+    {
+      "name": "HillV2",
+      "type": "shopping",
+      "description": "A lifestyle and retail hub with a variety of shops and dining options.",
+      "address": "6A Hillview Rise, Singapore 667979"
+    },
+    {
+      "name": "HillV2 Community Club",
+      "type": "other",
+      "description": "A community center offering various classes, events, and facilities for locals and visitors.",
+      "address": "6A Hillview Rise, Singapore 667979"
+    },
+    {
+      "name": "HillV2 Food Centre",
+      "type": "hawker",
+      "description": "A food center offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "6A Hillview Rise, Singapore 667979"
+    },
+    {
+      "name": "HillV2 Park",
+      "type": "park",
+      "description": "A small park with greenery and seating areas, perfect for a quick break or picnic.",
+      "address": "6A Hillview Rise, Singapore 667979"
+    }
+  ],
+  "beauty-world": [
+    {
+      "name": "Bukit Timah Plaza",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops and eateries.",
+      "address": "210 Bukit Timah Road, Singapore 588108"
+    },
+    {
+      "name": "Beauty World Centre",
+      "type": "shopping",
+      "description": "A small shopping centre with local shops and restaurants.",
+      "address": "144 Upper Bukit Timah Road, Singapore 588177"
+    },
+    {
+      "name": "Hwa Chong Institution",
+      "type": "other",
+      "description": "A well-known local school with historical significance.",
+      "address": "661 Bukit Timah Road, Singapore 269734"
+    },
+    {
+      "name": "The Rail Mall",
+      "type": "shopping",
+      "description": "A charming shopping area with a mix of local shops and eateries.",
+      "address": "105 Bukit Timah Road, Singapore 229833"
+    }
+  ],
+  "king-albert-park": [
+    {
+      "name": "Albert Complex",
+      "type": "hawker",
+      "description": "A historic hawker centre with a variety of local food stalls.",
+      "address": "270 Queen Street, Singapore 188553"
+    },
+    {
+      "name": "Albert Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of retail outlets.",
+      "address": "270 Queen Street, Singapore 188553"
+    },
+    {
+      "name": "Bencoolen Street",
+      "type": "other",
+      "description": "A street with a variety of local shops and eateries.",
+      "address": "Bencoolen Street, Singapore"
+    },
+    {
+      "name": "Queen Street",
+      "type": "other",
+      "description": "A bustling street with a mix of shops, eateries, and historic buildings.",
+      "address": "Queen Street, Singapore"
+    }
+  ],
+  "sixth-avenue": [
+    {
+      "name": "Botanic Gardens",
+      "type": "park",
+      "description": "A UNESCO World Heritage Site with a wide variety of plants and a beautiful orchid garden.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "National University of Singapore",
+      "type": "other",
+      "description": "One of the top universities in Asia, with beautiful architecture and a rich history.",
+      "address": "21 Lower Kent Ridge Rd, Singapore 119077"
+    },
+    {
+      "name": "Singapore Botanic Gardens Visitor Centre",
+      "type": "other",
+      "description": "A visitor center providing information and exhibits about the Botanic Gardens.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    },
+    {
+      "name": "The Orchid Garden Restaurant",
+      "type": "restaurant",
+      "description": "A restaurant offering a variety of local and international dishes, located within the Botanic Gardens.",
+      "address": "1 Cluny Rd, Singapore 259569"
+    }
+  ],
+  "tan-kah-kee": [
+    {
+      "name": "MacPherson Market Place",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops and eateries.",
+      "address": "200 MacPherson Rd, Singapore 368417"
+    },
+    {
+      "name": "MacPherson Community Club",
+      "type": "other",
+      "description": "A community center offering various activities and classes for locals.",
+      "address": "200 MacPherson Rd, Singapore 368417"
+    },
+    {
+      "name": "MacPherson Food Centre",
+      "type": "hawker",
+      "description": "A hawker center offering a variety of local Singaporean dishes.",
+      "address": "200 MacPherson Rd, Singapore 368417"
+    },
+    {
+      "name": "MacPherson Park",
+      "type": "park",
+      "description": "A small park with a playground and open space for relaxation.",
+      "address": "200 MacPherson Rd, Singapore 368417"
+    }
+  ],
+  "stevens": [
+    {
+      "name": "Stevens Quarter",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of local shops and eateries.",
+      "address": "20 Stevens Lane, Singapore 258705"
+    },
+    {
+      "name": "The Pines",
+      "type": "restaurant",
+      "description": "A cozy restaurant offering a mix of local and international cuisine.",
+      "address": "20 Stevens Lane, #01-01, Singapore 258705"
+    },
+    {
+      "name": "Stevens Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and classes for locals and visitors.",
+      "address": "20 Stevens Lane, Singapore 258705"
+    },
+    {
+      "name": "Stevens Lane Playground",
+      "type": "park",
+      "description": "A small playground for children to enjoy.",
+      "address": "20 Stevens Lane, Singapore 258705"
+    }
+  ],
+  "rochor": [
+    {
+      "name": "Zou Zou Bar & Kitchen",
+      "type": "restaurant",
+      "description": "A trendy spot offering a mix of Asian and Western cuisine with a lively atmosphere.",
+      "address": "186 Rochor Road, Singapore 188463"
+    },
+    {
+      "name": "Sim Lim Square",
+      "type": "shopping",
+      "description": "A popular electronics and IT mall where you can find a wide range of gadgets and accessories.",
+      "address": "1 Rochor Canal Road, Singapore 188504"
+    },
+    {
+      "name": "Bugis Street Market",
+      "type": "shopping",
+      "description": "A bustling street market offering a variety of goods, from clothing to souvenirs.",
+      "address": "Bugis Street, Singapore 188969"
+    },
+    {
+      "name": "Sri Veeramakaliamman Temple",
+      "type": "monument",
+      "description": "A historic Hindu temple dedicated to the goddess Kali, known for its vibrant architecture.",
+      "address": "141 Serangoon Road, Singapore 218042"
+    }
+  ],
+  "downtown": [
+    {
+      "name": "The Esplanade",
+      "type": "monument",
+      "description": "A prominent performing arts center with a distinctive durian-shaped design.",
+      "address": "1 Esplanade Dr, Singapore 038981"
+    },
+    {
+      "name": "Merlion Park",
+      "type": "monument",
+      "description": "Home to the iconic Merlion statue, a mythical creature with a lion's head and a fish's body.",
+      "address": "1 Fullerton Rd, Singapore 049213"
+    },
+    {
+      "name": "The Fullerton Bay Hotel",
+      "type": "restaurant",
+      "description": "A luxurious hotel with fine dining options and stunning views of the bay.",
+      "address": "80 Collyer Quay, Singapore 049326"
+    },
+    {
+      "name": "Asian Civilisations Museum",
+      "type": "museum",
+      "description": "A museum that showcases the rich cultural heritage of Asia.",
+      "address": "1 Empress Pl, Singapore 179555"
+    }
+  ],
+  "telok-ayer": [
+    {
+      "name": "Amoy Street Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker centre with a variety of local food stalls, offering authentic Singaporean cuisine.",
+      "address": "29 Telok Ayer St, Singapore 068536"
+    },
+    {
+      "name": "Telok Ayer Street",
+      "type": "other",
+      "description": "A historic street lined with traditional shophouses, now home to trendy cafes, bars, and boutique shops.",
+      "address": "Telok Ayer St, Singapore"
+    },
+    {
+      "name": "Hajjah Fatimah Mosque",
+      "type": "monument",
+      "description": "A historic mosque with distinctive architecture, built in the 19th century.",
+      "address": "40 Bukit Pasoh Rd, Singapore 089805"
+    },
+    {
+      "name": "Maxwell Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre known for its diverse food offerings and the famous Tian Tian Hainanese Chicken Rice stall.",
+      "address": "26 Maxwell Rd, Singapore 069119"
+    }
+  ],
+  "fort-canning": [
+    {
+      "name": "Fort Canning Park",
+      "type": "park",
+      "description": "A historical park with lush greenery and historical significance, offering a peaceful retreat in the city.",
+      "address": "River Valley Road, Singapore"
+    },
+    {
+      "name": "Fort Canning Centre",
+      "type": "monument",
+      "description": "A historic building within Fort Canning Park, once used as a British military fort and later as a Japanese military base.",
+      "address": "River Valley Road, Singapore"
+    },
+    {
+      "name": "The Spice Garden",
+      "type": "other",
+      "description": "A small garden showcasing the history of spices in Singapore, located within Fort Canning Park.",
+      "address": "Fort Canning Green, Singapore"
+    },
+    {
+      "name": "Fort Canning Arts Centre",
+      "type": "other",
+      "description": "An arts and cultural hub located within Fort Canning Centre, hosting various performances and events.",
+      "address": "River Valley Road, Singapore"
+    }
+  ],
+  "bencoolen": [
+    {
+      "name": "Bencoolen Street Market",
+      "type": "shopping",
+      "description": "A bustling street market offering a variety of local goods, snacks, and souvenirs.",
+      "address": "30 Bencoolen Street, Singapore 189621"
+    },
+    {
+      "name": "Bencoolen Coffee",
+      "type": "café",
+      "description": "A cozy café serving specialty coffee and light bites, perfect for a quick break.",
+      "address": "28 Bencoolen Street, Singapore 189621"
+    },
+    {
+      "name": "Bencoolen Green",
+      "type": "park",
+      "description": "A small urban park with greenery and seating areas, ideal for a short stroll or relaxation.",
+      "address": "20 Bencoolen Street, Singapore 189621"
+    },
+    {
+      "name": "Bencoolen Street Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "26 Bencoolen Street, Singapore 189621"
+    }
+  ],
+  "jalan-besar": [
+    {
+      "name": "Jalan Besar Stadium",
+      "type": "other",
+      "description": "A historic stadium that hosts various events and sports activities.",
+      "address": "380 Jalan Besar, Singapore 208971"
+    },
+    {
+      "name": "Kampong Glam",
+      "type": "other",
+      "description": "A vibrant cultural district known for its historic mosques, boutique shops, and diverse food scene.",
+      "address": "Kampong Glam, Singapore"
+    },
+    {
+      "name": "Zouki",
+      "type": "restaurant",
+      "description": "A trendy spot offering a variety of dishes with a focus on fresh and healthy ingredients.",
+      "address": "166 Jalan Besar, Singapore 208878"
+    },
+    {
+      "name": "The Projector",
+      "type": "other",
+      "description": "An independent cinema showcasing a mix of classic and contemporary films.",
+      "address": "6001 Beach Road, #05-00 Golden Mile Tower, Singapore 199585"
+    }
+  ],
+  "bendemeer": [
+    {
+      "name": "Bendemeer Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "49 Bendemeer Rd, Singapore 330049"
+    },
+    {
+      "name": "Bendemeer Park",
+      "type": "park",
+      "description": "A small, peaceful park with a playground and walking paths, perfect for a quick escape from the city.",
+      "address": "49 Bendemeer Rd, Singapore 330049"
+    },
+    {
+      "name": "Bendemeer Community Centre",
+      "type": "other",
+      "description": "A community center offering various classes and activities for locals and visitors alike.",
+      "address": "49 Bendemeer Rd, Singapore 330049"
+    },
+    {
+      "name": "Bendemeer Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with a supermarket, restaurants, and shops catering to daily needs.",
+      "address": "49 Bendemeer Rd, Singapore 330049"
+    }
+  ],
+  "geylang-bahru": [
+    {
+      "name": "Old Airport Road Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker center offering a variety of local Singaporean dishes.",
+      "address": "45 Old Airport Road, Singapore 390053"
+    },
+    {
+      "name": "Simpang Bedok Market",
+      "type": "hawker",
+      "description": "A local market with a variety of food stalls offering affordable and delicious meals.",
+      "address": "45 Bedok North Street 3, Singapore 460045"
+    },
+    {
+      "name": "Geylang Bahru Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and classes for locals and visitors.",
+      "address": "10 Geylang Bahru Lane, Singapore 400010"
+    },
+    {
+      "name": "Kong Meng San Phor Kark See Monastery",
+      "type": "monument",
+      "description": "A Buddhist monastery with beautiful architecture and a peaceful atmosphere.",
+      "address": "88 Bright Hill Road, Singapore 570005"
+    }
+  ],
+  "mattar": [
+    {
+      "name": "Mattar Food Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "50, Geylang Bahru Lane, Singapore 380050"
+    },
+    {
+      "name": "Mattar Market",
+      "type": "shopping",
+      "description": "A small market selling fresh produce, household items, and more.",
+      "address": "51, Geylang Bahru Lane, Singapore 380050"
+    },
+    {
+      "name": "Mattar Community Club",
+      "type": "other",
+      "description": "A community centre offering various recreational and educational activities.",
+      "address": "26, MacPherson Lane, Singapore 380026"
+    },
+    {
+      "name": "MacPherson Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops and eateries.",
+      "address": "6, MacPherson Mall, Singapore 368079"
+    }
+  ],
+  "ubi": [
+    {
+      "name": "Ubi Avenue 1 Hawker Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean dishes at affordable prices.",
+      "address": "2A Ubi Avenue 1, Singapore 408848"
+    },
+    {
+      "name": "Kembangan – Changkat Changi Park",
+      "type": "park",
+      "description": "A scenic park with a large pond, walking paths, and a playground, perfect for a relaxing stroll.",
+      "address": "Changkat Changi Road, Singapore 428804"
+    },
+    {
+      "name": "Kembangan Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops, including a supermarket, clinics, and eateries.",
+      "address": "2A Kembangan Lane, Singapore 423919"
+    },
+    {
+      "name": "Eunos MRT Station",
+      "type": "monument",
+      "description": "A nearby MRT station with unique architectural features and public art installations.",
+      "address": "460 Eunos Road 8, Singapore 420460"
+    }
+  ],
+  "kaki-bukit": [
+    {
+      "name": "Kaki Bukit Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "695A Kaki Bukit Ave 1, Singapore 416121"
+    },
+    {
+      "name": "Kaki Bukit Community Library",
+      "type": "other",
+      "description": "A modern library with a wide range of books and resources for all ages.",
+      "address": "676A Kaki Bukit Ave 1, Singapore 416121"
+    },
+    {
+      "name": "Kaki Bukit Sports Centre",
+      "type": "other",
+      "description": "A sports facility with a swimming pool, gym, and various courts for different sports.",
+      "address": "663A Kaki Bukit Ave 1, Singapore 416121"
+    },
+    {
+      "name": "Kaki Bukit Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops and eateries.",
+      "address": "678A Kaki Bukit Ave 1, Singapore 416121"
+    }
+  ],
+  "bedok-north": [
+    {
+      "name": "Bedok North Park",
+      "type": "park",
+      "description": "A small, peaceful park with a playground and walking paths.",
+      "address": "Bedok North Ave 3, Singapore"
+    },
+    {
+      "name": "Bedok North Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes.",
+      "address": "451 Bedok North Ave 4, Singapore"
+    },
+    {
+      "name": "Bedok North Community Centre",
+      "type": "other",
+      "description": "A community center hosting various events and activities.",
+      "address": "451 Bedok North Ave 4, Singapore"
+    },
+    {
+      "name": "Bedok North Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with essential amenities and shops.",
+      "address": "451 Bedok North Ave 4, Singapore"
+    }
+  ],
+  "bedok-reservoir": [
+    {
+      "name": "Bedok Reservoir Park",
+      "type": "park",
+      "description": "A scenic park with a large reservoir, perfect for jogging, cycling, and picnics.",
+      "address": "Bedok Reservoir Park, Singapore 479254"
+    },
+    {
+      "name": "Bedok Reservoir Bike Park",
+      "type": "park",
+      "description": "A popular spot for mountain biking with various trails suitable for all skill levels.",
+      "address": "Bedok Reservoir Park, Singapore 479254"
+    },
+    {
+      "name": "The Bedok Food Centre",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "51 Bedok North Street 3, Singapore 460051"
+    },
+    {
+      "name": "Bedok Mall",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Bedok Mall, Singapore 469663"
+    }
+  ],
+  "tampines-west": [
+    {
+      "name": "Tampines West Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and events for locals and visitors.",
+      "address": "20 Tampines West Ring Rd, Singapore 596262"
+    },
+    {
+      "name": "Tampines West CC Park",
+      "type": "park",
+      "description": "A small park with a playground and open spaces for relaxation and recreation.",
+      "address": "20 Tampines West Ring Rd, Singapore 596262"
+    },
+    {
+      "name": "Tampines West Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of affordable and delicious Singaporean dishes.",
+      "address": "55 Tampines West Ring Rd, Singapore 596272"
+    },
+    {
+      "name": "Tampines West CC Sports Centre",
+      "type": "other",
+      "description": "A sports center with facilities for badminton, basketball, and other indoor sports.",
+      "address": "20 Tampines West Ring Rd, Singapore 596262"
+    }
+  ],
+  "tampines-east": [
+    {
+      "name": "Tampines East Community Centre",
+      "type": "other",
+      "description": "A community center offering various activities and events for locals and visitors.",
+      "address": "20 Tampines Street 92, Singapore 528879"
+    },
+    {
+      "name": "Tampines East Sports Hall",
+      "type": "other",
+      "description": "A sports hall where you can engage in various indoor sports activities.",
+      "address": "20 Tampines Street 92, Singapore 528879"
+    },
+    {
+      "name": "Tampines East CC Park",
+      "type": "park",
+      "description": "A small park with greenery and seating areas, perfect for a quick break.",
+      "address": "20 Tampines Street 92, Singapore 528879"
+    },
+    {
+      "name": "Tampines East MRT Station Exit A",
+      "type": "other",
+      "description": "The nearest exit to the MRT station, providing easy access to the surrounding area.",
+      "address": "20 Tampines Street 92, Singapore 528879"
+    }
+  ],
+  "upper-changi": [
+    {
+      "name": "Changi City Point",
+      "type": "shopping",
+      "description": "A shopping mall with a variety of retail outlets, dining options, and a supermarket.",
+      "address": "5 Changi Business Park Central 1, Singapore 486038"
+    },
+    {
+      "name": "Changi City Point Food Court",
+      "type": "hawker",
+      "description": "A food court offering a variety of local Singaporean dishes at affordable prices.",
+      "address": "5 Changi Business Park Central 1, #B1-135/136, Singapore 486038"
+    },
+    {
+      "name": "Changi Business Park Community Club",
+      "type": "other",
+      "description": "A community center offering various recreational and educational activities.",
+      "address": "6 Changi Business Park Central 1, Singapore 486038"
+    },
+    {
+      "name": "Changi City Point Playground",
+      "type": "park",
+      "description": "A small playground for children with various play equipment.",
+      "address": "5 Changi Business Park Central 1, Singapore 486038"
+    }
+  ],
+  "woodlands-north": [
+    {
+      "name": "Causeway Point",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Woodlands Square, Singapore 738068"
+    },
+    {
+      "name": "Woodlands Waterfront Park",
+      "type": "park",
+      "description": "A scenic park along the Singapore River with walking paths, picnic areas, and views of the Johor Strait.",
+      "address": "200 Admiralty Road, Singapore 759962"
+    },
+    {
+      "name": "Admiralty Park",
+      "type": "park",
+      "description": "A large park with playgrounds, water play areas, and nature trails, perfect for families and outdoor enthusiasts.",
+      "address": "10 Woodlands Avenue 12, Singapore 738522"
+    },
+    {
+      "name": "Woodlands South MRT Station",
+      "type": "monument",
+      "description": "A nearby MRT station that provides easy access to other parts of Singapore.",
+      "address": "1 Woodlands Avenue 7, Singapore 738786"
+    }
+  ],
+  "woodlands-south": [
+    {
+      "name": "Causeway Point",
+      "type": "shopping",
+      "description": "A large shopping mall with a wide variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Woodlands Square, Singapore 738068"
+    },
+    {
+      "name": "Woodlands Civic Centre Park",
+      "type": "park",
+      "description": "A well-maintained park with lush greenery, walking paths, and a playground, perfect for a relaxing stroll or a family outing.",
+      "address": "200 Woodlands Street 81, Singapore 730200"
+    },
+    {
+      "name": "Woodlands Regional Library",
+      "type": "other",
+      "description": "A modern library with a vast collection of books, digital resources, and community spaces.",
+      "address": "900 South Woodlands Drive, Singapore 730900"
+    },
+    {
+      "name": "Woodlands South MRT Station Exit A",
+      "type": "other",
+      "description": "The nearest exit to Causeway Point and Woodlands Civic Centre Park.",
+      "address": "Woodlands South MRT Station, Singapore 730900"
+    }
+  ],
+  "springleaf": [
+    {
+      "name": "Springleaf Prata Place",
+      "type": "hawker",
+      "description": "A popular hawker center known for its delicious prata and other local dishes.",
+      "address": "520 Upper Thomson Road, Singapore 574408"
+    },
+    {
+      "name": "Springleaf Nature Park",
+      "type": "park",
+      "description": "A small but serene park with walking trails and a stream, perfect for a quick nature escape.",
+      "address": "520 Upper Thomson Road, Singapore 574408"
+    },
+    {
+      "name": "Thomson Plaza",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops, restaurants, and a supermarket.",
+      "address": "550 Upper Thomson Road, Singapore 574421"
+    },
+    {
+      "name": "Zhongshan Mall",
+      "type": "shopping",
+      "description": "A neighborhood mall with a mix of local shops and eateries.",
+      "address": "501 Upper Thomson Road, Singapore 574414"
+    }
+  ],
+  "lentor": [
+    {
+      "name": "Ang Mo Kio Town Garden West",
+      "type": "park",
+      "description": "A serene park with a large pond, walking trails, and a playground.",
+      "address": "500 Ang Mo Kio Ave 10, Singapore 569983"
+    },
+    {
+      "name": "Jubilee Square",
+      "type": "other",
+      "description": "A community space with a stage for performances and events.",
+      "address": "241 Ang Mo Kio Ave 3, Singapore 560241"
+    },
+    {
+      "name": "Ang Mo Kio Public Library",
+      "type": "other",
+      "description": "A modern library with a wide range of books and digital resources.",
+      "address": "50, Central Plaza 1, Ang Mo Kio Ave 8, Singapore 560060"
+    },
+    {
+      "name": "AMK Hub",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets and dining options.",
+      "address": "53 Ang Mo Kio Ave 8, Singapore 569585"
+    }
+  ],
+  "mayflower": [
+    {
+      "name": "Mayflower Market",
+      "type": "shopping",
+      "description": "A small local market with fresh produce and local snacks.",
+      "address": "100 Pasir Ris Drive 3, Singapore 519521"
+    },
+    {
+      "name": "Pasir Ris Sports and Recreation Centre",
+      "type": "park",
+      "description": "A large sports complex with facilities for various activities.",
+      "address": "101 Pasir Ris Drive 3, Singapore 519521"
+    },
+    {
+      "name": "Pasir Ris Park",
+      "type": "park",
+      "description": "A beautiful coastal park with cycling paths, BBQ pits, and a scenic boardwalk.",
+      "address": "Pasir Ris Park, Singapore 519597"
+    },
+    {
+      "name": "White Sands Shopping Mall",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of retail outlets and eateries.",
+      "address": "1 Pasir Ris Close, Singapore 519508"
+    }
+  ],
+  "bright-hill": [
+    {
+      "name": "Toa Payoh Central",
+      "type": "shopping",
+      "description": "A bustling shopping area with a variety of local shops and eateries.",
+      "address": "Toa Payoh Central, Singapore"
+    },
+    {
+      "name": "Toa Payoh Public Library",
+      "type": "other",
+      "description": "A local library offering a quiet space and a variety of books.",
+      "address": "6 Toa Payoh Central, Singapore 319192"
+    },
+    {
+      "name": "HDB Hub",
+      "type": "other",
+      "description": "A government building where you can learn about Singapore's public housing.",
+      "address": "480 Lorong 6 Toa Payoh, Singapore 310480"
+    },
+    {
+      "name": "Toa Payoh West Community Centre",
+      "type": "other",
+      "description": "A community center offering various local activities and events.",
+      "address": "170 Toa Payoh Central, Singapore 310017"
+    }
+  ],
+  "upper-thomson": [
+    {
+      "name": "Jia Den Thai Cuisine",
+      "type": "restaurant",
+      "description": "A popular Thai restaurant known for its authentic flavors and cozy atmosphere.",
+      "address": "20 Upper Thomson Road, Singapore 574409"
+    },
+    {
+      "name": "Sin Huat Eating House",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "20 Upper Thomson Road, Singapore 574409"
+    },
+    {
+      "name": "Thomson Plaza",
+      "type": "shopping",
+      "description": "A small shopping mall with a variety of shops and a supermarket.",
+      "address": "20 Upper Thomson Road, Singapore 574409"
+    },
+    {
+      "name": "Upper Thomson Nature Park",
+      "type": "park",
+      "description": "A small park with walking trails and a playground, perfect for a quick nature break.",
+      "address": "20 Upper Thomson Road, Singapore 574409"
+    }
+  ],
+  "napier": [
+    {
+      "name": "The Fullerton Hotel Singapore",
+      "type": "other",
+      "description": "A historic hotel located in a former British military barracks, offering luxurious accommodations and stunning views of the Singapore skyline.",
+      "address": "1 Fullerton Square, Singapore 018228"
+    },
+    {
+      "name": "The Fullerton Bay Hotel Singapore",
+      "type": "other",
+      "description": "A luxurious hotel with modern amenities, situated in a historic building with a waterfront location.",
+      "address": "80 Collyer Quay, Singapore 049326"
+    },
+    {
+      "name": "The Fullerton Pavilion",
+      "type": "shopping",
+      "description": "A shopping center with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Fullerton Square, Singapore 018228"
+    },
+    {
+      "name": "Merlion Park",
+      "type": "monument",
+      "description": "A prominent tourist attraction featuring the Merlion statue, a mythical creature with a lion's head and a fish's body, spouting water from its mouth.",
+      "address": "1 Fullerton Square, Singapore 018228"
+    }
+  ],
+  "orchard-boulevard": [
+    {
+      "name": "Orchard Central",
+      "type": "shopping",
+      "description": "A popular shopping mall with a wide range of retail outlets, dining options, and entertainment facilities.",
+      "address": "181 Orchard Rd, Singapore 238896"
+    },
+    {
+      "name": "Orchard Gateway",
+      "type": "shopping",
+      "description": "A lifestyle destination with a mix of retail, dining, and entertainment options.",
+      "address": "277 Orchard Rd, Singapore 238857"
+    },
+    {
+      "name": "Lido",
+      "type": "shopping",
+      "description": "A historic shopping mall with a variety of shops and dining options.",
+      "address": "55 Orchard Rd, Singapore 238865"
+    },
+    {
+      "name": "Orchard Central (Rooftop)",
+      "type": "other",
+      "description": "A rooftop garden with a variety of plants and a great view of the surrounding area.",
+      "address": "181 Orchard Rd, Singapore 238896"
+    }
+  ],
+  "great-world": [
+    {
+      "name": "Great World City",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "1 Kim Seng Promenade, Singapore 237994"
+    },
+    {
+      "name": "Great World City Hawker Centre",
+      "type": "hawker",
+      "description": "A food court offering a wide range of local Singaporean dishes at affordable prices.",
+      "address": "1 Kim Seng Promenade, #01-121/123, Singapore 237994"
+    },
+    {
+      "name": "Great World City Cineplex",
+      "type": "other",
+      "description": "A cinema complex showing the latest movies in a comfortable setting.",
+      "address": "1 Kim Seng Promenade, #03-100/102, Singapore 237994"
+    },
+    {
+      "name": "Great World City Rooftop Garden",
+      "type": "park",
+      "description": "A serene rooftop garden offering a peaceful retreat amidst the bustling city.",
+      "address": "1 Kim Seng Promenade, Rooftop, Singapore 237994"
+    }
+  ],
+  "havelock": [
+    {
+      "name": "Chinatown Complex",
+      "type": "hawker",
+      "description": "A bustling hawker center with a wide variety of local food stalls.",
+      "address": "335 Smith St, Singapore 050335"
+    },
+    {
+      "name": "Buddha Tooth Relic Temple and Museum",
+      "type": "museum",
+      "description": "A temple and museum that houses a sacred relic of the Buddha.",
+      "address": "288 South Bridge Rd, Singapore 058840"
+    },
+    {
+      "name": "Sri Mariamman Temple",
+      "type": "monument",
+      "description": "A historic Hindu temple with intricate architecture and vibrant colors.",
+      "address": "244 South Bridge Rd, Singapore 058793"
+    },
+    {
+      "name": "Maxwell Food Centre",
+      "type": "hawker",
+      "description": "A popular hawker center known for its diverse and delicious local cuisine.",
+      "address": "1 Kadayanallur St, Singapore 069184"
+    }
+  ],
+  "maxwell": [
+    {
+      "name": "Maxwell Food Centre",
+      "type": "hawker",
+      "description": "A famous hawker center with a variety of local food stalls, offering Singaporean delicacies like Hainanese chicken rice and satay.",
+      "address": "200 Maxwell Rd, 069540"
+    },
+    {
+      "name": "Amoy Street Food Centre",
+      "type": "hawker",
+      "description": "Another popular hawker center nearby, known for its diverse range of local dishes and affordable prices.",
+      "address": "7 Maxwell Rd, 069111"
+    },
+    {
+      "name": "Telok Ayer Market",
+      "type": "hawker",
+      "description": "A historic market with a mix of food stalls and wet market sections, offering fresh produce and local snacks.",
+      "address": "25A Telok Ayer St, 048278"
+    },
+    {
+      "name": "Boon Tat Street",
+      "type": "other",
+      "description": "A charming street with colorful shophouses, known for its vibrant street art and trendy cafes.",
+      "address": "Boon Tat St, 069605"
+    }
+  ],
+  "shenton-way": [
+    {
+      "name": "Shentonist",
+      "type": "restaurant",
+      "description": "A trendy restaurant offering a variety of local and international dishes.",
+      "address": "1 Shenton Way, #01-01, Singapore 068803"
+    },
+    {
+      "name": "Shenton Way Park",
+      "type": "park",
+      "description": "A small urban park with greenery and seating areas, perfect for a quick break.",
+      "address": "Shenton Way, Singapore"
+    },
+    {
+      "name": "UIC Building",
+      "type": "monument",
+      "description": "A historic building that is a landmark in the area.",
+      "address": "36 Shenton Way, Singapore 068809"
+    },
+    {
+      "name": "Shentonist Café",
+      "type": "café",
+      "description": "A cozy café offering a variety of coffee and light snacks.",
+      "address": "1 Shenton Way, #01-02, Singapore 068803"
+    }
+  ],
+  "gardens-by-the-bay": [
+    {
+      "name": "Gardens by the Bay",
+      "type": "park",
+      "description": "A nature park spanning 101 hectares of reclaimed land in central Singapore, adjacent to the Marina Reservoir.",
+      "address": "18 Marina Gardens Dr, Singapore 018953"
+    },
+    {
+      "name": "Marina Bay Sands SkyPark",
+      "type": "monument",
+      "description": "An iconic rooftop infinity pool and observation deck offering panoramic views of the city.",
+      "address": "10 Bayfront Ave, Singapore 018956"
+    },
+    {
+      "name": "Cloud Forest Dome",
+      "type": "monument",
+      "description": "A stunning indoor waterfall and lush, misty forest within Gardens by the Bay.",
+      "address": "18 Marina Gardens Dr, Singapore 018953"
+    },
+    {
+      "name": "Flower Dome",
+      "type": "monument",
+      "description": "A beautiful conservatory showcasing a variety of plants from different regions of the world.",
+      "address": "18 Marina Gardens Dr, Singapore 018953"
+    }
+  ],
+  "tanjong-rhu": [
+    {
+      "name": "Tanjong Rhu PCN",
+      "type": "park",
+      "description": "A small park with a playground and a basketball court, perfect for a quick break or some light exercise.",
+      "address": "200 Tanjong Rhu Road, Singapore 436963"
+    },
+    {
+      "name": "Tanjong Rhu Market & Food Centre",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "200 Tanjong Rhu Road, Singapore 436963"
+    },
+    {
+      "name": "Tanjong Rhu Community Centre",
+      "type": "other",
+      "description": "A community center that hosts various events and activities for locals and visitors alike.",
+      "address": "200 Tanjong Rhu Road, Singapore 436963"
+    },
+    {
+      "name": "Tanjong Rhu Neighbourhood Police Post",
+      "type": "other",
+      "description": "A small police post serving the local community, ensuring safety and security in the area.",
+      "address": "200 Tanjong Rhu Road, Singapore 436963"
+    }
+  ],
+  "katong-park": [
+    {
+      "name": "Katong Vintage Kodak",
+      "type": "shopping",
+      "description": "A quaint shop selling vintage cameras and film.",
+      "address": "414 East Coast Road, Singapore 428987"
+    },
+    {
+      "name": "The Katong Antique House",
+      "type": "shopping",
+      "description": "An antique shop with a variety of collectibles and vintage items.",
+      "address": "420 East Coast Road, Singapore 428988"
+    },
+    {
+      "name": "Whampoa Sunbeam Coffee Powder",
+      "type": "shopping",
+      "description": "A local shop selling traditional Singaporean coffee powder.",
+      "address": "426 East Coast Road, Singapore 428989"
+    },
+    {
+      "name": "Katong Bakery",
+      "type": "café",
+      "description": "A famous bakery known for its traditional Singaporean pastries and cakes.",
+      "address": "429 East Coast Road, Singapore 428990"
+    }
+  ],
+  "tanjong-katong": [
+    {
+      "name": "Tanjong Katong Complex",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops, eateries, and a wet market.",
+      "address": "450 Geylang Rd, Singapore 389390"
+    },
+    {
+      "name": "Tanjong Katong Heritage Trail",
+      "type": "monument",
+      "description": "A trail showcasing the history and architecture of the Tanjong Katong area.",
+      "address": "Tanjong Katong Rd, Singapore"
+    },
+    {
+      "name": "Tanjong Katong Bakery",
+      "type": "café",
+      "description": "A historic bakery known for its traditional pastries and cakes.",
+      "address": "469 Geylang Rd, Singapore 389390"
+    },
+    {
+      "name": "Tanjong Katong United Chinese School",
+      "type": "monument",
+      "description": "A historic school building that reflects the architectural style of the early 20th century.",
+      "address": "41 Geylang Rd, Singapore 389010"
+    }
+  ],
+  "marine-parade": [
+    {
+      "name": "Changi Village Hawker Centre",
+      "type": "hawker",
+      "description": "A popular hawker centre offering a variety of local Singaporean dishes.",
+      "address": "2 Yishun Avenue 11, Singapore 768867"
+    },
+    {
+      "name": "Marine Parade Community Library",
+      "type": "other",
+      "description": "A local library with a variety of books and resources.",
+      "address": "278 Marine Parade Road, Singapore 449269"
+    },
+    {
+      "name": "Marine Parade Polyclinic",
+      "type": "other",
+      "description": "A government polyclinic providing affordable healthcare services.",
+      "address": "277 Marine Parade Road, Singapore 449292"
+    },
+    {
+      "name": "Marine Parade Park",
+      "type": "park",
+      "description": "A small park with a playground and open space for relaxation.",
+      "address": "276 Marine Parade Road, Singapore 449280"
+    }
+  ],
+  "marine-terrace": [
+    {
+      "name": "Marine Terrace Market",
+      "type": "hawker",
+      "description": "A local hawker center offering a variety of Singaporean dishes at affordable prices.",
+      "address": "20 Marine Terrace, Singapore 440020"
+    },
+    {
+      "name": "Marine Terrace Park",
+      "type": "park",
+      "description": "A small, peaceful park with a playground and a nice view of the sea.",
+      "address": "Marine Terrace, Singapore 440020"
+    },
+    {
+      "name": "Marine Terrace Community Centre",
+      "type": "other",
+      "description": "A community center offering various classes and activities for locals and visitors.",
+      "address": "20 Marine Terrace, Singapore 440020"
+    },
+    {
+      "name": "Marine Terrace Sports Centre",
+      "type": "other",
+      "description": "A sports center with facilities for badminton, basketball, and swimming.",
+      "address": "20 Marine Terrace, Singapore 440020"
+    }
+  ],
+  "siglap": [
+    {
+      "name": "Siglap Community Club",
+      "type": "other",
+      "description": "A local community center offering various activities and classes for residents.",
+      "address": "51 Siglap Road, Singapore 455875"
+    },
+    {
+      "name": "Siglap Market",
+      "type": "hawker",
+      "description": "A bustling hawker center with a variety of local food stalls offering affordable and delicious meals.",
+      "address": "51 Siglap Road, Singapore 455875"
+    },
+    {
+      "name": "Siglap Park",
+      "type": "park",
+      "description": "A small, peaceful park with a playground and open spaces for relaxation and recreation.",
+      "address": "Siglap Road, Singapore 455875"
+    },
+    {
+      "name": "Siglap Centre",
+      "type": "shopping",
+      "description": "A small shopping center with a supermarket, shops, and eateries.",
+      "address": "51 Siglap Road, Singapore 455875"
+    }
+  ],
+  "bayshore": [
+    {
+      "name": "Bayshore Plaza",
+      "type": "shopping",
+      "description": "A local shopping mall with a variety of shops and dining options.",
+      "address": "430 Bayshore Rd, Singapore 460430"
+    },
+    {
+      "name": "Bayshore Park",
+      "type": "park",
+      "description": "A small park with a playground and open spaces for relaxation.",
+      "address": "430 Bayshore Rd, Singapore 460430"
+    },
+    {
+      "name": "Bayshore Hawker Centre",
+      "type": "hawker",
+      "description": "A local hawker centre offering a variety of Singaporean street food.",
+      "address": "430 Bayshore Rd, Singapore 460430"
+    },
+    {
+      "name": "Bayshore Library",
+      "type": "other",
+      "description": "A public library with a wide range of books and resources.",
+      "address": "430 Bayshore Rd, Singapore 460430"
+    }
+  ],
+  "sungei-bedok": [
+    {
+      "name": "Bedok Mall",
+      "type": "shopping",
+      "description": "A large shopping mall with a variety of retail outlets, dining options, and entertainment facilities.",
+      "address": "311 New Upper Changi Road, Singapore 467363"
+    },
+    {
+      "name": "Bedok Market",
+      "type": "hawker",
+      "description": "A bustling hawker center offering a wide array of local Singaporean cuisine at affordable prices.",
+      "address": "311 New Upper Changi Road, Singapore 467363"
+    },
+    {
+      "name": "Bedok Community Library",
+      "type": "other",
+      "description": "A local library offering a quiet space to read and access to a variety of books and resources.",
+      "address": "311 New Upper Changi Road, Singapore 467363"
+    },
+    {
+      "name": "Bedok Swimming Complex",
+      "type": "other",
+      "description": "A public swimming complex with multiple pools, suitable for family outings and recreational swimming.",
+      "address": "2 Bedok Reservoir Road, Singapore 479226"
+    }
+  ]
+}

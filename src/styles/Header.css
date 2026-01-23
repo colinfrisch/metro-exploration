@@ -1,6 +1,19 @@
 .header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem 1rem;
+}
+
+.header__left {
+  flex: 0 0 auto;
+  min-width: 150px;
+}
+
+.header__center {
+  flex: 1;
   text-align: center;
-  padding: 1.5rem 0 1rem;
 }
 
 .header__title {
@@ -43,3 +56,68 @@
   margin-top: 0.25rem;
   font-size: 1.1rem;
 }
+
+.header__auth {
+  flex: 0 0 auto;
+  min-width: 150px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__login-button {
+  background: #1e40af;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.header__login-button:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.header__user-button {
+  background: rgba(30, 64, 175, 0.1);
+  border: 2px solid #1e40af;
+  color: #e6edf3;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+
+.header__user-button:hover {
+  background: rgba(30, 64, 175, 0.2);
+  transform: translateY(-1px);
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.user-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

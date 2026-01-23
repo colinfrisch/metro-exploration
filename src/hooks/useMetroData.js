@@ -1,10 +1,86 @@
-import { useMemo, useCallback } from 'react';
-import linesData from '../data/lines.json';
-import stationsData from '../data/stations.json';
-import { latLngToSvg } from '../utils/metro';
+import { useMemo, useCallback, useState, useEffect } from 'react';
+import { useCity } from '../contexts/CityContext';
+
+// Dynamic imports for city data
+const cityDataImports = {
+  paris: {
+    lines: () => import('../data/paris/lines.json'),
+    stations: () => import('../data/paris/stations.json'),
+    recommendations: () => import('../data/paris/station_recommendations.json')
+  },
+  london: {
+    lines: () => import('../data/london/lines.json'),
+    stations: () => import('../data/london/stations.json'),
+    recommendations: () => import('../data/london/station_recommendations.json')
+  },
+  singapore: {
+    lines: () => import('../data/singapore/lines.json'),
+    stations: () => import('../data/singapore/stations.json'),
+    recommendations: () => import('../data/singapore/station_recommendations.json')
+  }
+};
+
+// SVG dimensions (same for all cities)
+const SVG_WIDTH = 1000;
+const SVG_HEIGHT = 850;
+const PADDING = 40;
+
+// Convert lat/lng to SVG coordinates based on city bounds
+function createLatLngToSvg(bounds) {
+  return function latLngToSvg(lat, lng) {
+    const x = PADDING + ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * (SVG_WIDTH - 2 * PADDING);
+    const y = PADDING + ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * (SVG_HEIGHT - 2 * PADDING);
+    return { x, y };
+  };
+}
 
 export function useMetroData() {
+  const { currentCity, cityConfig } = useCity();
+  
+  const [stationsData, setStationsData] = useState({ stations: {}, lines: {} });
+  const [linesData, setLinesData] = useState([]);
+  const [recommendationsData, setRecommendationsData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Load city data when city changes
+  useEffect(() => {
+    async function loadCityData() {
+      setIsLoading(true);
+      setError(null);
+      
+      try {
+        const imports = cityDataImports[currentCity];
+        if (!imports) {
+          throw new Error(`No data available for city: ${currentCity}`);
+        }
+
+        const [stationsModule, linesModule, recommendationsModule] = await Promise.all([
+          imports.stations(),
+          imports.lines(),
+          imports.recommendations()
+        ]);
+
+        setStationsData(stationsModule.default);
+        setLinesData(linesModule.default);
+        setRecommendationsData(recommendationsModule.default);
+      } catch (err) {
+        console.error('Failed to load city data:', err);
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadCityData();
+  }, [currentCity]);
+
   const { stations, lines } = stationsData;
+
+  // Create lat/lng converter based on city bounds
+  const latLngToSvg = useMemo(() => {
+    return createLatLngToSvg(cityConfig.bounds);
+  }, [cityConfig.bounds]);
 
   // Process stations with SVG coordinates
   const processedStations = useMemo(() => {
@@ -20,7 +96,7 @@ export function useMetroData() {
       };
     });
     return result;
-  }, [stations]);
+  }, [stations, latLngToSvg]);
 
   const allStations = useMemo(() => Object.values(processedStations), [processedStations]);
 
@@ -29,7 +105,7 @@ export function useMetroData() {
 
   const getLineData = useCallback((lineId) => {
     return linesData.find(l => l.id === getBaseLineId(lineId));
-  }, [getBaseLineId]);
+  }, [getBaseLineId, linesData]);
 
   const getLineColor = useCallback((lineId) => {
     return getLineData(lineId)?.color || '#ffffff';
@@ -67,7 +143,7 @@ export function useMetroData() {
   }, [lines, processedStations]);
 
   const getDirectionLabels = useCallback((currentStation, currentLine) => {
-    const defaultLabels = { forward: "Direction 1", backward: "Direction 2" };
+    const defaultLabels = { forward: cityConfig.text.forward, backward: cityConfig.text.backward };
     if (!currentStation || !currentLine) return defaultLabels;
     
     const lineStationIds = lines[currentLine];
@@ -77,18 +153,28 @@ export function useMetroData() {
     const lastName = processedStations[lineStationIds[lineStationIds.length - 1]]?.name || "Terminus";
     
     return { forward: `→ ${lastName}`, backward: `← ${firstName}` };
-  }, [lines, processedStations]);
+  }, [lines, processedStations, cityConfig.text]);
+
+  const getRecommendations = useCallback((stationId) => {
+    return recommendationsData[stationId] || [];
+  }, [recommendationsData]);
 
   return {
     stations,
     lines,
     processedStations,
     allStations,
+    linesData,
+    recommendationsData,
+    isLoading,
+    error,
+    latLngToSvg,
     getLineData,
     getLineColor,
     getLineStations,
     getLinesForStation,
     getNextStation,
-    getDirectionLabels
+    getDirectionLabels,
+    getRecommendations
   };
 }

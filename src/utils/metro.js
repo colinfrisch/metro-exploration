@@ -1,4 +1,5 @@
-// Map coordinate system
+// Map coordinate system - Default bounds (Paris)
+// These are now configurable per city in CityContext
 export const BOUNDS = {
   minLat: 48.72,
   maxLat: 48.95,
@@ -10,11 +11,18 @@ export const SVG_WIDTH = 1000;
 export const SVG_HEIGHT = 850;
 export const PADDING = 40;
 
-// Convert lat/lng to SVG coordinates
-export function latLngToSvg(lat, lng) {
-  const x = PADDING + ((lng - BOUNDS.minLng) / (BOUNDS.maxLng - BOUNDS.minLng)) * (SVG_WIDTH - 2 * PADDING);
-  const y = PADDING + ((BOUNDS.maxLat - lat) / (BOUNDS.maxLat - BOUNDS.minLat)) * (SVG_HEIGHT - 2 * PADDING);
+// Convert lat/lng to SVG coordinates (default for Paris, use hook for dynamic)
+export function latLngToSvg(lat, lng, bounds = BOUNDS) {
+  const x = PADDING + ((lng - bounds.minLng) / (bounds.maxLng - bounds.minLng)) * (SVG_WIDTH - 2 * PADDING);
+  const y = PADDING + ((bounds.maxLat - lat) / (bounds.maxLat - bounds.minLat)) * (SVG_HEIGHT - 2 * PADDING);
   return { x, y };
+}
+
+// Create a lat/lng converter for specific city bounds
+export function createLatLngToSvg(bounds) {
+  return function(lat, lng) {
+    return latLngToSvg(lat, lng, bounds);
+  };
 }
 
 // Game state machine

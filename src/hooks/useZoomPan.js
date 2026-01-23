@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { SVG_WIDTH, SVG_HEIGHT } from '../utils/metro';
 
 export function useZoomPan() {
@@ -60,22 +60,26 @@ export function useZoomPan() {
     }
   }, [zoom]);
 
+  const handlers = useMemo(() => ({
+    onWheel: handleWheel,
+    onMouseDown: handleMouseDown,
+    onMouseMove: handleMouseMove,
+    onMouseUp: handleMouseUp,
+    onMouseLeave: handleMouseUp
+  }), [handleWheel, handleMouseDown, handleMouseMove, handleMouseUp]);
+
+  const controls = useMemo(() => ({
+    zoomIn,
+    zoomOut,
+    resetZoom,
+    centerOnStation
+  }), [zoomIn, zoomOut, resetZoom, centerOnStation]);
+
   return {
     zoom,
     pan,
     isPanning,
-    handlers: {
-      onWheel: handleWheel,
-      onMouseDown: handleMouseDown,
-      onMouseMove: handleMouseMove,
-      onMouseUp: handleMouseUp,
-      onMouseLeave: handleMouseUp
-    },
-    controls: {
-      zoomIn,
-      zoomOut,
-      resetZoom,
-      centerOnStation
-    }
+    handlers,
+    controls
   };
 }
