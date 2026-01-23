@@ -1,26 +1,35 @@
 import { useState, useCallback, useMemo } from 'react';
 import { SVG_WIDTH, SVG_HEIGHT } from '../utils/metro';
+import type { Station, Point, ZoomPanHandlers, ZoomPanControls } from '../types';
 
-export function useZoomPan() {
+interface UseZoomPanReturn {
+  zoom: number;
+  pan: Point;
+  isPanning: boolean;
+  handlers: ZoomPanHandlers;
+  controls: ZoomPanControls;
+}
+
+export function useZoomPan(): UseZoomPanReturn {
   const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [pan, setPan] = useState<Point>({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
-  const [panStart, setPanStart] = useState({ x: 0, y: 0 });
+  const [panStart, setPanStart] = useState<Point>({ x: 0, y: 0 });
 
-  const handleWheel = useCallback((e) => {
+  const handleWheel = useCallback((e: React.WheelEvent) => {
     e.preventDefault();
     const delta = e.deltaY > 0 ? -0.1 : 0.1;
     setZoom(z => Math.min(Math.max(0.5, z + delta), 4));
   }, []);
 
-  const handleMouseDown = useCallback((e) => {
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
     if (e.button === 0 && (e.ctrlKey || e.metaKey || zoom > 1)) {
       setIsPanning(true);
       setPanStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
     }
   }, [pan, zoom]);
 
-  const handleMouseMove = useCallback((e) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (isPanning) {
       setPan({
         x: e.clientX - panStart.x,
@@ -41,7 +50,7 @@ export function useZoomPan() {
   const zoomIn = useCallback(() => setZoom(z => Math.min(z + 0.25, 4)), []);
   const zoomOut = useCallback(() => setZoom(z => Math.max(z - 0.25, 0.5)), []);
 
-  const centerOnStation = useCallback((station, containerRef) => {
+  const centerOnStation = useCallback((station: Station | null, containerRef: React.RefObject<HTMLDivElement | null>) => {
     if (station && containerRef.current) {
       const container = containerRef.current;
       const containerRect = container.getBoundingClientRect();
@@ -60,7 +69,7 @@ export function useZoomPan() {
     }
   }, [zoom]);
 
-  const handlers = useMemo(() => ({
+  const handlers = useMemo<ZoomPanHandlers>(() => ({
     onWheel: handleWheel,
     onMouseDown: handleMouseDown,
     onMouseMove: handleMouseMove,
@@ -68,7 +77,7 @@ export function useZoomPan() {
     onMouseLeave: handleMouseUp
   }), [handleWheel, handleMouseDown, handleMouseMove, handleMouseUp]);
 
-  const controls = useMemo(() => ({
+  const controls = useMemo<ZoomPanControls>(() => ({
     zoomIn,
     zoomOut,
     resetZoom,

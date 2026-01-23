@@ -1,17 +1,29 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  updateProfile
+  updateProfile,
+  User,
+  UserCredential
 } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
+import type { UserProfile } from '../types';
 
-const AuthContext = createContext();
+interface AuthContextValue {
+  currentUser: User | null;
+  userProfile: UserProfile | null;
+  signup: (email: string, password: string, displayName: string) => Promise<User>;
+  login: (email: string, password: string) => Promise<UserCredential>;
+  logout: () => Promise<void>;
+  loading: boolean;
+}
 
-export const useAuth = () => {
+const AuthContext = createContext<AuthContextValue | null>(null);
+
+export const useAuth = (): AuthContextValue => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error('useAuth must be used within AuthProvider');
@@ -19,13 +31,17 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [userProfile, setUserProfile] = useState(null);
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Inscription
-  const signup = async (email, password, displayName) => {
+  const signup = async (email: string, password: string, displayName: string): Promise<User> => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     
@@ -46,23 +62,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Connexion
-  const login = (email, password) => {
+  const login = (email: string, password: string): Promise<UserCredential> => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Déconnexion
-  const logout = () => {
+  const logout = (): Promise<void> => {
     return signOut(auth);
   };
 
   // Charger le profil utilisateur depuis Firestore
-  const loadUserProfile = async (uid) => {
+  const loadUserProfile = async (uid: string): Promise<void> => {
     try {
       const docRef = doc(db, 'users', uid);
       const docSnap = await getDoc(docRef);
       
       if (docSnap.exists()) {
-        setUserProfile(docSnap.data());
+        setUserProfile(docSnap.data() as UserProfile);
       }
     } catch (error) {
       console.error('Error loading user profile:', error);
@@ -83,7 +99,7 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
-  const value = {
+  const value: AuthContextValue = {
     currentUser,
     userProfile,
     signup,

@@ -7,36 +7,43 @@ import MetroMap from './MetroMap';
 import GamePanel from './GamePanel';
 import JourneyTrack from './JourneyTrack';
 import Recommendations from './Recommendations';
+import type { Station, GameState, HistoryEntry, RouletteSlot } from '../types';
 import '../styles/Game.css';
+
+interface GameRecommendations {
+  places: import('../types').Place[];
+  stationCoords: { lat: number; lng: number };
+  stationName: string;
+}
 
 export default function Game() {
   // City context
   const { currentCity, cityConfig } = useCity();
 
   // Game state
-  const [gameState, setGameState] = useState(GAME_STATES.SELECT_STATION);
-  const [currentStation, setCurrentStation] = useState(null);
-  const [currentLine, setCurrentLine] = useState(null);
-  const [direction, setDirection] = useState(1);
-  const [history, setHistory] = useState([]);
-  const [message, setMessage] = useState(cityConfig.text.selectStation);
+  const [gameState, setGameState] = useState<GameState>(GAME_STATES.SELECT_STATION);
+  const [currentStation, setCurrentStation] = useState<Station | null>(null);
+  const [currentLine, setCurrentLine] = useState<string | null>(null);
+  const [direction, setDirection] = useState<number>(1);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [message, setMessage] = useState<string>(cityConfig.text.selectStation);
 
   // Roulette state
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [rouletteRotation, setRouletteRotation] = useState(0);
-  const [selectedSlot, setSelectedSlot] = useState(null);
+  const [isSpinning, setIsSpinning] = useState<boolean>(false);
+  const [rouletteRotation, setRouletteRotation] = useState<number>(0);
+  const [selectedSlot, setSelectedSlot] = useState<number | null>(null);
 
   // UI state
-  const [hoveredLine, setHoveredLine] = useState(null);
-  const [hoveredStation, setHoveredStation] = useState(null);
+  const [hoveredLine, setHoveredLine] = useState<string | null>(null);
+  const [hoveredStation, setHoveredStation] = useState<Station | null>(null);
 
   // Recommendations state
-  const [recommendations, setRecommendations] = useState(null);
-  const [isLoadingRecommendations, setIsLoadingRecommendations] = useState(false);
+  const [recommendations, setRecommendations] = useState<GameRecommendations | null>(null);
+  const [isLoadingRecommendations, setIsLoadingRecommendations] = useState<boolean>(false);
 
   // Refs
-  const mapContainerRef = useRef(null);
-  const recommendationsRef = useRef(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const recommendationsRef = useRef<HTMLDivElement>(null);
 
   // Custom hooks
   const { zoom, pan, isPanning, handlers: zoomHandlers, controls: zoomControls } = useZoomPan();
@@ -62,13 +69,13 @@ export default function Game() {
   }, [currentCity, cityConfig.text.selectStation]);
 
   // Computed values
-  const hasCorrespondence = useMemo(() => {
+  const hasCorrespondence = useMemo<boolean>(() => {
     if (!currentStation) return false;
     const availableLines = getLinesForStation(currentStation.id);
     return availableLines.filter(l => l !== currentLine).length > 0;
   }, [currentStation, currentLine, getLinesForStation]);
 
-  const rouletteOptions = useMemo(() => 
+  const rouletteOptions = useMemo<RouletteSlot[]>(() => 
     hasCorrespondence ? ROULETTE_WITH_CHANGE : ROULETTE_NO_CHANGE
   , [hasCorrespondence]);
 
@@ -80,12 +87,12 @@ export default function Game() {
     getDirectionLabels(currentStation, currentLine)
   , [getDirectionLabels, currentStation, currentLine]);
 
-  const availableLines = useMemo(() => 
+  const availableLines = useMemo<string[]>(() => 
     currentStation ? getLinesForStation(currentStation.id) : []
   , [currentStation, getLinesForStation]);
 
   // Event handlers
-  const handleStationClick = useCallback((station) => {
+  const handleStationClick = useCallback((station: Station) => {
     if (!canSelectStation) return;
     
     setCurrentStation(station);
@@ -104,42 +111,42 @@ export default function Game() {
     setHistory([{ station, action: 'start' }]);
   }, [canSelectStation, getLinesForStation, cityConfig.text]);
 
-  const handleLineSelect = useCallback((lineId) => {
+  const handleLineSelect = useCallback((lineId: string) => {
     setCurrentLine(lineId);
     setGameState(GAME_STATES.SELECT_DIRECTION);
     setMessage(cityConfig.text.selectDirection);
   }, [cityConfig.text]);
 
-  const handleDirectionSelect = useCallback((dir) => {
+  const handleDirectionSelect = useCallback((dir: number) => {
     setDirection(dir);
     setGameState(GAME_STATES.PLAYING);
     setMessage(cityConfig.text.spinRoulette);
   }, [cityConfig.text]);
 
-  const handleRouletteResult = useCallback((result) => {
+  const handleRouletteResult = useCallback((result: RouletteSlot) => {
     switch (result.type) {
       case 'continue': {
         const nextStation = getNextStation(currentStation, currentLine, direction);
         if (nextStation) {
           setCurrentStation(nextStation);
-          setHistory(prev => [...prev, { station: nextStation, action: 'move', line: currentLine }]);
+          setHistory(prev => [...prev, { station: nextStation, action: 'move', line: currentLine || undefined }]);
           setMessage(`${cityConfig.text.advanceTo} ${nextStation.name}. ${cityConfig.text.relaunch}`);
         } else {
           setDirection(d => -d);
           setMessage(`${cityConfig.text.endOfLine} ${cityConfig.text.relaunch}`);
-          setHistory(prev => [...prev, { station: currentStation, action: 'reverse' }]);
+          setHistory(prev => [...prev, { station: currentStation!, action: 'reverse' }]);
         }
         break;
       }
       case 'change': {
-        const stationLines = getLinesForStation(currentStation.id);
+        const stationLines = getLinesForStation(currentStation!.id);
         const otherLines = stationLines.filter(l => l !== currentLine);
         if (otherLines.length > 0) {
           const newLine = otherLines[Math.floor(Math.random() * otherLines.length)];
           setCurrentLine(newLine);
           const lineData = getLineData(newLine);
           setMessage(`${cityConfig.text.changeLine} ${lineData?.name || newLine}. ${cityConfig.text.relaunch}`);
-          setHistory(prev => [...prev, { station: currentStation, action: 'change', line: newLine }]);
+          setHistory(prev => [...prev, { station: currentStation!, action: 'change', line: newLine }]);
         }
         break;
       }
@@ -176,7 +183,7 @@ export default function Game() {
   }, [isSpinning, gameState, rouletteRotation, rouletteOptions, handleRouletteResult]);
 
   // Load recommendations from local data
-  const fetchRecommendations = useCallback((stationId, stationName, lat, lng) => {
+  const fetchRecommendations = useCallback((stationId: string, stationName: string, lat: number, lng: number) => {
     setIsLoadingRecommendations(true);
     setRecommendations(null);
     
@@ -192,13 +199,13 @@ export default function Game() {
     }, 300);
   }, [getRecommendations]);
 
-  const handleConfirmExit = useCallback((validated) => {
+  const handleConfirmExit = useCallback((validated: boolean) => {
     if (validated) {
       setGameState(GAME_STATES.WON);
-      setMessage(`🎉 ${cityConfig.text.exitConfirmed} ${currentStation.name} !`);
-      setHistory(prev => [...prev, { station: currentStation, action: 'exit' }]);
-      const stationData = stations[currentStation.id];
-      fetchRecommendations(currentStation.id, currentStation.name, stationData.lat, stationData.lng);
+      setMessage(`🎉 ${cityConfig.text.exitConfirmed} ${currentStation!.name} !`);
+      setHistory(prev => [...prev, { station: currentStation!, action: 'exit' }]);
+      const stationData = stations[currentStation!.id];
+      fetchRecommendations(currentStation!.id, currentStation!.name, stationData.lat, stationData.lng);
       setTimeout(() => recommendationsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } else {
       setGameState(GAME_STATES.PLAYING);
@@ -220,8 +227,8 @@ export default function Game() {
     zoomControls.resetZoom();
   }, [zoomControls, cityConfig.text]);
 
-  const getGoogleMapsDirectionsUrl = useCallback((address) => {
-    if (!recommendations?.stationCoords) return null;
+  const getGoogleMapsDirectionsUrl = useCallback((address: string): string => {
+    if (!recommendations?.stationCoords) return '';
     const { lat, lng } = recommendations.stationCoords;
     const cityName = cityConfig.name;
     return `https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${encodeURIComponent(address + ", " + cityName)}&travelmode=walking`;
@@ -305,7 +312,7 @@ export default function Game() {
       {gameState === GAME_STATES.WON && (
         <Recommendations
           ref={recommendationsRef}
-          stationName={currentStation?.name}
+          stationName={currentStation?.name || ''}
           recommendations={recommendations}
           isLoading={isLoadingRecommendations}
           getDirectionsUrl={getGoogleMapsDirectionsUrl}

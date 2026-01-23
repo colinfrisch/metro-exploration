@@ -1,7 +1,14 @@
 import { JOURNEY_ICONS } from '../utils/metro';
+import type { HistoryEntry } from '../types';
 import '../styles/JourneyTrack.css';
 
-export default function JourneyTrack({ history, getLineColor, currentLine }) {
+interface JourneyTrackProps {
+  history: HistoryEntry[];
+  getLineColor: (lineId: string) => string;
+  currentLine: string | null;
+}
+
+export default function JourneyTrack({ history, getLineColor, currentLine }: JourneyTrackProps) {
   if (history.length === 0) return null;
 
   return (
@@ -16,7 +23,7 @@ export default function JourneyTrack({ history, getLineColor, currentLine }) {
             {i < history.length - 1 && (
               <div 
                 className="journey__line" 
-                style={{ backgroundColor: getLineColor(h.line || currentLine) }} 
+                style={{ backgroundColor: getLineColor(h.line || currentLine || '') }} 
               />
             )}
           </div>

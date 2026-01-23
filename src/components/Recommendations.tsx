@@ -1,8 +1,16 @@
 import { forwardRef } from 'react';
 import { useCity } from '../contexts/CityContext';
+import type { Recommendations as RecommendationsType } from '../types';
 import '../styles/Recommendations.css';
 
-const Recommendations = forwardRef(function Recommendations({ 
+interface RecommendationsProps {
+  stationName: string;
+  recommendations: RecommendationsType | null;
+  isLoading: boolean;
+  getDirectionsUrl: (address: string) => string;
+}
+
+const Recommendations = forwardRef<HTMLDivElement, RecommendationsProps>(function Recommendations({ 
   stationName, 
   recommendations, 
   isLoading, 

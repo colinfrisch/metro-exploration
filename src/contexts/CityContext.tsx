@@ -1,7 +1,8 @@
-import { createContext, useContext, useState, useMemo, useCallback } from 'react';
+import { createContext, useContext, useState, useMemo, useCallback, ReactNode } from 'react';
+import type { CityConfig, CityId } from '../types';
 
 // City configurations with display info and map settings
-export const CITIES = {
+export const CITIES: Record<CityId, CityConfig> = {
   paris: {
     id: 'paris',
     name: 'Paris',
@@ -15,7 +16,6 @@ export const CITIES = {
       minLng: 2.22,
       maxLng: 2.47
     },
-    // UI text translations
     text: {
       selectStation: "Sélectionnez une station de départ",
       selectLine: "Choisissez une ligne",
@@ -59,7 +59,6 @@ export const CITIES = {
       minLng: -0.62,
       maxLng: 0.28
     },
-    // UI text translations
     text: {
       selectStation: "Select a starting station",
       selectLine: "Choose a line",
@@ -103,7 +102,6 @@ export const CITIES = {
       minLng: 103.60,
       maxLng: 104.05
     },
-    // UI text translations
     text: {
       selectStation: "Select a starting station",
       selectLine: "Choose a line",
@@ -136,14 +134,25 @@ export const CITIES = {
   }
 };
 
-const CityContext = createContext(null);
+interface CityContextValue {
+  currentCity: CityId;
+  cityConfig: CityConfig;
+  switchCity: (cityId: CityId) => void;
+  availableCities: CityConfig[];
+}
 
-export function CityProvider({ children }) {
-  const [currentCity, setCurrentCity] = useState('paris');
+const CityContext = createContext<CityContextValue | null>(null);
+
+interface CityProviderProps {
+  children: ReactNode;
+}
+
+export function CityProvider({ children }: CityProviderProps) {
+  const [currentCity, setCurrentCity] = useState<CityId>('paris');
 
   const cityConfig = useMemo(() => CITIES[currentCity], [currentCity]);
 
-  const switchCity = useCallback((cityId) => {
+  const switchCity = useCallback((cityId: CityId) => {
     if (CITIES[cityId]) {
       setCurrentCity(cityId);
     }
@@ -151,7 +160,7 @@ export function CityProvider({ children }) {
 
   const availableCities = useMemo(() => Object.values(CITIES), []);
 
-  const value = useMemo(() => ({
+  const value = useMemo<CityContextValue>(() => ({
     currentCity,
     cityConfig,
     switchCity,
@@ -165,7 +174,7 @@ export function CityProvider({ children }) {
   );
 }
 
-export function useCity() {
+export function useCity(): CityContextValue {
   const context = useContext(CityContext);
   if (!context) {
     throw new Error('useCity must be used within a CityProvider');

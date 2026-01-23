@@ -2,6 +2,15 @@ import { useMemo } from 'react';
 import { ROULETTE_WITH_CHANGE, ROULETTE_NO_CHANGE } from '../utils/metro';
 import '../styles/Roulette.css';
 
+interface RouletteProps {
+  hasCorrespondence: boolean;
+  rotation: number;
+  isSpinning: boolean;
+  selectedSlot: number | null;
+  onSpin: (() => void) | null;
+  disabled: boolean;
+}
+
 export default function Roulette({ 
   hasCorrespondence, 
   rotation, 
@@ -9,7 +18,7 @@ export default function Roulette({
   selectedSlot,
   onSpin,
   disabled 
-}) {
+}: RouletteProps) {
   const options = useMemo(() => 
     hasCorrespondence ? ROULETTE_WITH_CHANGE : ROULETTE_NO_CHANGE
   , [hasCorrespondence]);
@@ -78,9 +87,7 @@ export default function Roulette({
           </svg>
           </div>
           {!disabled && !isSpinning && (
-            <div className="roulette__center-emoji">
-              👇
-            </div>
+            <div className="roulette__hint">Cliquez pour lancer</div>
           )}
         </div>
       </div>

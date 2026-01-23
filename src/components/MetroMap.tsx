@@ -1,11 +1,19 @@
 import { forwardRef, memo, useMemo } from 'react';
 import { SVG_WIDTH, SVG_HEIGHT, LINE_RENDER_ORDER, GAME_STATES, createLatLngToSvg } from '../utils/metro';
-import { useCity, CITIES } from '../contexts/CityContext';
+import { useCity } from '../contexts/CityContext';
 import ZoomControls from './ZoomControls';
+import type { Station, GameState, ZoomPanHandlers, ZoomPanControls } from '../types';
 import '../styles/MetroMap.css';
 
+type LatLngToSvg = (lat: number, lng: number) => { x: number; y: number };
+
+interface CityBackground {
+  outline: string | null;
+  river: string | null;
+}
+
 // City background generators
-function generateParisBackground(toSvg) {
+function generateParisBackground(toSvg: LatLngToSvg): CityBackground {
   const outline = `
     M ${toSvg(48.902, 2.28).x} ${toSvg(48.902, 2.28).y}
     C ${toSvg(48.91, 2.32).x} ${toSvg(48.91, 2.32).y}
@@ -40,8 +48,7 @@ function generateParisBackground(toSvg) {
   return { outline, river };
 }
 
-function generateLondonBackground(toSvg) {
-  // Thames river path through central London
+function generateLondonBackground(toSvg: LatLngToSvg): CityBackground {
   const river = `
     M ${toSvg(51.47, -0.30).x} ${toSvg(51.47, -0.30).y}
     Q ${toSvg(51.48, -0.22).x} ${toSvg(51.48, -0.22).y}
@@ -51,12 +58,10 @@ function generateLondonBackground(toSvg) {
     Q ${toSvg(51.49, 0.05).x} ${toSvg(51.49, 0.05).y}
       ${toSvg(51.48, 0.10).x} ${toSvg(51.48, 0.10).y}
   `;
-  // No visible outline for London (it extends beyond the map)
   return { outline: null, river };
 }
 
-function generateSingaporeBackground(toSvg) {
-  // Singapore coastline (southern coast) - simplified
+function generateSingaporeBackground(toSvg: LatLngToSvg): CityBackground {
   const coastline = `
     M ${toSvg(1.26, 103.62).x} ${toSvg(1.26, 103.62).y}
     Q ${toSvg(1.265, 103.70).x} ${toSvg(1.265, 103.70).y}
@@ -66,7 +71,6 @@ function generateSingaporeBackground(toSvg) {
     Q ${toSvg(1.29, 103.92).x} ${toSvg(1.29, 103.92).y}
       ${toSvg(1.32, 103.98).x} ${toSvg(1.32, 103.98).y}
   `;
-  // Singapore River through city center
   const river = `
     M ${toSvg(1.29, 103.84).x} ${toSvg(1.29, 103.84).y}
     Q ${toSvg(1.288, 103.845).x} ${toSvg(1.288, 103.845).y}
@@ -77,16 +81,26 @@ function generateSingaporeBackground(toSvg) {
   return { outline: coastline, river };
 }
 
-const CITY_BACKGROUNDS = {
+const CITY_BACKGROUNDS: Record<string, (toSvg: LatLngToSvg) => CityBackground> = {
   paris: generateParisBackground,
   london: generateLondonBackground,
   singapore: generateSingaporeBackground
 };
 
 // Memoized Line component
+interface MetroLineProps {
+  lineId: string;
+  stations: Station[];
+  color: string;
+  isHighlighted: boolean;
+  opacity: number;
+  isSelecting: boolean;
+  onHover: (lineId: string | null) => void;
+}
+
 const MetroLine = memo(function MetroLine({ 
   lineId, stations, color, isHighlighted, opacity, isSelecting, onHover 
-}) {
+}: MetroLineProps) {
   if (stations.length < 2) return null;
   const points = stations.map(s => `${s.x},${s.y}`).join(' ');
 
@@ -107,12 +121,24 @@ const MetroLine = memo(function MetroLine({
 });
 
 // Memoized Station component
+interface MetroStationProps {
+  station: Station;
+  color: string;
+  currentLineColor: string;
+  isCurrentStation: boolean;
+  isHovered: boolean;
+  shouldDim: boolean;
+  canSelect: boolean;
+  onClick: (station: Station) => void;
+  onHover: (station: Station | null) => void;
+}
+
 const MetroStation = memo(function MetroStation({
   station, color, currentLineColor, isCurrentStation, isHovered, shouldDim, 
   canSelect, onClick, onHover
-}) {
+}: MetroStationProps) {
   const radius = station.isInterchange ? 5 : 3;
-  const hitAreaRadius = 12; // Larger invisible hit area for easier hovering
+  const hitAreaRadius = 12;
 
   return (
     <g 
@@ -137,7 +163,6 @@ const MetroStation = memo(function MetroStation({
         style={{ pointerEvents: 'none' }}
       />
       
-      {/* Invisible hit area for easier hover/click */}
       <circle
         cx={station.x}
         cy={station.y}
@@ -159,7 +184,28 @@ const MetroStation = memo(function MetroStation({
   );
 });
 
-const MetroMap = forwardRef(function MetroMap({
+interface MetroMapProps {
+  gameState: GameState;
+  allStations: Station[];
+  lines: Record<string, string[]>;
+  currentStation: Station | null;
+  currentLine: string | null;
+  hoveredStation: Station | null;
+  hoveredLine: string | null;
+  canSelectStation: boolean;
+  zoom: number;
+  pan: { x: number; y: number };
+  isPanning: boolean;
+  zoomHandlers: ZoomPanHandlers;
+  zoomControls: ZoomPanControls;
+  getLineColor: (lineId: string) => string;
+  getLineStations: (lineId: string) => Station[];
+  onStationClick: (station: Station) => void;
+  onStationHover: (station: Station | null) => void;
+  onLineHover: (lineId: string | null) => void;
+}
+
+const MetroMap = forwardRef<HTMLDivElement, MetroMapProps>(function MetroMap({
   gameState,
   allStations,
   lines,
@@ -182,24 +228,20 @@ const MetroMap = forwardRef(function MetroMap({
   const { currentCity, cityConfig } = useCity();
   const isSelectingStation = gameState === GAME_STATES.SELECT_STATION;
 
-  // Generate city-specific background paths
   const cityBackground = useMemo(() => {
     const toSvg = createLatLngToSvg(cityConfig.bounds);
     const generator = CITY_BACKGROUNDS[currentCity];
     return generator ? generator(toSvg) : { outline: null, river: null };
   }, [currentCity, cityConfig.bounds]);
 
-  // Get line render order for current city
   const lineRenderOrder = useMemo(() => {
-    // For Paris, use predefined order; for other cities, use all lines
     if (currentCity === 'paris') {
       return LINE_RENDER_ORDER.filter(lineId => lines[lineId]);
     }
     return Object.keys(lines);
   }, [currentCity, lines]);
 
-  // Compute line visibility
-  const getLineProps = useMemo(() => (lineId) => {
+  const getLineProps = useMemo(() => (lineId: string) => {
     const lineStations = getLineStations(lineId);
     if (lineStations.length < 2) return null;
     
@@ -216,7 +258,7 @@ const MetroMap = forwardRef(function MetroMap({
       opacity = isCurrentLine ? 0.9 : 0.15;
     } else if (isSelectingStation && hoveredStation) {
       opacity = containsHoveredStation ? 1 : 0.15;
-      isHighlighted = containsHoveredStation;
+      isHighlighted = !!containsHoveredStation;
     } else if (isSelectingStation && hoveredLine) {
       opacity = isHoveredLine ? 1 : 0.15;
     }
@@ -224,8 +266,7 @@ const MetroMap = forwardRef(function MetroMap({
     return { stations: lineStations, color, isHighlighted, opacity };
   }, [currentLine, hoveredLine, hoveredStation, isSelectingStation, getLineStations, getLineColor, lines]);
 
-  // Compute station visibility
-  const getStationDimmed = useMemo(() => (station) => {
+  const getStationDimmed = useMemo(() => (station: Station) => {
     const currentLineStations = currentLine ? lines[currentLine] || [] : [];
     const hoveredLineStations = hoveredLine ? lines[hoveredLine] || [] : [];
     const isOnCurrentLine = currentLineStations.includes(station.id);
@@ -247,7 +288,7 @@ const MetroMap = forwardRef(function MetroMap({
         onZoomIn={zoomControls.zoomIn}
         onZoomOut={zoomControls.zoomOut}
         onReset={zoomControls.resetZoom}
-        onCenter={() => zoomControls.centerOnStation(currentStation, ref)}
+        onCenter={() => zoomControls.centerOnStation(currentStation, ref as React.RefObject<HTMLDivElement | null>)}
         showCenter={!!currentStation}
       />
       

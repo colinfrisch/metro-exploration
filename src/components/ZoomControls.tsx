@@ -1,6 +1,15 @@
 import '../styles/ZoomControls.css';
 
-export default function ZoomControls({ zoom, onZoomIn, onZoomOut, onReset, onCenter, showCenter }) {
+interface ZoomControlsProps {
+  zoom: number;
+  onZoomIn: () => void;
+  onZoomOut: () => void;
+  onReset: () => void;
+  onCenter: () => void;
+  showCenter: boolean;
+}
+
+export default function ZoomControls({ zoom, onZoomIn, onZoomOut, onReset, onCenter, showCenter }: ZoomControlsProps) {
   return (
     <div className="zoom-controls">
       <button onClick={onZoomIn} title="Zoom +">+</button>

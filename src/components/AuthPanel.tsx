@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/AuthPanel.css';
 
-export default function AuthPanel({ onClose }) {
+interface AuthPanelProps {
+  onClose: () => void;
+}
+
+interface FirebaseError extends Error {
+  code?: string;
+}
+
+export default function AuthPanel({ onClose }: AuthPanelProps) {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +20,7 @@ export default function AuthPanel({ onClose }) {
 
   const { signup, login } = useAuth();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
@@ -29,8 +37,9 @@ export default function AuthPanel({ onClose }) {
         await signup(email, password, displayName);
       }
       onClose();
-    } catch (error) {
-      console.error('Auth error:', error);
+    } catch (err) {
+      console.error('Auth error:', err);
+      const error = err as FirebaseError;
       switch (error.code) {
         case 'auth/email-already-in-use':
           setError('Cet email est déjà utilisé');

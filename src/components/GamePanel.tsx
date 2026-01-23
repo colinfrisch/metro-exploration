@@ -1,5 +1,26 @@
 import Roulette from './Roulette';
+import type { Station, Line, HistoryEntry, GameState } from '../types';
 import '../styles/GamePanel.css';
+
+interface GamePanelProps {
+  gameState: GameState;
+  message: string;
+  currentStation: Station | null;
+  availableLines: string[];
+  directionLabels: { forward: string; backward: string };
+  hasCorrespondence: boolean;
+  rouletteRotation: number;
+  isSpinning: boolean;
+  selectedSlot: number | null;
+  history: HistoryEntry[];
+  onLineSelect: (lineId: string) => void;
+  onDirectionSelect: (direction: number) => void;
+  onSpin: () => void;
+  onConfirmExit: (confirmed: boolean) => void;
+  onReset: () => void;
+  getLineColor: (lineId: string) => string;
+  getLineData: (lineId: string) => Line | undefined;
+}
 
 export default function GamePanel({
   gameState,
@@ -19,8 +40,8 @@ export default function GamePanel({
   onReset,
   getLineColor,
   getLineData
-}) {
-  const STATES = {
+}: GamePanelProps) {
+  const STATES: Record<GameState, GameState> = {
     SELECT_STATION: 'SELECT_STATION',
     SELECT_LINE: 'SELECT_LINE',
     SELECT_DIRECTION: 'SELECT_DIRECTION',

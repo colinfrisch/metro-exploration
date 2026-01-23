@@ -1,16 +1,21 @@
 import { useState, useRef, useEffect } from 'react';
 import { useCity } from '../contexts/CityContext';
+import type { CityId } from '../types';
 import '../styles/CitySelector.css';
 
-export default function CitySelector({ onCityChange }) {
+interface CitySelectorProps {
+  onCityChange?: (cityId: CityId) => void;
+}
+
+export default function CitySelector({ onCityChange }: CitySelectorProps) {
   const { currentCity, cityConfig, switchCity, availableCities } = useCity();
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     }
@@ -18,7 +23,7 @@ export default function CitySelector({ onCityChange }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleCitySelect = (cityId) => {
+  const handleCitySelect = (cityId: CityId) => {
     if (cityId !== currentCity) {
       switchCity(cityId);
       onCityChange?.(cityId);
@@ -45,7 +50,7 @@ export default function CitySelector({ onCityChange }) {
             <li
               key={city.id}
               className={`city-selector__option ${city.id === currentCity ? 'city-selector__option--active' : ''}`}
-              onClick={() => handleCitySelect(city.id)}
+              onClick={() => handleCitySelect(city.id as CityId)}
               role="option"
               aria-selected={city.id === currentCity}
             >

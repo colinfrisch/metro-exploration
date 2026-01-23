@@ -1,7 +1,11 @@
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/UserProfile.css';
 
-export default function UserProfile({ onClose }) {
+interface UserProfileProps {
+  onClose: () => void;
+}
+
+export default function UserProfile({ onClose }: UserProfileProps) {
   const { currentUser, userProfile, logout } = useAuth();
 
   const handleLogout = async () => {
